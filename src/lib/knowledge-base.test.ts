@@ -23,8 +23,8 @@ describe('base de conhecimento', () => {
     }
   });
 
-  it('tem exercícios para Números Inteiros do 7º ano', () => {
-    expect(counts['7f-inteiros']).toBeGreaterThan(100);
+  it('tem exercícios para Números do 8º ano', () => {
+    expect(counts['8f-numeros']).toBeGreaterThan(100);
   });
 
   it('todas as questões têm enunciado, resposta e id único', () => {
@@ -41,23 +41,23 @@ describe('base de conhecimento', () => {
   });
 
   it('não inclui exercícios abertos nem que dependam de figura', () => {
-    for (const u of getUnits({ topicId: '7f-inteiros' })) {
+    for (const u of getUnits({ topicId: '8f-numeros' })) {
       expect(u.exercise.correctAnswer).not.toMatch(/^resposta pessoal/i);
     }
   });
 
   it('filtra por fonte e por assunto', () => {
-    const all = getUnits({ topicId: '7f-inteiros' });
-    const subs = getSubtopics('7f-inteiros');
+    const all = getUnits({ topicId: '8f-numeros' });
+    const subs = getSubtopics('8f-numeros');
     expect(subs.length).toBeGreaterThan(3);
-    const one = getUnits({ topicId: '7f-inteiros', subtopic: subs[0] });
+    const one = getUnits({ topicId: '8f-numeros', subtopic: subs[0] });
     expect(one.length).toBeGreaterThan(0);
     expect(one.length).toBeLessThan(all.length);
-    expect(getUnits({ topicId: '7f-inteiros', sourceId: 'fonte-que-nao-existe' })).toHaveLength(0);
+    expect(getUnits({ topicId: '8f-numeros', sourceId: 'fonte-que-nao-existe' })).toHaveLength(0);
   });
 
   it('sorteia sem repetir até acabar a lista', () => {
-    const units = getUnits({ topicId: '7f-inteiros', subtopic: getSubtopics('7f-inteiros')[0] });
+    const units = getUnits({ topicId: '8f-numeros', subtopic: getSubtopics('8f-numeros')[0] });
     const seen = new Set<string>();
     for (let i = 0; i < units.length; i++) {
       const { unit, restarted } = pickNext(units, seen);
@@ -69,7 +69,7 @@ describe('base de conhecimento', () => {
   });
 
   it('usa as dicas da base por nível', () => {
-    const u = getUnits({ topicId: '7f-inteiros' }).find(x => x.exercise.hints && x.exercise.hints.length >= 2)!;
+    const u = getUnits({ topicId: '8f-numeros' }).find(x => x.exercise.hints && x.exercise.hints.length >= 2)!;
     expect(getKbHint(u.exercise, 1)).toContain(u.exercise.hints![0]);
     expect(getKbHint(u.exercise, 2)).toContain(u.exercise.hints![1]);
   });

@@ -10,7 +10,7 @@ O app carrega **todos** os arquivos dessa pasta automaticamente — não é prec
 3. Confira que:
    - `metadados.fontes` traz a fonte com um `id` **único** (ex.: `outrolivro-2023`) e a `referencia_abnt`;
    - todo exercício tem `fonte_id` igual a esse `id` e um `id` único (convenção: `<fonte_id>-p<página>-q<número>`);
-   - todo exercício tem `ano_id` e `tema_id` **existentes no app** (veja `SCHOOL_YEARS` em `src/types/math.ts`), por exemplo `"7fund"` e `"7f-inteiros"`. É isso que faz o exercício aparecer no tema certo.
+   - todo exercício tem `ano_id` e `tema_id` **existentes no app** (veja `SCHOOL_YEARS` em `src/types/math.ts`), por exemplo `"8fund"` e `"8f-numeros"`. É isso que faz o exercício aparecer no tema certo.
 4. Rode `npm test`: os testes avisam se algum tema não existe, se há id repetido ou exercício sem resposta.
 
 Quando houver mais de uma fonte no mesmo tema, a tela de exercícios mostra um seletor de **Fonte** para o aluno.

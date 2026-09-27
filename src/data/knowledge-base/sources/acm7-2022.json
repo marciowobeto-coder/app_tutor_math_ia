@@ -278,8 +278,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p35-q02",
@@ -304,8 +304,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p35-q03",
@@ -342,8 +342,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p35-q04",
@@ -390,8 +390,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p35-q05",
@@ -430,8 +430,8 @@
       "observacoes": "Item b é de pesquisa; as datas são aproximações de referência, não vêm do livro.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q01",
@@ -494,8 +494,8 @@
       "descricao_da_figura": "Reta numérica de −5 a +9 com seta 'capital' no 0; pontos: E em −5, B em −2, A em +4, C em +6 e D em +9.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q02",
@@ -534,8 +534,8 @@
       "descricao_da_figura": "Mesma reta da atividade 1.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q03",
@@ -608,8 +608,8 @@
       "descricao_da_figura": "Mesma reta da atividade 1.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q04",
@@ -649,8 +649,8 @@
       "confianca_da_leitura": "media",
       "revisar": "A contagem de marcas foi feita pela foto; confirme no livro (A = −1 intervalo, B = +3 intervalos).",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q05",
@@ -695,8 +695,8 @@
       "observacoes": "O item c é de elaboração (trabalho em dupla).",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q06",
@@ -743,8 +743,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q07",
@@ -779,8 +779,8 @@
       "descricao_da_figura": "Reta com o 0 e o 5 marcados; setas P, Q (à esquerda do 0) e R, S (à direita do 0), na ordem P, Q, 0, R, S.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p38-q08",
@@ -816,8 +816,8 @@
       "confianca_da_leitura": "media",
       "revisar": "Posições de −9 e −7 lidas por proximidade das letras E e F na foto.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q01",
@@ -905,8 +905,8 @@
       "observacoes": "No livro há uma reta numérica de −9 a +9; as perguntas podem ser respondidas só com os números dados.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q02",
@@ -943,8 +943,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q03",
@@ -968,8 +968,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q04",
@@ -995,8 +995,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q05",
@@ -1020,8 +1020,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q06",
@@ -1048,8 +1048,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p40-q07",
@@ -1096,8 +1096,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q01",
@@ -1200,8 +1200,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q02",
@@ -1303,8 +1303,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q03",
@@ -1329,8 +1329,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q04",
@@ -1357,8 +1357,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q05",
@@ -1413,8 +1413,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q06",
@@ -1449,8 +1449,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q07",
@@ -1489,8 +1489,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q08",
@@ -1538,8 +1538,8 @@
       "confianca_da_leitura": "media",
       "revisar": "Nos itens a e b a foto mostra apenas 'maiores do que −20' e 'menores do que −7' (conjuntos infinitos); confira se o livro traz outra restrição.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p43-q09",
@@ -1560,8 +1560,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q01",
@@ -1588,8 +1588,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q02",
@@ -1615,8 +1615,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q03",
@@ -1642,8 +1642,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q04",
@@ -1733,8 +1733,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q05",
@@ -1813,8 +1813,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q06",
@@ -1879,8 +1879,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q07",
@@ -1950,8 +1950,8 @@
       "observacoes": "Forma simplificada: eliminam-se os parênteses e o sinal de adição. Ex.: (+31) + (−27) = +31 − 27.",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q08",
@@ -2054,8 +2054,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q09",
@@ -2084,8 +2084,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p49-q10",
@@ -2107,8 +2107,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q11",
@@ -2205,8 +2205,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q12",
@@ -2240,8 +2240,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q13",
@@ -2282,8 +2282,8 @@
       "confianca_da_leitura": "media",
       "revisar": "A margem direita do item b está cortada na foto; confirme o texto (aluguel de R$ 3.000,00 pago no dia 8).",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q14",
@@ -2311,8 +2311,8 @@
       "confianca_da_leitura": "media",
       "revisar": "A foto está cortada na margem: 'havia R$ 1.900,00' foi interpretado como saldo positivo.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q15",
@@ -2341,8 +2341,8 @@
       "confianca_da_leitura": "baixa",
       "revisar": "Os valores de A e B são consistentes, mas as duas equações de C (linha de baixo e coluna da esquerda) dão resultados diferentes na leitura da foto. Confira no gabarito do livro antes de usar a resposta de C.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q16",
@@ -2365,8 +2365,8 @@
       "confianca_da_leitura": "baixa",
       "revisar": "Depende da leitura correta do esquema da atividade 15.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p50-q17",
@@ -2445,8 +2445,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q01",
@@ -2549,8 +2549,8 @@
       "confianca_da_leitura": "media",
       "revisar": "No item e) a foto tem marcas de lápis; foi lido como (−1) − (−64).",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q02",
@@ -2577,8 +2577,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q03",
@@ -2604,8 +2604,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q04",
@@ -2631,8 +2631,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q05",
@@ -2657,8 +2657,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q06",
@@ -2684,8 +2684,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q07",
@@ -2724,8 +2724,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p53-q08",
@@ -2748,8 +2748,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q01",
@@ -2852,8 +2852,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q02",
@@ -2929,8 +2929,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q03",
@@ -2984,8 +2984,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q04",
@@ -3094,8 +3094,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q05",
@@ -3147,8 +3147,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p56-q06",
@@ -3193,8 +3193,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q07",
@@ -3220,8 +3220,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q08",
@@ -3288,8 +3288,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q09",
@@ -3349,8 +3349,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q10",
@@ -3393,8 +3393,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q11",
@@ -3418,8 +3418,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p57-q12",
@@ -3448,8 +3448,8 @@
       "confianca_da_leitura": "media",
       "revisar": "A contagem de bolinhas por lado foi feita pela foto (esquerda 5, direita 4); confirme na figura do livro.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q01",
@@ -3520,8 +3520,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q02",
@@ -3576,8 +3576,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q03",
@@ -3639,8 +3639,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q04",
@@ -3666,8 +3666,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q05",
@@ -3688,8 +3688,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q06",
@@ -3716,8 +3716,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q07",
@@ -3758,8 +3758,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q08",
@@ -3787,8 +3787,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p62-q09",
@@ -3816,8 +3816,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q01",
@@ -3968,8 +3968,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q02",
@@ -4025,8 +4025,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q03",
@@ -4052,8 +4052,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q04",
@@ -4108,8 +4108,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q05",
@@ -4179,8 +4179,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q06",
@@ -4206,8 +4206,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q07",
@@ -4294,8 +4294,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q08",
@@ -4344,8 +4344,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q09",
@@ -4371,8 +4371,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p64-q10",
@@ -4394,8 +4394,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q01",
@@ -4420,8 +4420,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q02",
@@ -4447,8 +4447,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q03",
@@ -4566,8 +4566,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q04",
@@ -4655,8 +4655,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q05",
@@ -4779,8 +4779,8 @@
       "confianca_da_leitura": "media",
       "revisar": "Cada item traz mais de uma expressão (separadas por 'e'); confirme com o livro se o enunciado pede também a diferença entre os resultados.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q06",
@@ -4807,8 +4807,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q07",
@@ -4832,8 +4832,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q08",
@@ -4860,8 +4860,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q09",
@@ -4906,8 +4906,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p68-q10",
@@ -4957,8 +4957,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q01",
@@ -5012,8 +5012,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q02",
@@ -5039,8 +5039,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q03",
@@ -5126,8 +5126,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q04",
@@ -5152,8 +5152,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q05",
@@ -5179,8 +5179,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p69-q06",
@@ -5207,8 +5207,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q01",
@@ -5286,8 +5286,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q02",
@@ -5380,8 +5380,8 @@
       "confianca_da_leitura": "media",
       "revisar": "Item c: foi lido como 3·(+8) − 7·(−7). Confirme se não é 7·(−7) precedido por outro sinal.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q03",
@@ -5408,8 +5408,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q04",
@@ -5438,8 +5438,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q05",
@@ -5517,8 +5517,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q06",
@@ -5614,8 +5614,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q07",
@@ -5641,8 +5641,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q08",
@@ -5670,8 +5670,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q09",
@@ -5697,8 +5697,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q10",
@@ -5733,8 +5733,8 @@
       "confianca_da_leitura": "baixa",
       "revisar": "A expressão lida na foto leva a −2300 (metade), que não consta nas alternativas. Confirme no livro/gabarito (se o coeficiente for 3, a resposta seria d, −1 100).",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q11",
@@ -5776,8 +5776,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p71-q12",
@@ -5798,8 +5798,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q01",
@@ -5833,8 +5833,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q02",
@@ -5869,8 +5869,8 @@
       "observacoes": "Considerou-se a diferença na ordem em que os números aparecem: (−3) − (−1).",
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q03",
@@ -5902,8 +5902,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q04",
@@ -5936,8 +5936,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q05",
@@ -5970,8 +5970,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q06",
@@ -6007,8 +6007,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q07",
@@ -6046,8 +6046,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q08",
@@ -6083,8 +6083,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q09",
@@ -6119,8 +6119,8 @@
       "depende_de_figura": false,
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     },
     {
       "id": "acm7-2022-p72-q10",
@@ -6155,8 +6155,8 @@
       "confianca_da_leitura": "media",
       "revisar": "Parte dos valores do quadro está cortada na margem da foto; o total (550) coincide com uma das alternativas, o que confirma a leitura.",
       "fonte_id": "acm7-2022",
-      "ano_id": "7fund",
-      "tema_id": "7f-inteiros"
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros"
     }
   ]
 }
