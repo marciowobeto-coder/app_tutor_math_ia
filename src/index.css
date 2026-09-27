@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 180 20% 98%;
+    --foreground: 200 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 40% 10%;
+
+    --primary: 172 66% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 172 30% 92%;
+    --secondary-foreground: 172 66% 25%;
+
+    --muted: 200 15% 93%;
+    --muted-foreground: 200 10% 45%;
+
+    --accent: 42 95% 55%;
+    --accent-foreground: 42 80% 15%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 38 80% 15%;
+
+    --hint-1: 220 70% 55%;
+    --hint-2: 270 60% 55%;
+    --hint-3: 320 60% 50%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 172 66% 40%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --shadow-card: 0 4px 24px -4px hsl(200 30% 10% / 0.08);
+    --shadow-elevated: 0 8px 40px -8px hsl(172 66% 40% / 0.15);
+    --shadow-glow: 0 0 30px -5px hsl(172 66% 40% / 0.25);
+
+    --gradient-primary: linear-gradient(135deg, hsl(172 66% 40%), hsl(180 55% 50%));
+    --gradient-hero: linear-gradient(160deg, hsl(172 66% 35%), hsl(200 60% 45%));
+    --gradient-success: linear-gradient(135deg, hsl(152 60% 42%), hsl(160 55% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(42 95% 55%), hsl(35 90% 60%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 30% 8%;
+    --foreground: 180 10% 92%;
+    --card: 200 25% 12%;
+    --card-foreground: 180 10% 92%;
+    --popover: 200 25% 12%;
+    --popover-foreground: 180 10% 92%;
+    --primary: 172 66% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 172 20% 18%;
+    --secondary-foreground: 172 40% 75%;
+    --muted: 200 15% 18%;
+    --muted-foreground: 200 10% 55%;
+    --accent: 42 95% 55%;
+    --accent-foreground: 42 80% 15%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 15% 20%;
+    --input: 200 15% 20%;
+    --ring: 172 66% 45%;
+    --sidebar-background: 200 25% 10%;
+    --sidebar-foreground: 180 10% 90%;
+    --sidebar-primary: 172 66% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 15% 16%;
+    --sidebar-accent-foreground: 180 10% 90%;
+    --sidebar-border: 200 15% 18%;
+    --sidebar-ring: 172 66% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .step-correct {
+    @apply border-2 border-success bg-success/5;
+  }
+
+  .step-incorrect {
+    @apply border-2 border-destructive bg-destructive/5;
+  }
+
+  .step-partial {
+    @apply border-2 border-warning bg-warning/5;
+  }
+
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
