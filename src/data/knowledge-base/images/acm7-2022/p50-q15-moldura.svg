@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 520" font-family="Verdana, Arial, sans-serif">
+<rect x="0" y="0" width="480" height="520" fill="#ffffff"/>
+<text x="240.0" y="28" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Esquema — encontre A, B e C</text>
+<text x="240.0" y="48" font-size="12" text-anchor="middle" fill="#64748b">(cada lado do quadro é uma sentença de adição)</text>
+<rect x="60" y="90" width="90" height="50" rx="6" fill="#fff7ed" stroke="#1e3a8a" stroke-width="2"/><text x="105.0" y="122.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">−7</text>
+<rect x="160" y="90" width="40" height="50" rx="6" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/><text x="180.0" y="122.0" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">+</text>
+<rect x="210" y="90" width="90" height="50" rx="6" fill="#fff7ed" stroke="#1e3a8a" stroke-width="2"/><text x="255.0" y="122.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">−30</text>
+<rect x="330" y="90" width="90" height="50" rx="6" fill="#dcfce7" stroke="#1e3a8a" stroke-width="2"/><text x="375.0" y="122.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">A</text>
+<rect x="330" y="160" width="90" height="40" rx="6" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/><text x="375.0" y="187.0" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">+</text>
+<rect x="330" y="210" width="90" height="50" rx="6" fill="#fff7ed" stroke="#1e3a8a" stroke-width="2"/><text x="375.0" y="242.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">+15</text>
+<rect x="330" y="320" width="90" height="50" rx="6" fill="#dcfce7" stroke="#1e3a8a" stroke-width="2"/><text x="375.0" y="352.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">B</text>
+<rect x="60" y="400" width="90" height="50" rx="6" fill="#dcfce7" stroke="#1e3a8a" stroke-width="2"/><text x="105.0" y="432.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">C</text>
+<rect x="160" y="400" width="40" height="50" rx="6" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/><text x="180.0" y="432.0" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">+</text>
+<rect x="210" y="400" width="90" height="50" rx="6" fill="#fff7ed" stroke="#1e3a8a" stroke-width="2"/><text x="255.0" y="432.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">+41</text>
+<rect x="330" y="400" width="90" height="50" rx="6" fill="#dcfce7" stroke="#64748b" stroke-width="2"/><text x="375.0" y="432.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">B</text>
+<rect x="60" y="160" width="90" height="40" rx="6" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/><text x="105.0" y="187.0" font-size="18" font-weight="bold" text-anchor="middle" fill="#1e293b">+</text>
+<rect x="60" y="210" width="90" height="50" rx="6" fill="#fff7ed" stroke="#1e3a8a" stroke-width="2"/><text x="105.0" y="242.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">+22</text>
+<rect x="60" y="320" width="90" height="50" rx="6" fill="#fff7ed" stroke="#64748b" stroke-width="2"/><text x="105.0" y="352.0" font-size="20" font-weight="bold" text-anchor="middle" fill="#1e293b">−7</text>
+</svg>

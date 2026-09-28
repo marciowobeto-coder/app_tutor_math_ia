@@ -14,6 +14,16 @@ const json = (body: unknown, status = 200) =>
 const normalize = (u: string) => u.trim().toLowerCase().replace(/[^a-z0-9._-]/g, "");
 const emailFor = (u: string) => `${normalize(u)}@app.local`;
 
+const ALL_SCHOOL_YEARS = ["1fund", "2fund", "3fund", "4fund", "5fund", "6fund", "7fund", "8fund", "9fund"];
+
+/** Filtra pra só os anos válidos; se vier vazio/ausente/tudo inválido, libera todos (mesmo
+ * comportamento de hoje, sem restrição) em vez de travar o aluno sem nenhum bloco por engano. */
+const sanitizeYears = (input: unknown): string[] => {
+  if (!Array.isArray(input)) return ALL_SCHOOL_YEARS;
+  const valid = input.filter((y): y is string => typeof y === "string" && ALL_SCHOOL_YEARS.includes(y));
+  return valid.length > 0 ? valid : ALL_SCHOOL_YEARS;
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
@@ -69,7 +79,7 @@ Deno.serve(async (req) => {
     if (action === "list") {
       const { data: profiles, error } = await admin
         .from("profiles")
-        .select("id, username, turma, created_at")
+        .select("id, username, turma, allowed_school_years, created_at")
         .order("created_at", { ascending: true });
       if (error) return json({ error: error.message }, 400);
       const { data: roles } = await admin.from("user_roles").select("user_id, role");
@@ -86,6 +96,8 @@ Deno.serve(async (req) => {
       const password = String(body?.password ?? "");
       const role = body?.role === "admin" ? "admin" : "aluno";
       const turma = String(body?.turma ?? "").trim().slice(0, 60) || null;
+      // Admin sempre tem acesso a tudo; pra aluno, usa os blocos escolhidos (ou todos, se nada vier).
+      const allowedSchoolYears = role === "admin" ? ALL_SCHOOL_YEARS : sanitizeYears(body?.allowedSchoolYears);
 
       if (username.length < 3) return json({ error: "Usuário inválido (mínimo 3 caracteres)" }, 400);
       if (password.length < 6) return json({ error: "Senha deve ter ao menos 6 caracteres" }, 400);
@@ -98,12 +110,32 @@ Deno.serve(async (req) => {
       });
       if (error) return json({ error: error.message }, 400);
 
-      await admin.from("profiles").upsert({ id: data.user!.id, username, turma });
+      await admin.from("profiles").upsert({
+        id: data.user!.id,
+        username,
+        turma,
+        allowed_school_years: allowedSchoolYears,
+      });
       await admin
         .from("user_roles")
         .upsert({ user_id: data.user!.id, role }, { onConflict: "user_id,role" });
 
-      return json({ ok: true, user: { id: data.user!.id, username, role, turma } });
+      return json({ ok: true, user: { id: data.user!.id, username, role, turma, allowedSchoolYears } });
+    }
+
+    if (action === "update") {
+      const body = await req.json().catch(() => ({}));
+      const id = String(body?.id ?? "");
+      if (!id) return json({ error: "id obrigatório" }, 400);
+      const allowedSchoolYears = sanitizeYears(body?.allowedSchoolYears);
+
+      const { error } = await admin
+        .from("profiles")
+        .update({ allowed_school_years: allowedSchoolYears })
+        .eq("id", id);
+      if (error) return json({ error: error.message }, 400);
+
+      return json({ ok: true, allowedSchoolYears });
     }
 
     if (action === "delete") {

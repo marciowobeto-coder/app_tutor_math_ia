@@ -8,9 +8,11 @@ import { Trophy, Flame, Star, TrendingUp, GraduationCap, Users, LogOut, BarChart
 const HomePage = () => {
   const navigate = useNavigate();
   const { state } = useGame();
-  const { username: authUsername, isAdmin, signOut } = useAuth();
+  const { username: authUsername, isAdmin, allowedSchoolYears, signOut } = useAuth();
 
-  const years = Object.entries(SCHOOL_YEARS) as [SchoolYear, typeof SCHOOL_YEARS[SchoolYear]][];
+  const allYears = Object.entries(SCHOOL_YEARS) as [SchoolYear, typeof SCHOOL_YEARS[SchoolYear]][];
+  // Aluno só vê os blocos que o administrador liberou para ele; admin vê todos.
+  const years = isAdmin ? allYears : allYears.filter(([key]) => allowedSchoolYears.includes(key));
 
   const totalExercises = state.resolutions.filter(r => r.completed).length;
   const unlockedMedals = state.user.medals.filter(m => m.unlockedAt).length;

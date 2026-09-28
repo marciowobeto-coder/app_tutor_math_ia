@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 170" font-family="Verdana, Arial, sans-serif">
+<rect x="0" y="0" width="900" height="170" fill="#ffffff"/>
+<text x="450.0" y="24" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Reta numérica — cidades A a M ao longo da estrada</text>
+<line x1="35" y1="95" x2="865" y2="95" stroke="#1e3a8a" stroke-width="2.5"/>
+<polygon points="865,95 855,89 855,101" fill="#1e3a8a"/>
+<line x1="50.0" y1="89" x2="50.0" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="50.0" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">A</text>
+<line x1="116.66666666666666" y1="89" x2="116.66666666666666" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="116.66666666666666" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">B</text>
+<line x1="183.33333333333331" y1="89" x2="183.33333333333331" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="183.33333333333331" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">C</text>
+<line x1="250.0" y1="89" x2="250.0" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="250.0" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">D</text>
+<line x1="316.66666666666663" y1="89" x2="316.66666666666663" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="316.66666666666663" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">E</text>
+<circle cx="316.66666666666663" cy="95" r="4" fill="#dc2626"/>
+<text x="316.66666666666663" y="81" font-size="13" font-weight="bold" text-anchor="middle" fill="#dc2626">-9 °C</text>
+<line x1="383.33333333333337" y1="89" x2="383.33333333333337" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="383.33333333333337" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">F</text>
+<circle cx="383.33333333333337" cy="95" r="4" fill="#dc2626"/>
+<text x="383.33333333333337" y="81" font-size="13" font-weight="bold" text-anchor="middle" fill="#dc2626">-7 °C</text>
+<line x1="450.0" y1="89" x2="450.0" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="450.0" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">G</text>
+<line x1="516.6666666666667" y1="89" x2="516.6666666666667" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="516.6666666666667" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">H</text>
+<line x1="583.3333333333333" y1="89" x2="583.3333333333333" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="583.3333333333333" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">I</text>
+<line x1="650.0" y1="89" x2="650.0" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="650.0" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">J</text>
+<line x1="716.6666666666667" y1="89" x2="716.6666666666667" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="716.6666666666667" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">K</text>
+<line x1="783.3333333333333" y1="89" x2="783.3333333333333" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="783.3333333333333" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">L</text>
+<line x1="850.0" y1="89" x2="850.0" y2="101" stroke="#1e3a8a" stroke-width="1.5"/>
+<text x="850.0" y="119" font-size="13" font-weight="bold" text-anchor="middle" fill="#475569">M</text>
+</svg>

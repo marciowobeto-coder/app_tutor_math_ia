@@ -495,7 +495,8 @@
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q01-03-reta-municipios.svg"
     },
     {
       "id": "acm7-2022-p38-q02",
@@ -535,7 +536,8 @@
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q01-03-reta-municipios.svg"
     },
     {
       "id": "acm7-2022-p38-q03",
@@ -609,7 +611,8 @@
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q01-03-reta-municipios.svg"
     },
     {
       "id": "acm7-2022-p38-q04",
@@ -650,7 +653,8 @@
       "revisar": "A contagem de marcas foi feita pela foto; confirme no livro (A = −1 intervalo, B = +3 intervalos).",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q04-reta-avioes.svg"
     },
     {
       "id": "acm7-2022-p38-q05",
@@ -696,7 +700,8 @@
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q05-reta-pontos.svg"
     },
     {
       "id": "acm7-2022-p38-q06",
@@ -780,7 +785,8 @@
       "confianca_da_leitura": "alta",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q07-reta-PQRS.svg"
     },
     {
       "id": "acm7-2022-p38-q08",
@@ -817,7 +823,8 @@
       "revisar": "Posições de −9 e −7 lidas por proximidade das letras E e F na foto.",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p38-q08-reta-cidades.svg"
     },
     {
       "id": "acm7-2022-p40-q01",
@@ -2342,7 +2349,8 @@
       "revisar": "Os valores de A e B são consistentes, mas as duas equações de C (linha de baixo e coluna da esquerda) dão resultados diferentes na leitura da foto. Confira no gabarito do livro antes de usar a resposta de C.",
       "fonte_id": "acm7-2022",
       "ano_id": "8fund",
-      "tema_id": "8f-numeros"
+      "tema_id": "8f-numeros",
+      "imagem": "p50-q15-moldura.svg"
     },
     {
       "id": "acm7-2022-p50-q16",
@@ -5528,7 +5536,6 @@
       "numero": 6,
       "tipo": "calculo",
       "enunciado": "Calcule o valor das expressões numéricas e determine a diferença entre o maior e o menor valor obtido.",
-      "modo_pratica": "exercicio_inteiro",
       "itens": [
         {
           "letra": "a",

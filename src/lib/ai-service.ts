@@ -12,12 +12,27 @@ export interface AICorrectionResult {
   isPartial: boolean;
 }
 
+/** Resultado da IA para UMA alternativa (a, b, c…) de um exercício com várias partes. */
+export interface AIItemResult {
+  letra: string;
+  /** A IA encontrou essa alternativa resolvida na imagem? */
+  attempted: boolean;
+  isCorrect: boolean;
+  feedback: string;
+}
+
 export interface AIWhiteboardResult {
   steps: string[];
   feedback: string;
   suggestions: string[];
   isCorrect?: boolean;
   errorLocation?: string | null;
+  /** Presente quando o exercício tem `subItems`: o resultado de cada alternativa, separadamente. */
+  itemResults?: AIItemResult[];
+}
+
+function stepsToReferenceSolution(steps: Exercise['expectedSteps']) {
+  return steps.map(s => (s.description === s.expression ? s.expression : `${s.description}: ${s.expression}`));
 }
 
 /** Dados do exercício enviados à IA (a resposta e a resolução vêm da base de conhecimento). */
@@ -26,8 +41,16 @@ function exercisePayload(exercise: Exercise) {
     statement: exercise.statement,
     correctAnswer: exercise.correctAnswer,
     expectedSteps: exercise.expectedSteps,
-    referenceSolution: exercise.expectedSteps.map(s => (s.description === s.expression ? s.expression : `${s.description}: ${s.expression}`)),
+    referenceSolution: stepsToReferenceSolution(exercise.expectedSteps),
     reference: exercise.reference,
+    // Quando o exercício tem várias alternativas (a, b, c…), a IA recebe cada uma separadamente
+    // para poder avaliar e identificar quais o aluno resolveu.
+    subItems: exercise.subItems?.map(si => ({
+      letra: si.letra,
+      statement: si.statement,
+      correctAnswer: si.correctAnswer,
+      referenceSolution: stepsToReferenceSolution(si.expectedSteps),
+    })),
   };
 }
 
@@ -101,6 +124,14 @@ export async function analyzeWhiteboard(
       suggestions: parsed.suggestions || [],
       isCorrect: parsed.isCorrect ?? undefined,
       errorLocation: parsed.errorLocation ?? null,
+      itemResults: Array.isArray(parsed.itemResults)
+        ? parsed.itemResults.map((r: any) => ({
+            letra: String(r.letra ?? ''),
+            attempted: Boolean(r.attempted),
+            isCorrect: Boolean(r.attempted) && Boolean(r.isCorrect),
+            feedback: r.feedback || '',
+          }))
+        : undefined,
     };
   }
 

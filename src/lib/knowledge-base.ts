@@ -8,7 +8,7 @@
  * Este módulo transforma os exercícios da base em "questões de prática" (PracticeUnit),
  * que é o formato que a tela de exercícios já sabe resolver e corrigir.
  */
-import type { Exercise, ExpectedStep, SchoolYear } from '@/types/math';
+import type { Exercise, ExerciseSubItem, ExpectedStep, SchoolYear } from '@/types/math';
 
 /* ------------------------------------------------------------------ */
 /* Tipos do arquivo JSON da base                                        */
@@ -31,6 +31,8 @@ export interface KbItem {
   enunciado: string;
   resposta?: string;
   resolucao?: string[];
+  /** Nome do arquivo de imagem (em `src/data/knowledge-base/images/<fonte_id>/`), se esse item específico tiver figura própria. */
+  imagem?: string;
 }
 
 export interface KbExercise {
@@ -56,8 +58,15 @@ export interface KbExercise {
   observacoes?: string;
   confianca_da_leitura: 'alta' | 'media' | 'baixa' | string;
   revisar?: string;
-  /** 'exercicio_inteiro' = o exercício vira UMA questão com todos os itens; padrão = uma questão por item */
-  modo_pratica?: 'por_item' | 'exercicio_inteiro';
+  /**
+   * Nome do arquivo de imagem/diagrama do exercício (em
+   * `src/data/knowledge-base/images/<fonte_id>/<imagem>`). Quando presente, o exercício
+   * é mostrado com essa figura no app — mesmo que `depende_de_figura` seja true, ele
+   * deixa de ser excluído da prática (ver `shouldInclude`).
+   */
+  imagem?: string;
+  /** Tabela para exibir junto do enunciado (primeira linha = cabeçalho). */
+  tabela?: string[][];
 }
 
 export interface KbFile {
@@ -97,6 +106,24 @@ const rawFiles = import.meta.glob('../data/knowledge-base/sources/*.json', {
 }) as Record<string, KbFile>;
 
 const files: KbFile[] = Object.values(rawFiles);
+
+/**
+ * Imagens/diagramas dos exercícios, em `src/data/knowledge-base/images/<fonte_id>/<arquivo>`.
+ * Cada fonte tem sua própria subpasta. `?url` faz o Vite devolver a URL final do arquivo
+ * (funciona tanto para .svg quanto para .png/.jpg).
+ */
+const rawImages = import.meta.glob('../data/knowledge-base/images/*/*.{svg,png,jpg,jpeg}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+function resolveImage(fonteId: string, filename?: string): string | undefined {
+  if (!filename) return undefined;
+  const suffix = `/images/${fonteId}/${filename}`;
+  const key = Object.keys(rawImages).find(k => k.endsWith(suffix));
+  return key ? rawImages[key] : undefined;
+}
 
 export function getKbSources(): KbSourceMeta[] {
   const map = new Map<string, KbSourceMeta>();
@@ -141,12 +168,13 @@ function toExpectedSteps(lines: string[] | undefined): ExpectedStep[] {
   });
 }
 
+/** Letras "normais" (a, b, c...) viram "a) ..."; ids longos (seg, ter...) já vêm com rótulo no texto. */
 function itemLine(it: KbItem): string {
-  // letras "normais" (a, b, c...) viram "a) ..."; ids longos (seg, ter...) já vêm com rótulo no texto
   return it.letra.length <= 1 ? `${it.letra}) ${it.enunciado}` : it.enunciado;
 }
 
-function buildStatement(ex: KbExercise, item?: KbItem, allItems = false): string {
+/** Quando o exercício tem `itens`, todos aparecem juntos, numa única questão, com as letras originais. */
+function buildStatement(ex: KbExercise): string {
   const parts = [ex.enunciado.trim()];
   if (ex.alternativas) {
     parts.push(
@@ -155,38 +183,69 @@ function buildStatement(ex: KbExercise, item?: KbItem, allItems = false): string
         .join('\n')
     );
   }
-  if (item) parts.push(itemLine(item));
-  if (allItems && ex.itens) parts.push(ex.itens.map(itemLine).join('\n'));
+  if (ex.itens) parts.push(ex.itens.map(it => itemLine(it)).join('\n'));
   return parts.join('\n\n');
+}
+
+/** true se o exercício (ou algum de seus itens) já tem uma imagem própria cadastrada. */
+function hasOwnImage(ex: KbExercise): boolean {
+  return Boolean(ex.imagem) || Boolean(ex.itens?.some(it => it.imagem));
 }
 
 function shouldInclude(ex: KbExercise): boolean {
   if (!ex.ano_id || !ex.tema_id) return false;
   if (!KB_RULES.includeOpenEnded && ex.tipo === 'elaboracao') return false;
-  if (!KB_RULES.includeFigureExercises && ex.depende_de_figura) return false;
+  // Exercício com figura só entra se já tivermos uma imagem para mostrar (foto ou diagrama).
+  if (ex.depende_de_figura && !KB_RULES.includeFigureExercises && !hasOwnImage(ex)) return false;
   if (!KB_RULES.includeLowConfidence && ex.confianca_da_leitura === 'baixa') return false;
   return true;
 }
 
-function makeUnit(ex: KbExercise, src: KbSourceMeta | undefined, item?: KbItem, whole = false): PracticeUnit | null {
-  const answer = whole
-    ? (ex.itens ?? []).map(it => (it.letra.length <= 1 ? `${it.letra}) ` : '') + (it.resposta ?? '')).join('; ')
-    : item ? item.resposta : ex.resposta;
+function makeUnit(ex: KbExercise, src: KbSourceMeta | undefined): PracticeUnit | null {
+  const hasItems = Boolean(ex.itens?.length);
+  // Itens de elaboração/pesquisa (sem resposta única) ficam de fora da correção — mas continuam
+  // aparecendo no enunciado, porque fazem parte do exercício do livro.
+  const gradableItems = hasItems ? (ex.itens ?? []).filter(it => !isOpenAnswer(it.resposta)) : undefined;
+
+  const answer = hasItems
+    ? (gradableItems ?? []).map(it => (it.letra.length <= 1 ? `${it.letra}) ` : '') + (it.resposta ?? '')).join('; ')
+    : ex.resposta;
   if (!KB_RULES.includeOpenEnded && isOpenAnswer(answer)) return null;
 
   const steps = toExpectedSteps(
-    whole ? (ex.itens ?? []).flatMap(it => it.resolucao ?? []) : item?.resolucao ?? ex.resolucao
+    hasItems ? (gradableItems ?? []).flatMap(it => it.resolucao ?? []) : ex.resolucao
   );
-  const reference = `${sourceShortName(src)} — p. ${ex.pagina}, ex. ${ex.numero}${item ? ` (${item.letra})` : ''}`;
+
+  // Uma alternativa por item gradável, para a IA avaliar cada uma separadamente e contar
+  // quantas ficaram certas e quantas erradas (em vez de dar um veredito único para tudo).
+  const subItems: ExerciseSubItem[] | undefined =
+    hasItems && gradableItems && gradableItems.length > 0
+      ? gradableItems.map(it => ({
+          letra: it.letra,
+          statement: itemLine(it),
+          correctAnswer: it.resposta ?? '',
+          expectedSteps: toExpectedSteps(it.resolucao),
+        }))
+      : undefined;
+
+  const reference = ex.pagina > 0
+    ? `${sourceShortName(src)} — p. ${ex.pagina}, ex. ${ex.numero}`
+    : `${sourceShortName(src)} — ex. ${ex.numero}`;
+  const imageUrl = resolveImage(ex.fonte_id, ex.imagem);
+  // Exercícios com várias alternativas valem um pouco mais (o aluno resolve todas de uma vez).
+  const subItemBonus = subItems ? Math.max(0, subItems.length - 1) * 3 : 0;
 
   const exercise: Exercise = {
-    id: item ? `${ex.id}#${item.letra}` : ex.id,
-    statement: buildStatement(ex, item, whole),
+    id: ex.id,
+    statement: buildStatement(ex),
     topicId: ex.tema_id!,
     schoolYear: ex.ano_id as SchoolYear,
     correctAnswer: answer ?? '',
     expectedSteps: steps,
-    points: (BASE_POINTS[ex.tipo] ?? 10) + (steps.length >= 4 ? 5 : 0),
+    points: (BASE_POINTS[ex.tipo] ?? 10) + (steps.length >= 4 ? 5 : 0) + subItemBonus,
+    imageUrl,
+    tableData: ex.tabela,
+    subItems,
     hints: ex.dicas,
     sourceId: ex.fonte_id,
     reference,
@@ -203,18 +262,8 @@ function buildAllUnits(): PracticeUnit[] {
     for (const ex of f.exercicios ?? []) {
       if (!shouldInclude(ex)) continue;
       const src = sources.get(ex.fonte_id);
-      if (ex.itens?.length && ex.modo_pratica === 'exercicio_inteiro') {
-        const u = makeUnit(ex, src, undefined, true);
-        if (u) out.push(u);
-      } else if (ex.itens?.length) {
-        for (const it of ex.itens) {
-          const u = makeUnit(ex, src, it);
-          if (u) out.push(u);
-        }
-      } else {
-        const u = makeUnit(ex, src);
-        if (u) out.push(u);
-      }
+      const u = makeUnit(ex, src);
+      if (u) out.push(u);
     }
   }
   return out;

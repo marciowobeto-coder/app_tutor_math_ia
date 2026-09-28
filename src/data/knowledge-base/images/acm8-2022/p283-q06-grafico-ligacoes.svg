@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 460" font-family="Verdana, Arial, sans-serif">
+<rect x="0" y="0" width="680" height="460" fill="#ffffff"/>
+<text x="340.0" y="28" font-size="17" font-weight="bold" text-anchor="middle" fill="#1e293b">Preço de ligações</text>
+<line x1="70.0" y1="60" x2="70.0" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="117.36842105263158" y1="60" x2="117.36842105263158" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="164.73684210526315" y1="60" x2="164.73684210526315" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="212.10526315789474" y1="60" x2="212.10526315789474" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="259.4736842105263" y1="60" x2="259.4736842105263" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="306.8421052631579" y1="60" x2="306.8421052631579" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="354.2105263157895" y1="60" x2="354.2105263157895" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="401.57894736842104" y1="60" x2="401.57894736842104" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="448.9473684210526" y1="60" x2="448.9473684210526" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="496.3157894736842" y1="60" x2="496.3157894736842" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="543.6842105263158" y1="60" x2="543.6842105263158" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="591.0526315789474" y1="60" x2="591.0526315789474" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="400.0" x2="610" y2="400.0" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="355.2631578947368" x2="610" y2="355.2631578947368" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="310.5263157894737" x2="610" y2="310.5263157894737" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="265.7894736842105" x2="610" y2="265.7894736842105" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="221.05263157894737" x2="610" y2="221.05263157894737" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="176.3157894736842" x2="610" y2="176.3157894736842" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="131.57894736842104" x2="610" y2="131.57894736842104" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="86.84210526315792" x2="610" y2="86.84210526315792" stroke="#e2e8f0" stroke-width="1"/>
+<line x1="70" y1="400" x2="610" y2="400" stroke="#1e293b" stroke-width="2"/>
+<line x1="70" y1="60" x2="70" y2="400" stroke="#1e293b" stroke-width="2"/>
+<polygon points="610,400 600,394 600,406" fill="#1e293b"/>
+<polygon points="70,60 64,70 76,70" fill="#1e293b"/>
+<text x="70.0" y="420" font-size="13" text-anchor="middle" fill="#475569">0</text>
+<text x="164.73684210526315" y="420" font-size="13" text-anchor="middle" fill="#475569">10</text>
+<text x="259.4736842105263" y="420" font-size="13" text-anchor="middle" fill="#475569">20</text>
+<text x="354.2105263157895" y="420" font-size="13" text-anchor="middle" fill="#475569">30</text>
+<text x="448.9473684210526" y="420" font-size="13" text-anchor="middle" fill="#475569">40</text>
+<text x="543.6842105263158" y="420" font-size="13" text-anchor="middle" fill="#475569">50</text>
+<text x="615" y="420" font-size="12" fill="#475569">Tempo (min)</text>
+<text x="58" y="314.5263157894737" font-size="13" text-anchor="end" fill="#475569">10</text>
+<text x="58" y="225.05263157894737" font-size="13" text-anchor="end" fill="#475569">20</text>
+<text x="58" y="135.57894736842104" font-size="13" text-anchor="end" fill="#475569">30</text>
+<text x="25" y="45" font-size="12" fill="#475569">Preço (R$)</text>
+<line x1="70.0" y1="400.0" x2="610.0" y2="68.49999999999994" stroke="#1e3a8a" stroke-width="3"/>
+<text x="340.0" y="445" font-size="11" text-anchor="middle" fill="#94a3b8">Fonte: dados fictícios (livro), reta redesenhada a partir da leitura do gráfico original</text>
+</svg>

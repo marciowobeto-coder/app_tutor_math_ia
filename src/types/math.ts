@@ -44,6 +44,15 @@ export interface ExpectedStep {
   description: string;
 }
 
+/** Uma alternativa (a, b, c…) de um exercício com várias partes, quando resolvidas juntas. */
+export interface ExerciseSubItem {
+  letra: string;
+  /** Texto da alternativa, ex.: "b) um saldo negativo de 15 gols". */
+  statement: string;
+  correctAnswer: string;
+  expectedSteps: ExpectedStep[];
+}
+
 export interface Exercise {
   id: string;
   statement: string;
@@ -54,6 +63,12 @@ export interface Exercise {
   points: number;
   imageUrl?: string;
   tableData?: string[][];
+  /**
+   * Quando o exercício tem várias alternativas (a, b, c…) para o aluno resolver todas de uma vez,
+   * cada uma aparece aqui com sua própria resposta esperada — é o que permite à IA avaliar cada
+   * alternativa separadamente, em vez de dar um veredito único para o exercício inteiro.
+   */
+  subItems?: ExerciseSubItem[];
   /** Vindos da base de conhecimento (src/data/knowledge-base) */
   hints?: string[];        // dicas curadas, do nível 1 ao 3
   sourceId?: string;       // id da fonte (ex.: 'acm7-2022')
@@ -206,6 +221,8 @@ export const SCHOOL_YEARS: Record<SchoolYear, SchoolYearInfo> = {
       { id: '9f-funcoes', label: 'Funções', icon: '📈', color: 'from-orange-400 to-orange-600', description: 'Funções afim e quadrática' },
       { id: '9f-geometria', label: 'Geometria', icon: '📐', color: 'from-purple-400 to-purple-600', description: 'Semelhança, trigonometria e geometria analítica' },
       { id: '9f-estatistica', label: 'Probabilidade e Estatística', icon: '📊', color: 'from-pink-400 to-pink-600', description: 'Contagem, probabilidade e análise' },
+      { id: '9f-porcentagem', label: 'Porcentagem e Juros', icon: '💯', color: 'from-lime-400 to-green-600', description: 'Porcentagem, descontos e juro simples' },
+      { id: '9f-proporcao', label: 'Razão, Proporção e Regra de Três', icon: '⚖️', color: 'from-cyan-400 to-sky-600', description: 'Grandezas proporcionais e regra de três' },
     ],
   },
 };

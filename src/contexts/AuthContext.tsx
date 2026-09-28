@@ -10,6 +10,9 @@ interface AuthContextValue {
   session: Session | null;
   username: string | null;
   isAdmin: boolean;
+  /** Blocos (séries) que este usuário pode acessar. Só é relevante para aluno — admin sempre
+   * tem acesso a tudo, independentemente do que estiver aqui (ver checagens de `isAdmin`). */
+  allowedSchoolYears: string[];
   loading: boolean;
   signIn: (username: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
@@ -22,6 +25,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [allowedSchoolYears, setAllowedSchoolYears] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [metaLoading, setMetaLoading] = useState(false);
 
@@ -29,10 +33,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const loadMeta = async (uid: string) => {
       setMetaLoading(true);
       const [{ data: profile }, { data: role }] = await Promise.all([
-        supabase.from('profiles').select('username').eq('id', uid).maybeSingle(),
+        supabase.from('profiles').select('username, allowed_school_years').eq('id', uid).maybeSingle(),
         supabase.from('user_roles').select('role').eq('user_id', uid).eq('role', 'admin').maybeSingle(),
       ]);
       setUsername(profile?.username ?? null);
+      setAllowedSchoolYears(profile?.allowed_school_years ?? []);
       setIsAdmin(!!role);
       setMetaLoading(false);
     };
@@ -46,6 +51,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       } else {
         setUsername(null);
         setIsAdmin(false);
+        setAllowedSchoolYears([]);
         setMetaLoading(false);
       }
       setLoading(false);
@@ -90,7 +96,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, username, isAdmin, loading: loading || metaLoading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, session, username, isAdmin, allowedSchoolYears, loading: loading || metaLoading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

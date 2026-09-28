@@ -14,8 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      app_settings: {
+        Row: {
+          key: string
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          key: string
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          key?: string
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
+          allowed_school_years: string[]
           created_at: string
           id: string
           turma: string | null
@@ -23,6 +42,7 @@ export type Database = {
           username: string
         }
         Insert: {
+          allowed_school_years?: string[]
           created_at?: string
           id: string
           turma?: string | null
@@ -30,6 +50,7 @@ export type Database = {
           username: string
         }
         Update: {
+          allowed_school_years?: string[]
           created_at?: string
           id?: string
           turma?: string | null

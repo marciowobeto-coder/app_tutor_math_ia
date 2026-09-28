@@ -28,10 +28,23 @@ import {
 const selectClass =
   'w-full rounded-xl border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40';
 
+/** Resumo "X acertos, Y erros" (e pendentes, se houver) para exercícios com várias alternativas. */
+function describeSubItemsResult(steps: UserStep[]): string {
+  const acertos = steps.filter(s => s.status === 'correto').length;
+  const erros = steps.filter(s => s.status === 'incorreto').length;
+  const pendentes = steps.filter(s => s.status === 'pendente').length;
+  const parts = [
+    `${acertos} ${acertos === 1 ? 'acerto' : 'acertos'}`,
+    `${erros} ${erros === 1 ? 'erro' : 'erros'}`,
+  ];
+  if (pendentes > 0) parts.push(`${pendentes} ${pendentes === 1 ? 'pendente' : 'pendentes'}`);
+  return `Alternativas: ${parts.join(', ')} (de ${steps.length})`;
+}
+
 const ExercisePage = () => {
   const { yearId, topicId } = useParams<{ yearId: string; topicId: string }>();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, isAdmin, allowedSchoolYears } = useAuth();
   const { state, addPoints, addResolution, updateProgress, incrementStreak, resetStreak } = useGame();
 
   const year = yearId as SchoolYear;
@@ -75,6 +88,12 @@ const ExercisePage = () => {
         <p className="text-muted-foreground">Tema não encontrado</p>
       </div>
     );
+  }
+
+  // Mesma checagem de acesso da TopicPage, aqui como segunda camada (acesso direto pela URL).
+  if (!isAdmin && !allowedSchoolYears.includes(year)) {
+    navigate('/');
+    return null;
   }
 
   /** Sorteia a próxima questão da base (não repete até acabar a lista). */
@@ -179,20 +198,50 @@ const ExercisePage = () => {
       setAiAnalysis(result.feedback);
       setFeedbackOpen(true);
 
-      // Create a single step representing the whole work
-      const overallStep: UserStep = {
-        id: `step-${Date.now()}`,
-        expression: result.steps?.join(' → ') || 'Desenvolvimento completo',
-        status: result.isCorrect ? 'correto' : 'incorreto',
-        errorType: result.errorLocation ? 'calculo' : 'nenhum',
-        feedback: result.feedback,
-        timestamp: new Date(),
-      };
+      const subItems = exercise.subItems;
+      if (subItems && subItems.length > 0 && result.itemResults && result.itemResults.length > 0) {
+        // Exercício com várias alternativas: um "passo" por alternativa, para o aluno ver
+        // exatamente quais foram identificadas, quais estão certas e quais ainda faltam.
+        const itemSteps: UserStep[] = subItems.map((si, idx) => {
+          const found = result.itemResults!.find(r => r.letra === si.letra);
+          const attempted = found?.attempted ?? false;
+          const isCorrect = attempted && Boolean(found?.isCorrect);
+          return {
+            id: `step-${Date.now()}-${idx}`,
+            expression: si.statement,
+            status: !attempted ? 'pendente' : isCorrect ? 'correto' : 'incorreto',
+            errorType: attempted && !isCorrect ? 'calculo' : 'nenhum',
+            feedback:
+              found?.feedback || (attempted ? '' : 'Não encontrei essa alternativa no quadro/foto ainda.'),
+            timestamp: new Date(),
+          };
+        });
 
-      setSteps([overallStep]);
+        setSteps(itemSteps);
 
-      if (result.isCorrect) {
-        completeExercise([overallStep]);
+        // Só falta terminar quando alguma alternativa ainda não foi encontrada no quadro/foto
+        // ("pendente"). Uma vez que todas foram avaliadas, o exercício se conclui com o placar
+        // final de acertos e erros — não é preciso acertar tudo para fechar a questão.
+        const allAttempted = itemSteps.every(s => s.status !== 'pendente');
+        if (allAttempted) {
+          completeExercise(itemSteps);
+        }
+      } else {
+        // Exercício de alternativa única (comportamento anterior: um parecer geral).
+        const overallStep: UserStep = {
+          id: `step-${Date.now()}`,
+          expression: result.steps?.join(' → ') || 'Desenvolvimento completo',
+          status: result.isCorrect ? 'correto' : 'incorreto',
+          errorType: result.errorLocation ? 'calculo' : 'nenhum',
+          feedback: result.feedback,
+          timestamp: new Date(),
+        };
+
+        setSteps([overallStep]);
+
+        if (result.isCorrect) {
+          completeExercise([overallStep]);
+        }
       }
 
       if (result.suggestions?.length > 0) {
@@ -479,8 +528,15 @@ const ExercisePage = () => {
               )}
               {steps.length > 0 && (
                 <div>
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">Etapas reconhecidas</p>
+                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
+                    {exercise.subItems?.length ? describeSubItemsResult(steps) : 'Etapas reconhecidas'}
+                  </p>
                   <ExerciseSteps steps={steps} />
+                  {!completed && exercise.subItems?.length ? (
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Ainda falta encontrar alguma alternativa no quadro/foto. Continue e toque em capturar de novo quando terminar.
+                    </p>
+                  ) : null}
                 </div>
               )}
               {completed && (

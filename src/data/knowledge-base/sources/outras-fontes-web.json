@@ -1,0 +1,2451 @@
+{
+  "metadados": {
+    "titulo": "Base de conhecimento — Exercícios de outras fontes (páginas educacionais na internet)",
+    "fontes": [
+      {
+        "id": "todamateria-numeros-inteiros",
+        "tipo": "pagina_web",
+        "referencia_abnt": "ASTH, Rafael C. Exercícios de números inteiros com resposta. Toda Matéria. Disponível em: https://www.todamateria.com.br/exercicios-de-numeros-inteiros/. Acesso em: 27 set. 2026.",
+        "autor": "Rafael C. Asth",
+        "titulo": "Exercícios de números inteiros com resposta — Toda Matéria",
+        "ano_escolar": "7º/8º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "lereaprender-numeros-inteiros",
+        "tipo": "pagina_web",
+        "referencia_abnt": "Exercícios de números inteiros - 7º ano - Lista de questões resolvidas. Lereaprender. Disponível em: https://lereaprender.com.br/exercicios-de-numeros-inteiros-7o-ano/. Acesso em: 27 set. 2026.",
+        "titulo": "Exercícios de números inteiros - 7º ano — Lereaprender",
+        "ano_escolar": "7º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "todamateria-porcentagem",
+        "tipo": "pagina_web",
+        "referencia_abnt": "ASTH, Rafael C. Exercícios de Porcentagem. Toda Matéria. Disponível em: https://www.todamateria.com.br/exercicios-de-porcentagem/. Acesso em: 27 set. 2026.",
+        "autor": "Rafael C. Asth",
+        "titulo": "Exercícios de Porcentagem — Toda Matéria",
+        "ano_escolar": "9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "todamateria-juros-simples",
+        "tipo": "pagina_web",
+        "referencia_abnt": "ASTH, Rafael C. Exercícios de Juros Simples (com respostas e comentários). Toda Matéria. Disponível em: https://www.todamateria.com.br/exercicios-de-juros-simples/. Acesso em: 27 set. 2026.",
+        "autor": "Rafael C. Asth",
+        "titulo": "Exercícios de Juros Simples — Toda Matéria",
+        "ano_escolar": "9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "tudosaladeaula-porcentagem",
+        "tipo": "pagina_web",
+        "referencia_abnt": "Atividade / Simulado de Matemática - Porcentagem - 8º e 9º ano. Tudo Sala de Aula. Disponível em: https://www.tudosaladeaula.com/2020/09/atividade-simulado-de-matematica-porcentagem-8o-e-9o-ano/. Acesso em: 27 set. 2026.",
+        "titulo": "Atividade / Simulado de Matemática — Porcentagem — Tudo Sala de Aula",
+        "ano_escolar": "8º/9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta (resoluções redigidas por Claude a partir do gabarito)"
+      },
+      {
+        "id": "todamateria-razao-proporcao",
+        "tipo": "pagina_web",
+        "referencia_abnt": "ASTH, Rafael C. Exercícios de Razão e Proporção. Toda Matéria. Disponível em: https://www.todamateria.com.br/razao-e-proporcao-exercicios/. Acesso em: 27 set. 2026.",
+        "autor": "Rafael C. Asth",
+        "titulo": "Exercícios de Razão e Proporção — Toda Matéria",
+        "ano_escolar": "9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "todamateria-regra-de-tres",
+        "tipo": "pagina_web",
+        "referencia_abnt": "ASTH, Rafael C. Exercícios de Regra de Três (respostas explicadas). Toda Matéria. Disponível em: https://www.todamateria.com.br/exercicios-de-regra-de-tres/. Acesso em: 27 set. 2026.",
+        "autor": "Rafael C. Asth",
+        "titulo": "Exercícios de Regra de Três — Toda Matéria",
+        "ano_escolar": "9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta"
+      },
+      {
+        "id": "beduka-regra-de-tres",
+        "tipo": "pagina_web",
+        "referencia_abnt": "Exercícios Regra de Três Simples e Composta + GABARITO. Beduka. Disponível em: https://beduka.com/blog/exercicios/matematica-exercicios/exercicios-de-regra-de-tres-simples-e-composta/. Acesso em: 27 set. 2026.",
+        "titulo": "Exercícios Regra de Três Simples e Composta — Beduka",
+        "ano_escolar": "9º ano do Ensino Fundamental (anos finais)",
+        "origem_do_conteudo": "página educacional aberta (resoluções redigidas por Claude, pois a fonte não as trazia)"
+      }
+    ],
+    "mapeamento_app": "Cada exercício traz 'ano_id' e 'tema_id', que são os ids de ano escolar e de tema usados no aplicativo (SCHOOL_YEARS em src/types/math.ts). Os exercícios de números inteiros usam '8fund'/'8f-numeros'; os de porcentagem e juro simples usam '9fund'/'9f-porcentagem'; os de razão, proporção e regra de três usam '9fund'/'9f-proporcao' — os mesmos temas já usados pelas bases extraídas dos livros (acm7-2022 e acm8-2022).",
+    "convencao_de_ids": "<fonte_id>-q<número>. Como estes exercícios vêm de páginas da internet (sem número de página de livro), o campo 'pagina' fica em 0 e não aparece '-p<página>-' no id, diferente das bases acm7/acm8.",
+    "gerado_em": "2026-09-27",
+    "idioma": "pt-BR",
+    "total_de_exercicios": 67,
+    "convencoes": "'tipo': calculo | problema | compreensao | multipla_escolha | figura | elaboracao | desafio. 'pagina' é sempre 0 (não há página de livro); a referência exibida ao aluno mostra apenas o número do exercício na fonte original.",
+    "como_usar": "Mesma lógica das demais bases: 'dicas' em ordem crescente de ajuda; 'resposta' e 'resolucao' conferem o aluno; exercícios com vários itens (a, b, c…) aparecem juntos como uma única questão, com a IA avaliando cada alternativa separadamente.",
+    "avisos": [
+      "Os enunciados e gabaritos vieram das páginas citadas em 'fontes'; quando a página de origem não trazia uma resolução passo a passo (caso de boa parte dos exercícios de porcentagem da Tudo Sala de Aula e de todos os da Beduka), a resolução foi redigida por Claude a partir do próprio gabarito informado, conferindo a conta antes de incluir o exercício.",
+      "Um exercício de porcentagem sobre leitura de figura/quadro (todamateria, exercício com gráfico) foi mantido apenas com depende_de_figura=true e sem campo 'imagem' — fica de fora da prática automaticamente, preservado só para consulta futura.",
+      "Um exercício de números inteiros com uma expressão numérica cujo gabarito da fonte não bateu com o cálculo (possível erro de digitação da própria página) foi deixado de fora desta base, para não apresentar ao aluno uma resolução duvidosa. Pelo mesmo motivo, um exercício de razão/proporção sobre mistura de água e sal (OMRP) também foi deixado de fora: os números do enunciado e da resolução extraídos da página não batiam entre si."
+    ]
+  },
+  "exercicios": [
+    {
+      "id": "todamateria-numeros-inteiros-q01",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Expressões com números inteiros",
+      "numero": 1,
+      "tipo": "calculo",
+      "enunciado": "Sendo a = -3, b = -2 e c = 6, resolva as sentenças:",
+      "dicas": [
+        "Substitua a, b e c pelos valores dados antes de calcular.",
+        "Siga a ordem das operações: multiplicação/divisão antes de adição/subtração."
+      ],
+      "conceitos": [
+        "numeros_inteiros_operacoes",
+        "expressoes_numericas"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "a + b + c",
+          "resposta": "1",
+          "resolucao": [
+            "-3 + (-2) + 6 = 1."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "c - b + a",
+          "resposta": "5",
+          "resolucao": [
+            "6 - (-2) + (-3) = 6 + 2 - 3 = 5."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "c/a - b",
+          "resposta": "0",
+          "resolucao": [
+            "6 ÷ (-3) - (-2) = -2 + 2 = 0."
+          ]
+        },
+        {
+          "letra": "d",
+          "enunciado": "c . b + a",
+          "resposta": "-15",
+          "resolucao": [
+            "6 × (-2) + (-3) = -12 - 3 = -15."
+          ]
+        },
+        {
+          "letra": "e",
+          "enunciado": "c + a . b",
+          "resposta": "12",
+          "resolucao": [
+            "6 + (-3) × (-2) = 6 + 6 = 12."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q02",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Comparação de números inteiros",
+      "numero": 2,
+      "tipo": "calculo",
+      "enunciado": "Utilize < ou > para indicar a relação entre os números:",
+      "dicas": [
+        "Na reta numérica, quanto mais à direita, maior o número — mesmo entre negativos.",
+        "Todo número negativo é menor que qualquer número positivo."
+      ],
+      "conceitos": [
+        "numeros_inteiros_comparacao"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "-8 ___ 2",
+          "resposta": "-8 < 2"
+        },
+        {
+          "letra": "b",
+          "enunciado": "-25 ___ -45",
+          "resposta": "-25 > -45"
+        },
+        {
+          "letra": "c",
+          "enunciado": "84 ___ -256",
+          "resposta": "84 > -256"
+        },
+        {
+          "letra": "d",
+          "enunciado": "-7 ___ -8",
+          "resposta": "-7 > -8"
+        }
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q03",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Expressões com números inteiros",
+      "numero": 3,
+      "tipo": "calculo",
+      "enunciado": "Resolva as expressões numéricas:",
+      "dicas": [
+        "Resolva primeiro potências, depois multiplicações/divisões, e por último adições/subtrações, da esquerda para a direita."
+      ],
+      "conceitos": [
+        "expressoes_numericas",
+        "numeros_inteiros_operacoes"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "4 - 7 - 15 + 8",
+          "resposta": "-10",
+          "resolucao": [
+            "4 - 7 - 15 + 8 = -3 - 15 + 8 = -18 + 8 = -10."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "(-5)² - 13 + 20 - 9",
+          "resposta": "23",
+          "resolucao": [
+            "25 - 13 + 20 - 9 = 12 + 20 - 9 = 32 - 9 = 23."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "-22 - 8 + 4³ + 14",
+          "resposta": "48",
+          "resolucao": [
+            "-22 - 8 + 64 + 14 = -30 + 64 + 14 = 34 + 14 = 48."
+          ]
+        },
+        {
+          "letra": "d",
+          "enunciado": "-66 + 45/5 - 81",
+          "resposta": "-138",
+          "resolucao": [
+            "-66 + 9 - 81 = -57 - 81 = -138."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q04",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Módulo e simétrico",
+      "numero": 4,
+      "tipo": "calculo",
+      "enunciado": "Determine:",
+      "dicas": [
+        "O simétrico (ou oposto) de um número troca apenas o sinal.",
+        "O módulo (valor absoluto) de um número é sempre o seu valor sem o sinal."
+      ],
+      "conceitos": [
+        "numeros_inteiros_modulo_simetrico"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "o simétrico de 17",
+          "resposta": "-17"
+        },
+        {
+          "letra": "b",
+          "enunciado": "o oposto de -8",
+          "resposta": "8"
+        },
+        {
+          "letra": "c",
+          "enunciado": "o módulo de -15",
+          "resposta": "15"
+        }
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q05",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Situações do cotidiano com inteiros",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Utilize números inteiros para representar as situações:",
+      "dicas": [
+        "Dívida, prejuízo, abaixo do nível do mar e temperaturas negativas viram números negativos; lucro e ganho viram números positivos."
+      ],
+      "conceitos": [
+        "numeros_inteiros_situacoes_cotidiano"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "João deve R$ 64,00 ao banco",
+          "resposta": "-R$ 64,00"
+        },
+        {
+          "letra": "b",
+          "enunciado": "Temperatura de três graus negativos",
+          "resposta": "-3°"
+        },
+        {
+          "letra": "c",
+          "enunciado": "Lucro de R$ 350,00",
+          "resposta": "+R$ 350,00"
+        },
+        {
+          "letra": "d",
+          "enunciado": "Submarino a 45 metros abaixo da superfície",
+          "resposta": "-45 m"
+        }
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q06",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Situações do cotidiano com inteiros",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "Um mergulhador desceu 12 m abaixo da superfície da água. O piloto do barco de apoio está 5 m acima da superfície. Qual a distância entre o mergulhador e o piloto?",
+      "dicas": [
+        "Represente a posição do mergulhador como -12 e a do piloto como +5.",
+        "A distância entre dois pontos na reta numérica é a diferença entre o maior e o menor."
+      ],
+      "conceitos": [
+        "numeros_inteiros_situacoes_cotidiano",
+        "numeros_inteiros_operacoes"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "17 m",
+      "resolucao": [
+        "Distância: 5 - (-12) = 5 + 12 = 17 m."
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q07",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Situações do cotidiano com inteiros",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "Patrícia comprou 400 kg de ração para cães, pagando R$ 12,00 por kg, e 100 kg de ração para gatos, pagando R$ 7,50 por kg. Depois vendeu 143 kg de ração canina a R$ 22,00 o kg e 86 kg de ração felina a R$ 19,50 o kg. Ela teve lucro ou prejuízo? De quanto?",
+      "dicas": [
+        "Calcule primeiro o total gasto na compra (custo) e depois o total recebido nas vendas.",
+        "Compare os dois valores: se as vendas foram menores que o custo, houve prejuízo."
+      ],
+      "conceitos": [
+        "numeros_inteiros_situacoes_cotidiano",
+        "numeros_inteiros_operacoes"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "Prejuízo de R$ 727,00",
+      "resolucao": [
+        "Custo total: 400 × 12 + 100 × 7,50 = 4800 + 750 = 5550.",
+        "Total das vendas: 143 × 22 + 86 × 19,50 = 3146 + 1677 = 4823.",
+        "Diferença: 4823 - 5550 = -727. Prejuízo de R$ 727,00."
+      ]
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q08",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Leitura de gráfico com valores negativos",
+      "numero": 8,
+      "tipo": "compreensao",
+      "enunciado": "(Interpretação de gráfico) Um gráfico de barras mostra o resultado financeiro mensal (lucro ou prejuízo) de uma empresa ao longo de 6 meses. a) Qual foi o resultado do 1º trimestre? b) Qual a diferença entre o melhor e o pior mês? c) Qual o saldo do semestre?",
+      "dicas": [
+        "Some os valores (positivos e negativos) dos três primeiros meses para o 1º trimestre.",
+        "Para o saldo do semestre, some os resultados dos 6 meses, respeitando os sinais."
+      ],
+      "conceitos": [
+        "numeros_inteiros_operacoes",
+        "grafico_leitura"
+      ],
+      "depende_de_figura": true,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Qual foi o resultado do 1º trimestre?",
+          "resposta": "R$ 3.500,00"
+        },
+        {
+          "letra": "b",
+          "enunciado": "Qual a diferença entre o melhor e o pior mês?",
+          "resposta": "R$ 4.950,00"
+        },
+        {
+          "letra": "c",
+          "enunciado": "Qual o saldo do semestre?",
+          "resposta": "R$ 5.740,00"
+        }
+      ],
+      "observacoes": "Exercício depende de um gráfico de barras da página original, que não foi reproduzido aqui; por isso fica marcado com depende_de_figura=true e sem campo 'imagem', ficando de fora da prática automaticamente. Mantido apenas para registro/consulta futura."
+    },
+    {
+      "id": "todamateria-numeros-inteiros-q10",
+      "fonte_id": "todamateria-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Expressões com números inteiros",
+      "numero": 10,
+      "tipo": "multipla_escolha",
+      "enunciado": "A quarta parte de um número inteiro positivo ímpar, menos 2, é menor que três quartos. Quantos números inteiros tornam essa sentença verdadeira?",
+      "dicas": [
+        "Escreva a sentença como uma inequação: x/4 - 2 < 3/4, com x inteiro positivo e ímpar.",
+        "Resolva a inequação para achar o maior valor possível de x, depois conte os ímpares positivos até esse limite."
+      ],
+      "conceitos": [
+        "numeros_inteiros_operacoes",
+        "inequacao_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "4",
+        "b": "5",
+        "c": "6",
+        "d": "7"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 5",
+      "resolucao": [
+        "x/4 - 2 < 3/4 → x/4 < 11/4 → x < 11.",
+        "Números ímpares positivos menores que 11: 1, 3, 5, 7, 9 → são 5 números."
+      ]
+    },
+    {
+      "id": "lereaprender-numeros-inteiros-q01",
+      "fonte_id": "lereaprender-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Situações do cotidiano com inteiros",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Utilizando números inteiros, represente as seguintes situações:",
+      "dicas": [
+        "Situações de 'acima/ganho/aumento' viram números positivos; 'abaixo/desconto/dívida/saldo negativo' viram negativos."
+      ],
+      "conceitos": [
+        "numeros_inteiros_situacoes_cotidiano"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "10 andares acima do térreo",
+          "resposta": "+10"
+        },
+        {
+          "letra": "b",
+          "enunciado": "Temperatura 6°C abaixo de zero",
+          "resposta": "-6"
+        },
+        {
+          "letra": "c",
+          "enunciado": "Desconto de 50 reais",
+          "resposta": "-50"
+        },
+        {
+          "letra": "d",
+          "enunciado": "Aumento de 30 reais",
+          "resposta": "+30"
+        },
+        {
+          "letra": "e",
+          "enunciado": "Saldo negativo de 10 gols",
+          "resposta": "-10"
+        }
+      ]
+    },
+    {
+      "id": "lereaprender-numeros-inteiros-q02",
+      "fonte_id": "lereaprender-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Distância entre pontos na reta numérica",
+      "numero": 2,
+      "tipo": "calculo",
+      "enunciado": "Qual a distância entre os seguintes pares de pontos na reta numérica?",
+      "dicas": [
+        "A distância entre dois pontos é sempre um valor positivo: é o módulo da diferença entre eles."
+      ],
+      "conceitos": [
+        "numeros_inteiros_comparacao",
+        "numeros_inteiros_modulo_simetrico"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "0 a +8",
+          "resposta": "8"
+        },
+        {
+          "letra": "b",
+          "enunciado": "+7 a 0",
+          "resposta": "7"
+        },
+        {
+          "letra": "c",
+          "enunciado": "0 a -10",
+          "resposta": "10"
+        },
+        {
+          "letra": "d",
+          "enunciado": "-5 a 0",
+          "resposta": "5"
+        },
+        {
+          "letra": "e",
+          "enunciado": "-3 a +3",
+          "resposta": "6"
+        },
+        {
+          "letra": "f",
+          "enunciado": "-5 a +2",
+          "resposta": "7"
+        },
+        {
+          "letra": "g",
+          "enunciado": "+4 a +10",
+          "resposta": "6"
+        },
+        {
+          "letra": "h",
+          "enunciado": "-10 a -4",
+          "resposta": "6"
+        }
+      ]
+    },
+    {
+      "id": "lereaprender-numeros-inteiros-q03",
+      "fonte_id": "lereaprender-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Comparação de números inteiros",
+      "numero": 3,
+      "tipo": "compreensao",
+      "enunciado": "Dado o conjunto {+18, -35, -24, +79, -16, +45, +12, -101, +99}, identifique:",
+      "dicas": [
+        "Separe os números positivos dos negativos antes de comparar.",
+        "Entre os negativos, o 'maior' é o mais próximo de zero; entre os positivos, o menor também é o mais próximo de zero."
+      ],
+      "conceitos": [
+        "numeros_inteiros_comparacao"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "o menor número positivo",
+          "resposta": "+12"
+        },
+        {
+          "letra": "b",
+          "enunciado": "o maior número negativo",
+          "resposta": "-16"
+        },
+        {
+          "letra": "c",
+          "enunciado": "o menor número do conjunto",
+          "resposta": "-101"
+        },
+        {
+          "letra": "d",
+          "enunciado": "o maior número do conjunto",
+          "resposta": "+99"
+        }
+      ]
+    },
+    {
+      "id": "lereaprender-numeros-inteiros-q04",
+      "fonte_id": "lereaprender-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Expressões com números inteiros",
+      "numero": 4,
+      "tipo": "calculo",
+      "enunciado": "Calcule as seguintes operações de adição e subtração:",
+      "dicas": [
+        "Sinais iguais: some os valores e mantenha o sinal. Sinais diferentes: subtraia o menor do maior e use o sinal do que tem maior módulo."
+      ],
+      "conceitos": [
+        "numeros_inteiros_operacoes"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "+10 + 0",
+          "resposta": "+10"
+        },
+        {
+          "letra": "b",
+          "enunciado": "-15 + 0",
+          "resposta": "-15"
+        },
+        {
+          "letra": "c",
+          "enunciado": "0 - 8",
+          "resposta": "-8"
+        },
+        {
+          "letra": "d",
+          "enunciado": "+20 - 15",
+          "resposta": "+5"
+        },
+        {
+          "letra": "e",
+          "enunciado": "+20 - 25",
+          "resposta": "-5"
+        },
+        {
+          "letra": "f",
+          "enunciado": "-40 - 12",
+          "resposta": "-52"
+        },
+        {
+          "letra": "g",
+          "enunciado": "+30 - 90",
+          "resposta": "-60"
+        }
+      ]
+    },
+    {
+      "id": "lereaprender-numeros-inteiros-q05",
+      "fonte_id": "lereaprender-numeros-inteiros",
+      "ano_id": "8fund",
+      "tema_id": "8f-numeros",
+      "pagina": 0,
+      "topico": "Números inteiros",
+      "subtopico": "Expressões com números inteiros",
+      "numero": 5,
+      "tipo": "calculo",
+      "enunciado": "Calcule as seguintes operações de multiplicação e divisão:",
+      "dicas": [
+        "Sinais iguais (+ com + ou - com -) dão resultado positivo; sinais diferentes dão resultado negativo."
+      ],
+      "conceitos": [
+        "numeros_inteiros_operacoes"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "(+5) × (-2)",
+          "resposta": "-10"
+        },
+        {
+          "letra": "b",
+          "enunciado": "(-3) × (+4)",
+          "resposta": "-12"
+        },
+        {
+          "letra": "c",
+          "enunciado": "(-8) × (-9)",
+          "resposta": "+72"
+        },
+        {
+          "letra": "d",
+          "enunciado": "(+10) × (-7)",
+          "resposta": "-70"
+        },
+        {
+          "letra": "e",
+          "enunciado": "(+15) ÷ (-3)",
+          "resposta": "-5"
+        },
+        {
+          "letra": "f",
+          "enunciado": "(-100) ÷ (-25)",
+          "resposta": "+4"
+        },
+        {
+          "letra": "g",
+          "enunciado": "(-45) ÷ (+9)",
+          "resposta": "-5"
+        }
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q01",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo básico de porcentagem",
+      "numero": 1,
+      "tipo": "multipla_escolha",
+      "enunciado": "25 representa quantos por cento de 200?",
+      "dicas": [
+        "Divida a parte (25) pelo total (200) e multiplique por 100."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "12,5%",
+        "b": "15,5%",
+        "c": "16%",
+        "d": "20%"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) 12,5%",
+      "resolucao": [
+        "25 ÷ 200 = 0,125; multiplicando por 100 → 12,5%."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q02",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo básico de porcentagem",
+      "numero": 2,
+      "tipo": "multipla_escolha",
+      "enunciado": "30 representa 15% de qual número?",
+      "dicas": [
+        "Monte uma regra de três: 15% está para 30, assim como 100% está para x."
+      ],
+      "conceitos": [
+        "porcentagem_basica",
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "150",
+        "b": "200",
+        "c": "350",
+        "d": "400"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 200",
+      "resolucao": [
+        "x = (30 × 100) ÷ 15 = 200."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q03",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo básico de porcentagem",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "Em uma sala de aula há 30 alunos, dos quais 40% são meninas. Quantas meninas há na sala?",
+      "dicas": [
+        "Calcule 40% de 30 usando regra de três ou multiplicando 30 por 0,40."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "10 meninas",
+        "b": "12 meninas",
+        "c": "15 meninas",
+        "d": "18 meninas"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 12 meninas",
+      "resolucao": [
+        "x = (40 × 30) ÷ 100 = 12."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q04",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Fração, decimal e porcentagem",
+      "numero": 4,
+      "tipo": "multipla_escolha",
+      "enunciado": "Convertendo a fração 2/5 em uma fração centesimal, qual o resultado em porcentagem?",
+      "dicas": [
+        "Transforme a fração em uma fração equivalente com denominador 100."
+      ],
+      "conceitos": [
+        "porcentagem_fracao_decimal"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "10%",
+        "b": "20%",
+        "c": "30%",
+        "d": "40%"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 40%",
+      "resolucao": [
+        "2/5 = x/100 → 5x = 200 → x = 40, ou seja, 40%."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q05",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Fração, decimal e porcentagem",
+      "numero": 5,
+      "tipo": "compreensao",
+      "enunciado": "Júlia acertou 75% das questões de Matemática de um teste e Mariana acertou 4/5 das questões do mesmo teste. Quem acertou mais questões?",
+      "dicas": [
+        "Transforme a fração 4/5 em porcentagem para comparar com os 75% de Júlia."
+      ],
+      "conceitos": [
+        "porcentagem_fracao_decimal",
+        "porcentagem_comparacao"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "Júlia",
+        "b": "Mariana",
+        "c": "As duas acertaram o mesmo número de questões"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) Mariana",
+      "resolucao": [
+        "4/5 em porcentagem: (4 × 100) ÷ 5 = 80%. Como 80% > 75%, Mariana acertou mais."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q06",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Fração, decimal e porcentagem",
+      "numero": 6,
+      "tipo": "calculo",
+      "enunciado": "Para as frações irredutíveis abaixo, determine as porcentagens correspondentes:",
+      "dicas": [
+        "Transforme cada fração em uma fração equivalente com denominador 100."
+      ],
+      "conceitos": [
+        "porcentagem_fracao_decimal"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "1/5",
+          "resposta": "20%",
+          "resolucao": [
+            "1/5 = 20/100 = 20%."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "4/5",
+          "resposta": "80%",
+          "resolucao": [
+            "4/5 = 80/100 = 80%."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "9/20",
+          "resposta": "45%",
+          "resolucao": [
+            "9/20 = 45/100 = 45%."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q08",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Desconto e aumento percentual",
+      "numero": 8,
+      "tipo": "problema",
+      "enunciado": "Na promoção de uma loja de eletrodomésticos, um aparelho de som que custava R$ 400,00 teve um desconto de 12%. Quanto o cliente pagará?",
+      "dicas": [
+        "Calcule o valor do desconto (12% de 400) e subtraia do preço original."
+      ],
+      "conceitos": [
+        "porcentagem_desconto"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 372,00",
+        "b": "R$ 342,00",
+        "c": "R$ 362,00",
+        "d": "R$ 352,00"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) R$ 352,00",
+      "resolucao": [
+        "12% de 400 = 48.",
+        "400 - 48 = 352."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q10",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagem de uma parte do total",
+      "numero": 10,
+      "tipo": "problema",
+      "enunciado": "Em um concurso, 520 candidatos se inscreveram. No dia da prova, apenas 364 compareceram. Qual foi a porcentagem de candidatos que faltaram?",
+      "dicas": [
+        "Calcule quantos faltaram (520 - 364) e depois que porcentagem esse valor representa de 520."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "10%",
+        "b": "20%",
+        "c": "30%",
+        "d": "40%"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 30%",
+      "resolucao": [
+        "Faltosos: 520 - 364 = 156.",
+        "156 ÷ 520 = 0,3 = 30%."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q11",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagem de uma parte do total",
+      "numero": 11,
+      "tipo": "problema",
+      "enunciado": "Em uma indústria, um lote com 4.500 peças tem 180 peças com defeito. Para ser aprovado, o lote pode ter no máximo 3% de peças defeituosas. O lote foi aprovado ou reprovado?",
+      "dicas": [
+        "Calcule que porcentagem 180 representa de 4.500 e compare com o limite de 3%."
+      ],
+      "conceitos": [
+        "porcentagem_basica",
+        "porcentagem_comparacao"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "Aprovado com 1% de defeito",
+        "b": "Aprovado com 2% de defeito",
+        "c": "Reprovado com 3% de defeito",
+        "d": "Reprovado com 4% de defeito"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) Reprovado com 4% de defeito",
+      "resolucao": [
+        "(180 × 100) ÷ 4.500 = 4%.",
+        "Como 4% > 3%, o lote é reprovado."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q12",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Desconto e aumento percentual",
+      "numero": 12,
+      "tipo": "problema",
+      "enunciado": "Na liquidação de verão, todos os produtos de uma loja têm desconto de 15%. Uma camisa que custava R$ 145,00 passa a custar quanto?",
+      "dicas": [
+        "Calcule 15% de 145 e subtraia do preço original."
+      ],
+      "conceitos": [
+        "porcentagem_desconto"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 112,20",
+        "b": "R$ 123,25",
+        "c": "R$ 135,50",
+        "d": "R$ 140,15"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) R$ 123,25",
+      "resolucao": [
+        "Desconto: 15% de 145 = 21,75.",
+        "Preço final: 145 - 21,75 = 123,25."
+      ]
+    },
+    {
+      "id": "todamateria-porcentagem-q13",
+      "fonte_id": "todamateria-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Comissão e salário",
+      "numero": 13,
+      "tipo": "problema",
+      "enunciado": "Vendedores de uma loja recebem um salário fixo de R$ 1.200,00 mais uma comissão de 6% sobre o total de vendas do mês. Um vendedor vendeu R$ 14.000,00. Quanto ele recebeu no mês?",
+      "dicas": [
+        "Calcule a comissão (6% de 14.000) e some ao salário fixo."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 2.040,00",
+        "b": "R$ 2.080,00",
+        "c": "R$ 3.020,00",
+        "d": "R$ 3.040,00"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) R$ 2.040,00",
+      "resolucao": [
+        "Comissão: 6% de 14.000 = 840.",
+        "Total: 1.200 + 840 = 2.040."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q01",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo do montante",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "João aplicou R$ 20.000,00 durante 3 meses em uma aplicação a juros simples com taxa de 6% ao mês. Qual o valor recebido ao final da aplicação?",
+      "dicas": [
+        "Use J = C × i × t para o juro, depois some ao capital para achar o montante."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 21.600,00",
+        "b": "R$ 24.800,00",
+        "c": "R$ 22.400,00",
+        "d": "R$ 23.600,00",
+        "e": "R$ 25.200,00"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) R$ 23.600,00",
+      "resolucao": [
+        "Juro por mês: 20.000 × 0,06 = 1.200.",
+        "Em 3 meses: 1.200 × 3 = 3.600.",
+        "Montante: 20.000 + 3.600 = 23.600."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q03",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Tempo de aplicação",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "Um capital é aplicado a juros simples à taxa de 4% ao mês. Quanto tempo, no mínimo, deverá ser aplicado esse capital para resgatar o triplo da quantia inicial?",
+      "dicas": [
+        "O montante deve ser 3 vezes o capital: M = 3C. Use M = C(1 + i.t) para achar t."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "50 meses",
+        "b": "75 meses",
+        "c": "100 meses",
+        "d": "150 meses",
+        "e": "200 meses"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) 50 meses",
+      "resolucao": [
+        "3C = C(1 + 0,04t) → 3 = 1 + 0,04t → 2 = 0,04t → t = 50 meses."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q04",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo do capital",
+      "numero": 4,
+      "tipo": "problema",
+      "enunciado": "Uma pessoa aplicou um capital a juros simples durante 1 ano e meio, a uma taxa de 5% ao mês, obtendo um montante de R$ 35.530,00. Determine o capital aplicado.",
+      "dicas": [
+        "1 ano e meio são 18 meses. Use M = C(1 + i.t) e isole C."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 18.700,00",
+        "b": "R$ 22.500,00",
+        "c": "R$ 24.500,00",
+        "d": "R$ 25.000,00",
+        "e": "R$ 27.500,00"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) R$ 18.700,00",
+      "resolucao": [
+        "M = C(1 + it) → 35.530 = C(1 + 0,05 × 18) = C × 1,9.",
+        "C = 35.530 ÷ 1,9 = 18.700."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q05",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Juro de mora",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Uma conta de água no valor de R$ 580,00 tem juros de mora de 0,3% por dia de atraso. Se for paga com 15 dias de atraso, qual o valor a ser pago?",
+      "dicas": [
+        "Calcule o juro diário (0,3% de 580) e multiplique pelos 15 dias de atraso."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 603,20",
+        "b": "R$ 606,10",
+        "c": "R$ 609,30",
+        "d": "R$ 610,10",
+        "e": "R$ 616,15"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) R$ 606,10",
+      "resolucao": [
+        "Montante: 580 + 580 × 0,003 × 15 = 580 + 26,10 = 606,10."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q06",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo da taxa",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "Uma dívida de R$ 13.000,00 é paga 5 meses após ter sido contraída, e o valor pago de juros foi de R$ 780,00. Qual foi a taxa de juros simples aplicada?",
+      "dicas": [
+        "Use J = C × i × t e isole i (a taxa)."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "0,8%",
+        "b": "1,2%",
+        "c": "1,4%",
+        "d": "1,8%",
+        "e": "2,0%"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 1,2%",
+      "resolucao": [
+        "780 = 13.000 × i × 5 → i = 780 ÷ 65.000 = 0,012 = 1,2% ao mês."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q07",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples e taxa anual",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "Um terreno de R$ 100.000,00 será pago 6 meses após a compra. A taxa aplicada é de 18% ao ano, no regime de juros simples. Quanto será pago de juros?",
+      "dicas": [
+        "6 meses equivalem a 0,5 ano. Use J = C × i × t com a taxa e o tempo na mesma unidade (anos)."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 5.000,00",
+        "b": "R$ 7.000,00",
+        "c": "R$ 9.000,00",
+        "d": "R$ 12.000,00",
+        "e": "R$ 15.000,00"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 9.000,00",
+      "resolucao": [
+        "J = 100.000 × 0,18 × 0,5 = 9.000."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q08",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Financiamento e taxa de juros",
+      "numero": 8,
+      "tipo": "problema",
+      "enunciado": "(UERJ) Um fogão custa R$ 860,00 à vista, ou em 2 parcelas de R$ 460,00, sendo a primeira paga no ato da compra e a segunda 30 dias depois. Qual a taxa de juros mensal cobrada nesse financiamento?",
+      "dicas": [
+        "O valor 'sem juros' da segunda parcela é 860 - 460 (o que falta pagar à vista). Compare com os R$ 460,00 realmente pagos."
+      ],
+      "conceitos": [
+        "juro_simples",
+        "financiamento"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "10%",
+        "b": "12%",
+        "c": "15%",
+        "d": "18%"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 15%",
+      "resolucao": [
+        "Valor devido sem juros: 860 - 460 = 400.",
+        "Aumento pago: 460 - 400 = 60.",
+        "Taxa: 60 ÷ 400 = 0,15 = 15% ao mês."
+      ]
+    },
+    {
+      "id": "todamateria-juros-simples-q10",
+      "fonte_id": "todamateria-juros-simples",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Juro simples",
+      "subtopico": "Desconto e mora em boletos",
+      "numero": 10,
+      "tipo": "problema",
+      "enunciado": "(Vunesp) Um boleto de R$ 740,00 vence em 10/08. a) Se pago até 20/07, custa R$ 703,00 — qual o percentual de desconto? b) Se pago com 20 dias de atraso, com juros de mora de 0,25% ao dia sobre o valor nominal, qual o valor a pagar?",
+      "dicas": [
+        "No item a, compare o valor pago (703) com o valor nominal (740).",
+        "No item b, calcule o juro de mora por dia e multiplique pelos 20 dias de atraso."
+      ],
+      "conceitos": [
+        "porcentagem_desconto",
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Qual o percentual de desconto para pagamento até 20/07?",
+          "resposta": "5%",
+          "resolucao": [
+            "703 ÷ 740 = 0,95, ou seja, um desconto de 5%."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Qual o valor a pagar com 20 dias de atraso?",
+          "resposta": "R$ 777,00",
+          "resolucao": [
+            "Juro diário: 740 × 0,0025 = 1,85.",
+            "Em 20 dias: 1,85 × 20 = 37.",
+            "Total: 740 + 37 = 777."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q01",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Desconto e aumento percentual",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Uma camiseta custa R$ 26,90 e está com desconto de 20%. Qual o preço da camiseta durante a promoção?",
+      "dicas": [
+        "Calcule 20% de 26,90 e subtraia do preço original (ou multiplique 26,90 por 0,80 direto)."
+      ],
+      "conceitos": [
+        "porcentagem_desconto"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 21,52",
+        "b": "R$ 22,25",
+        "c": "R$ 23,52",
+        "d": "R$ 24,12"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) R$ 21,52",
+      "resolucao": [
+        "26,90 × (1 - 0,20) = 26,90 × 0,80 = 21,52."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q02",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Lucro sobre o custo",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Uma estante tem preço de custo de R$ 280,00. Por quanto ela deve ser vendida para dar um lucro de 30% sobre o preço de custo?",
+      "dicas": [
+        "Some 30% do custo ao próprio custo (ou multiplique o custo por 1,30)."
+      ],
+      "conceitos": [
+        "porcentagem_aumento_percentual"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 310,00",
+        "b": "R$ 354,00",
+        "c": "R$ 364,00",
+        "d": "R$ 380,00"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 364,00",
+      "resolucao": [
+        "280 × 1,30 = 364."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q03",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagem de uma parte do total",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "O preço de um livro foi reduzido de R$ 76,00 para R$ 57,00. De quantos por cento foi essa redução?",
+      "dicas": [
+        "Calcule quanto o preço caiu (76 - 57) e depois que porcentagem essa queda representa do preço original (76)."
+      ],
+      "conceitos": [
+        "porcentagem_desconto"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "20%",
+        "b": "25%",
+        "c": "30%",
+        "d": "35%"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 25%",
+      "resolucao": [
+        "Redução: 76 - 57 = 19.",
+        "19 ÷ 76 = 0,25 = 25%."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q04",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagens sucessivas",
+      "numero": 4,
+      "tipo": "problema",
+      "enunciado": "Luciana tem R$ 120,00. Ela gasta 25% desse valor em uma manicure e, do que sobrou, gasta mais 32% em produtos de beleza. Com quanto ela fica?",
+      "dicas": [
+        "Calcule primeiro quanto sobra depois da manicure, e só depois aplique os 32% sobre esse novo valor (não sobre os R$ 120,00 originais)."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 48,90",
+        "b": "R$ 51,60",
+        "c": "R$ 54,70",
+        "d": "R$ 61,20"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) R$ 61,20",
+      "resolucao": [
+        "Depois da manicure: 120 × (1 - 0,25) = 120 × 0,75 = 90.",
+        "Depois dos produtos: 90 × (1 - 0,32) = 90 × 0,68 = 61,20."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q05",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagem em duas etapas",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Uma escola tem 1.300 alunos, dos quais 45% estudam pela manhã e o restante à tarde. Do turno da tarde, 40% são meninos. Quantas meninas estudam à tarde?",
+      "dicas": [
+        "Primeiro calcule quantos alunos estudam à tarde (o restante dos 45% da manhã).",
+        "Depois, como 40% da tarde são meninos, o restante (60%) são meninas."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "286 meninas",
+        "b": "374 meninas",
+        "c": "429 meninas",
+        "d": "715 meninas"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 429 meninas",
+      "resolucao": [
+        "Alunos à tarde: 1.300 × (1 - 0,45) = 1.300 × 0,55 = 715.",
+        "Meninas à tarde (60% de 715, já que 40% são meninos): 715 × 0,60 = 429."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q06",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Descobrir o total a partir de uma parte",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "Luiz gastou 40% do dinheiro que tinha e ficou com R$ 360,00. Quanto ele possuía inicialmente?",
+      "dicas": [
+        "Se gastou 40%, ficou com 60% do total. Os R$ 360,00 correspondem a esses 60%."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 600,00",
+        "b": "R$ 650,00",
+        "c": "R$ 720,00",
+        "d": "R$ 780,00"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) R$ 600,00",
+      "resolucao": [
+        "60% do total = 360 → total = 360 ÷ 0,60 = 600."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q07",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagens sucessivas",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "A gasolina custa R$ 2,40 por litro e um cliente costuma gastar R$ 72,00 para encher o tanque. Depois de dois aumentos sucessivos de 10% cada um no preço do litro, quanto esse cliente gastará para encher o mesmo tanque (mesma quantidade de litros)?",
+      "dicas": [
+        "Primeiro descubra quantos litros o tanque tem (72 ÷ 2,40). Depois aplique os dois aumentos de 10% sobre o preço do litro."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 76,00",
+        "b": "R$ 83,00",
+        "c": "R$ 87,00",
+        "d": "R$ 91,00"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 87,00",
+      "resolucao": [
+        "Litros do tanque: 72 ÷ 2,40 = 30 L.",
+        "Novo preço por litro: 2,40 × 1,10 × 1,10 = 2,904.",
+        "Gasto para 30 L: 30 × 2,904 = 87,12 ≈ R$ 87,00."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q08",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Descobrir a taxa percentual",
+      "numero": 8,
+      "tipo": "problema",
+      "enunciado": "Um remédio custava R$ 24,00 e teve um aumento de R$ 1,20. De quantos por cento foi esse aumento?",
+      "dicas": [
+        "Calcule que porcentagem R$ 1,20 representa de R$ 24,00."
+      ],
+      "conceitos": [
+        "porcentagem_basica"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "5%",
+        "b": "10%",
+        "c": "15%",
+        "d": "25%"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) 5%",
+      "resolucao": [
+        "1,20 ÷ 24 = 0,05 = 5%."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q09",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Depreciação percentual",
+      "numero": 9,
+      "tipo": "problema",
+      "enunciado": "Um carro vale hoje R$ 26.800,00. Se seu valor se reduz 15% a cada ano, quanto ele valerá daqui a 2 anos?",
+      "dicas": [
+        "Aplique a redução de 15% duas vezes seguidas (uma para cada ano), sempre sobre o valor do ano anterior."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 18.630,00",
+        "b": "R$ 19.363,00",
+        "c": "R$ 22.780,00",
+        "d": "R$ 23.980,00"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) R$ 19.363,00",
+      "resolucao": [
+        "26.800 × 0,85 × 0,85 = 26.800 × 0,7225 = 19.363,00."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q10",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Crescimento percentual",
+      "numero": 10,
+      "tipo": "problema",
+      "enunciado": "Uma cidade tem 50.000 habitantes e cresce 5% ao ano. Quantos habitantes ela terá daqui a 2 anos?",
+      "dicas": [
+        "Aplique o crescimento de 5% duas vezes seguidas, sempre sobre a população do ano anterior."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "51.000 habitantes",
+        "b": "52.500 habitantes",
+        "c": "55.125 habitantes",
+        "d": "55.000 habitantes"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 55.125 habitantes",
+      "resolucao": [
+        "50.000 × 1,05 × 1,05 = 50.000 × 1,1025 = 55.125."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q11",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Preço de custo e lucro",
+      "numero": 11,
+      "tipo": "problema",
+      "enunciado": "Um comerciante compra 60 kg de cenoura por R$ 30,00. Por quanto ele deve vender o quilo da cenoura para ter um lucro de 30% sobre o preço de custo?",
+      "dicas": [
+        "Calcule primeiro o preço de custo por quilo, depois acrescente 30% de lucro sobre esse valor."
+      ],
+      "conceitos": [
+        "porcentagem_aumento_percentual"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 0,15",
+        "b": "R$ 0,25",
+        "c": "R$ 0,30",
+        "d": "R$ 0,65"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) R$ 0,65",
+      "resolucao": [
+        "Custo por kg: 30 ÷ 60 = 0,50.",
+        "Com 30% de lucro: 0,50 × 1,30 = 0,65."
+      ]
+    },
+    {
+      "id": "tudosaladeaula-porcentagem-q12",
+      "fonte_id": "tudosaladeaula-porcentagem",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "pagina": 0,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagens em cadeia",
+      "numero": 12,
+      "tipo": "problema",
+      "enunciado": "O aluguel de uma sala é de R$ 1.500,00 e o condomínio corresponde a 12% do valor do aluguel. Ao pagar tudo antecipado, há um desconto de 5% sobre o total (aluguel + condomínio). A empresa de Francisco paga 70% do valor com desconto, e ele paga o restante. Quanto Francisco desembolsa?",
+      "dicas": [
+        "Primeiro some aluguel e condomínio, depois aplique o desconto de 5% sobre esse total, e por fim calcule os 30% que sobram para Francisco (100% - 70% da empresa)."
+      ],
+      "conceitos": [
+        "porcentagem_sucessiva"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "R$ 278,80",
+        "b": "R$ 478,80",
+        "c": "R$ 998,00",
+        "d": "R$ 1.172,20"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) R$ 478,80",
+      "resolucao": [
+        "Condomínio: 12% de 1.500 = 180. Total: 1.500 + 180 = 1.680.",
+        "Com desconto de 5%: 1.680 × 0,95 = 1.596.",
+        "Empresa paga 70%: 1.596 × 0,70 = 1.117,20. Francisco paga o restante: 1.596 - 1.117,20 = 478,80."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q01",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Conceito de razão",
+      "numero": 1,
+      "tipo": "compreensao",
+      "enunciado": "Uma razão pode ser definida como a comparação entre duas grandezas. Se a e b são grandezas, sendo b diferente de 0, então a divisão a/b ou a:b é uma razão. São exemplos de razões que utilizamos, EXCETO:",
+      "dicas": [
+        "Pense em qual dessas grandezas NÃO é definida como o quociente entre duas outras grandezas."
+      ],
+      "conceitos": [
+        "razao_conceito"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "Velocidade média",
+        "b": "Densidade",
+        "c": "Pressão",
+        "d": "Temperatura"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) Temperatura",
+      "resolucao": [
+        "Temperatura mede agitação molecular, não é o quociente entre duas grandezas — diferente de velocidade (distância/tempo), densidade (massa/volume) e pressão (força/área), que são razões."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q02",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Razão entre grandezas",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Um concurso com 200 vagas recebeu 1.600 inscrições. Quantos candidatos há para cada vaga?",
+      "dicas": [
+        "Divida o número de inscrições pelo número de vagas."
+      ],
+      "conceitos": [
+        "razao_grandezas"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "4",
+        "b": "6",
+        "c": "8",
+        "d": "12"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 8",
+      "resolucao": [
+        "1.600 ÷ 200 = 8 candidatos por vaga."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q03",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Razão entre grandezas",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "Gustavo acertou 6 de 14 chutes ao gol. Qual a razão do número de acertos para o total de chutes?",
+      "dicas": [
+        "Escreva a razão como uma fração (acertos/total) e simplifique."
+      ],
+      "conceitos": [
+        "razao_grandezas"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "3/5",
+        "b": "3/7",
+        "c": "7/3",
+        "d": "5/3"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 3/7",
+      "resolucao": [
+        "Razão: 6/14, simplificando por 2 → 3/7."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q04",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Propriedade fundamental das proporções",
+      "numero": 4,
+      "tipo": "calculo",
+      "enunciado": "Determine o valor de x nas proporções:",
+      "dicas": [
+        "Use a propriedade fundamental das proporções: o produto dos meios é igual ao produto dos extremos."
+      ],
+      "conceitos": [
+        "proporcao_regra_fundamental"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "2/6 = 9/x",
+          "resposta": "x = 27",
+          "resolucao": [
+            "2x = 6 × 9 = 54 → x = 27."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "1/3 = x/12",
+          "resposta": "x = 4",
+          "resolucao": [
+            "3x = 1 × 12 = 12 → x = 4."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "x/10 = 6/5",
+          "resposta": "x = 12",
+          "resolucao": [
+            "5x = 10 × 6 = 60 → x = 12."
+          ]
+        },
+        {
+          "letra": "d",
+          "enunciado": "8/x = 2/15",
+          "resposta": "x = 60",
+          "resolucao": [
+            "2x = 8 × 15 = 120 → x = 60."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q05",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Razão entre grandezas",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "A razão entre o número de homens e mulheres em um evento é 4/7. Sabendo que há 32 homens, qual o total de participantes?",
+      "dicas": [
+        "Monte a proporção 4/7 = 32/x para achar o número de mulheres, depois some com os homens."
+      ],
+      "conceitos": [
+        "razao_grandezas",
+        "proporcao_regra_fundamental"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "56",
+        "b": "72",
+        "c": "88",
+        "d": "94"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 88",
+      "resolucao": [
+        "4/7 = 32/x → 4x = 224 → x = 56 mulheres.",
+        "Total: 32 + 56 = 88."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q06",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Escala e proporção",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "(IFSP) Um prédio de 80 m de altura é representado em uma maquete por 48 cm. Qual seria a altura, na mesma maquete, de um prédio de 110 m?",
+      "dicas": [
+        "Monte a proporção entre altura real e altura na maquete: 48/80 = x/110."
+      ],
+      "conceitos": [
+        "proporcao_regra_fundamental",
+        "escala_mapa"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "56 cm",
+        "b": "60 cm",
+        "c": "66 cm",
+        "d": "72 cm",
+        "e": "78 cm"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 66 cm",
+      "resolucao": [
+        "48/80 = x/110 → 80x = 48 × 110 = 5.280 → x = 66 cm."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q07",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Razão entre grandezas",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "(UEPB) A razão entre o peso de uma pessoa na Terra e em Netuno é 5/7. Se uma pessoa pesa 60 kg na Terra, qual o seu peso em Netuno?",
+      "dicas": [
+        "Monte a proporção 5/7 = 60/x para achar o peso em Netuno."
+      ],
+      "conceitos": [
+        "razao_grandezas",
+        "proporcao_regra_fundamental"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "entre 40 kg e 45 kg",
+        "b": "entre 45 kg e 50 kg",
+        "c": "entre 55 kg e 60 kg",
+        "d": "entre 75 kg e 80 kg",
+        "e": "entre 80 kg e 85 kg"
+      },
+      "gabarito": "e",
+      "resposta": "Alternativa e) entre 80 kg e 85 kg",
+      "resolucao": [
+        "5/7 = 60/x → 5x = 420 → x = 84 kg, dentro do intervalo entre 80 kg e 85 kg."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q09",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Razão e concentração",
+      "numero": 9,
+      "tipo": "compreensao",
+      "enunciado": "(Enem) Qual marca de pão, entre as listadas, tem a maior concentração de fibras? Marca A: 2 g de fibra em 50 g de pão; Marca B: 5 g em 40 g; Marca C: 5 g em 100 g; Marca D: 6 g em 90 g; Marca E: 7 g em 70 g.",
+      "dicas": [
+        "Calcule a razão fibra/peso (em decimal) para cada marca e compare qual é a maior."
+      ],
+      "conceitos": [
+        "razao_grandezas"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "Marca B",
+      "resolucao": [
+        "Marca A: 2/50 = 0,040.",
+        "Marca B: 5/40 = 0,125.",
+        "Marca C: 5/100 = 0,050.",
+        "Marca D: 6/90 ≈ 0,067.",
+        "Marca E: 7/70 = 0,100.",
+        "A maior concentração é a da Marca B."
+      ]
+    },
+    {
+      "id": "todamateria-razao-proporcao-q10",
+      "fonte_id": "todamateria-razao-proporcao",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Razão e proporção",
+      "subtopico": "Escala e proporção",
+      "numero": 10,
+      "tipo": "problema",
+      "enunciado": "(Enem) A distância real entre duas cidades A e B é de 2.000 km. Em um mapa, essa distância é representada por 8 cm. Qual a escala do mapa?",
+      "dicas": [
+        "Escala = medida no mapa ÷ medida real, com as duas em uma mesma unidade (converta km para cm)."
+      ],
+      "conceitos": [
+        "escala_mapa"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "1:250",
+        "b": "1:2.500",
+        "c": "1:25.000",
+        "d": "1:250.000",
+        "e": "1:25.000.000"
+      },
+      "gabarito": "e",
+      "resposta": "Alternativa e) 1:25.000.000",
+      "resolucao": [
+        "2.000 km = 200.000.000 cm.",
+        "Escala: 8 ÷ 200.000.000 = 1/25.000.000."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q01",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três simples direta",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Uma pessoa gasta 10 kg de ração para seu cão a cada 15 dias. Qual a quantidade consumida por semana (7 dias)?",
+      "dicas": [
+        "Mais dias, mais ração: as grandezas são diretamente proporcionais. Monte a proporção 15/10 = 7/x."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "Aproximadamente 4,7 kg por semana",
+      "resolucao": [
+        "15/10 = 7/x → 15x = 70 → x ≈ 4,67 kg."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q02",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três simples inversa",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Uma torneira enche um tanque em 6 horas. Quanto tempo levará para encher o mesmo tanque usando 4 torneiras iguais?",
+      "dicas": [
+        "Mais torneiras, menos tempo: as grandezas são inversamente proporcionais. Inverta uma das razões antes de igualar."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "1,5 horas",
+      "resolucao": [
+        "Como é inversa: 1 torneira × 6 h = 4 torneiras × x → x = 6 ÷ 4 = 1,5 h."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q03",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "50 funcionários produzem 200 peças trabalhando 5 horas por dia. Trabalhando 8 horas por dia, quantas peças 25 funcionários produziriam?",
+      "dicas": [
+        "Peças é diretamente proporcional a funcionários e a horas trabalhadas. Monte a proporção composta com as três grandezas."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "resposta": "160 peças",
+      "resolucao": [
+        "Produção por funcionário-hora: 200 ÷ (50 × 5) = 0,8 peça por funcionário-hora.",
+        "Com 25 funcionários e 8 horas: 25 × 8 × 0,8 = 160 peças."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q04",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 4,
+      "tipo": "multipla_escolha",
+      "enunciado": "(EPCAR) Duas máquinas A e B produzem juntas n peças em 2h40min. A máquina A, sozinha, produz n/2 peças em 2 horas. Quanto tempo a máquina B leva, sozinha, para produzir n/2 peças?",
+      "dicas": [
+        "Descubra primeiro a produção de A em 2h40min (usando sua taxa de n/2 a cada 2h) e, por diferença, a produção de B nesse mesmo tempo."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "40 minutos",
+        "b": "120 minutos",
+        "c": "160 minutos",
+        "d": "240 minutos"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 240 minutos",
+      "resolucao": [
+        "A produz n/2 em 120 min, ou seja, n/4 a cada 60 min (taxa de A).",
+        "Em 160 min (2h40), A produz (n/4) × (160/60) = 2n/3.",
+        "B produziu o restante: n - 2n/3 = n/3 em 160 min. Taxa de B: (n/3)/160 por minuto.",
+        "Tempo de B para produzir n/2: (n/2) ÷ [(n/3)/160] = 240 minutos."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q05",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 5,
+      "tipo": "multipla_escolha",
+      "enunciado": "(CEFET-MG) 10 funcionários produzem 150 peças em 30 dias. Quantos funcionários são necessários para produzir 200 peças em 20 dias?",
+      "dicas": [
+        "Peças e funcionários são diretamente proporcionais; dias e funcionários são inversamente proporcionais nessa comparação."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "18",
+        "b": "20",
+        "c": "22",
+        "d": "24"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 20",
+      "resolucao": [
+        "x/10 = (200/150) × (30/20) = 1,333 × 1,5 = 2 → x = 20."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q06",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 6,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Enem 2013) Um reservatório de 900 m³ esvazia em 6 horas usando 6 ralos idênticos. Um novo reservatório de 500 m³ deve esvaziar em 4 horas. Quantos ralos idênticos aos anteriores serão necessários?",
+      "dicas": [
+        "Capacidade e ralos são diretamente proporcionais; tempo e ralos são inversamente proporcionais."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "2",
+        "b": "4",
+        "c": "5",
+        "d": "8",
+        "e": "9"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 5",
+      "resolucao": [
+        "x/6 = (500/900) × (6/4) = 0,5556 × 1,5 = 0,833 → x = 5 ralos."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q07",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três simples inversa",
+      "numero": 7,
+      "tipo": "multipla_escolha",
+      "enunciado": "(UERJ) Um gráfico mostra o número de médicos por mil habitantes em diferentes regiões. Considerando que o SUS oferece 0,66 médicos para cada 1.000 habitantes na região Norte, para quantos habitantes há apenas 1 médico?",
+      "dicas": [
+        "Monte a proporção 0,66 médicos está para 1.000 habitantes, assim como 1 médico está para x habitantes."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "660",
+        "b": "1000",
+        "c": "1334",
+        "d": "1515"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 1515",
+      "resolucao": [
+        "0,66/1.000 = 1/x → 0,66x = 1.000 → x ≈ 1.515 habitantes."
+      ]
+    },
+    {
+      "id": "todamateria-regra-de-tres-q08",
+      "fonte_id": "todamateria-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Problema combinado de proporcionalidade",
+      "numero": 8,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Enem 2017) Uma piscina vazia recebe água da chuva das 17h15 às 18h, atingindo 20 cm de altura. Às 18h um ralo é aberto. A chuva cessa às 18h40, quando o nível está em 15 cm. Mantendo a mesma vazão do ralo, em que intervalo de horário a piscina esvazia completamente?",
+      "dicas": [
+        "Primeiro ache a taxa de enchimento da chuva (cm por minuto) e, sabendo o nível em dois instantes com o ralo já aberto, ache a taxa líquida (chuva menos ralo) para depois isolar a taxa do ralo sozinho."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "19h30 a 20h10",
+        "b": "19h20 a 19h30",
+        "c": "19h10 a 19h20",
+        "d": "19h a 19h10",
+        "e": "18h40 a 19h"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 19h a 19h10",
+      "resolucao": [
+        "Chuva sobe 20 cm em 45 min (17h15–18h): taxa ≈ 0,444 cm/min.",
+        "Das 18h às 18h40 (40 min), com chuva e ralo juntos, o nível foi de 20 para 15 cm: queda de 5 cm em 40 min → taxa líquida = -0,125 cm/min.",
+        "Taxa do ralo sozinho = taxa da chuva - taxa líquida ≈ 0,444 - (-0,125) = 0,569 cm/min.",
+        "A partir de 18h40 (15 cm), só o ralo atua: tempo para esvaziar ≈ 15 ÷ 0,569 ≈ 26 min, ou seja, por volta de 19h06, dentro do intervalo 19h a 19h10."
+      ]
+    },
+    {
+      "id": "beduka-regra-de-tres-q01",
+      "fonte_id": "beduka-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 1,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se 6 impressoras iguais produzem 1.000 panfletos em 40 minutos, em quanto tempo 3 dessas impressoras produziriam 2.000 desses panfletos?",
+      "dicas": [
+        "Calcule quantos panfletos uma única impressora produz por minuto, depois use essa taxa para 3 impressoras."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "160 minutos",
+        "b": "2h30 minutos",
+        "c": "168 minutos",
+        "d": "2h38 minutos"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) 160 minutos",
+      "resolucao": [
+        "Taxa de produção: 1.000 ÷ (6 × 40) ≈ 4,17 panfletos por impressora-minuto.",
+        "Com 3 impressoras: 3 × 4,17 ≈ 12,5 panfletos por minuto.",
+        "Tempo para 2.000 panfletos: 2.000 ÷ 12,5 = 160 minutos."
+      ]
+    },
+    {
+      "id": "beduka-regra-de-tres-q02",
+      "fonte_id": "beduka-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três simples inversa",
+      "numero": 2,
+      "tipo": "multipla_escolha",
+      "enunciado": "Uma empresa tem 750 empregados e comprou marmitas individuais congeladas suficientes para o almoço deles durante 25 dias. Se essa empresa tivesse mais 500 empregados, a quantidade de marmitas adquiridas seria suficiente para quantos dias?",
+      "dicas": [
+        "Calcule o total de marmitas compradas (750 × 25) e depois divida pelo novo número de empregados."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "20",
+        "b": "11",
+        "c": "15",
+        "d": "17"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 15",
+      "resolucao": [
+        "Total de marmitas: 750 × 25 = 18.750.",
+        "Novo número de empregados: 750 + 500 = 1.250.",
+        "Dias: 18.750 ÷ 1.250 = 15."
+      ]
+    },
+    {
+      "id": "beduka-regra-de-tres-q03",
+      "fonte_id": "beduka-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 3,
+      "tipo": "multipla_escolha",
+      "enunciado": "Um texto ocupa 6 páginas de 45 linhas cada uma, com 80 letras (ou espaços) em cada linha. Diminuindo para 30 o número de linhas por página e para 40 o número de letras por linha, quantas páginas o texto ocupará?",
+      "dicas": [
+        "Calcule o total de caracteres do texto original e depois divida pelo novo número de caracteres por página."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "28",
+        "b": "18",
+        "c": "25",
+        "d": "12"
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 18",
+      "resolucao": [
+        "Total de caracteres: 6 × 45 × 80 = 21.600.",
+        "Caracteres por página nova: 30 × 40 = 1.200.",
+        "Páginas: 21.600 ÷ 1.200 = 18."
+      ]
+    },
+    {
+      "id": "beduka-regra-de-tres-q04",
+      "fonte_id": "beduka-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 4,
+      "tipo": "multipla_escolha",
+      "enunciado": "Se foram empregados 4 kg de fios para tecer 14 m de uma maquete de fazenda com 80 cm de largura, quantos quilogramas serão necessários para produzir 350 m de uma maquete de fazenda com 120 cm de largura?",
+      "dicas": [
+        "Calcule a área do tecido original (comprimento × largura) e a quantidade de fio por metro quadrado. Depois aplique essa taxa à nova área."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "135 kg",
+        "b": "147 kg",
+        "c": "160 kg",
+        "d": "150 kg"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 150 kg",
+      "resolucao": [
+        "Área original: 14 m × 0,80 m = 11,2 m². Fio por m²: 4 ÷ 11,2 ≈ 0,357 kg/m².",
+        "Área nova: 350 m × 1,20 m = 420 m².",
+        "Fio necessário: 420 × 0,357 ≈ 150 kg."
+      ]
+    },
+    {
+      "id": "beduka-regra-de-tres-q05",
+      "fonte_id": "beduka-regra-de-tres",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "pagina": 0,
+      "topico": "Regra de três",
+      "subtopico": "Regra de três simples direta",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Se uma vela de 360 mm de altura diminui 1,8 mm por minuto, quanto tempo levará para se consumir completamente?",
+      "dicas": [
+        "Divida a altura total pela quantidade que a vela diminui a cada minuto."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "alternativas": {
+        "a": "20 minutos",
+        "b": "30 minutos",
+        "c": "2h 36 min",
+        "d": "3h 20 min",
+        "e": "3h 28 min"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 3h 20 min",
+      "resolucao": [
+        "360 ÷ 1,8 = 200 minutos.",
+        "200 minutos = 3h20min."
+      ]
+    }
+  ]
+}

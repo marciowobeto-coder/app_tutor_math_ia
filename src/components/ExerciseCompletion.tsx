@@ -25,7 +25,13 @@ const ExerciseCompletion = ({ steps, hintsUsed, onReset, onNext }: ExerciseCompl
       </motion.div>
       <h2 className="text-xl font-bold font-heading text-foreground">Exercício Concluído!</h2>
       <p className="text-muted-foreground mt-1">
-        {steps.filter(s => s.status === 'correto').length}/{steps.length} passos corretos
+        {steps.length > 1
+          ? (() => {
+              const acertos = steps.filter(s => s.status === 'correto').length;
+              const erros = steps.filter(s => s.status === 'incorreto').length;
+              return `${acertos} ${acertos === 1 ? 'acerto' : 'acertos'}, ${erros} ${erros === 1 ? 'erro' : 'erros'}`;
+            })()
+          : `${steps.filter(s => s.status === 'correto').length}/${steps.length} passo correto`}
         {hintsUsed > 0 && ` • ${hintsUsed} dicas usadas`}
       </p>
       <div className="flex gap-3 mt-4 justify-center">

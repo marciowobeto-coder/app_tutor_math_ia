@@ -1,0 +1,1444 @@
+{
+  "metadados": {
+    "titulo": "Base de conhecimento — Porcentagem, juro simples e regra de três (Ensino Fundamental)",
+    "fontes": [
+      {
+        "id": "acm8-2022",
+        "tipo": "livro_didatico",
+        "referencia_abnt": "GIOVANNI JÚNIOR, José Ruy. A conquista matemática: 8º ano: ensino fundamental: anos finais. 1. ed. São Paulo: FTD, 2022.",
+        "autor": "José Ruy Giovanni Júnior",
+        "titulo": "A conquista matemática",
+        "ano_escolar": "8º ano do Ensino Fundamental (anos finais)",
+        "editora": "FTD",
+        "edicao": "1. ed.",
+        "local": "São Paulo",
+        "ano": 2022,
+        "componente": "Matemática",
+        "unidade_tematica": "Porcentagem, juro simples e grandezas proporcionais (regra de três)",
+        "origem_do_conteudo": "fotos de páginas do livro"
+      },
+      {
+        "id": "complemento-claude",
+        "tipo": "complemento",
+        "referencia_abnt": null,
+        "descricao": "Textos de apoio escritos por Claude (não vêm de nenhum livro)."
+      }
+    ],
+    "fonte": "GIOVANNI JÚNIOR, José Ruy. A conquista matemática: 8º ano: ensino fundamental: anos finais. 1. ed. São Paulo: FTD, 2022. (páginas 28, 32, 38, 283, 285, 288)",
+    "mapeamento_app": "Cada exercício traz 'ano_id' e 'tema_id', que são os ids de ano escolar e de tema usados no aplicativo (SCHOOL_YEARS em src/types/math.ts). É por eles que o app sabe em qual tema cada exercício aparece. Este arquivo usa dois temas novos do 9º ano: '9f-porcentagem' (Porcentagem e Juros) e '9f-proporcao' (Razão, Proporção e Regra de Três). Observação: o livro-fonte é do 8º ano, mas por decisão do professor este conteúdo (porcentagem, juro simples e regra de três) foi mapeado para o 9º ano do aplicativo — é só o 'ano_id'/'tema_id' de cada exercício que muda; o texto e as contas continuam os mesmos do livro do 8º ano.",
+    "convencao_de_ids": "<fonte_id>-p<página>-q<número>. Ex.: acm8-2022-p283-q01 = página 283, exercício 1 do livro acm8-2022. Para separar fontes, filtre por \"fonte_id\".",
+    "gerado_em": "2026-09-27",
+    "idioma": "pt-BR",
+    "paginas_cobertas": [
+      28,
+      32,
+      38,
+      283,
+      285,
+      288
+    ],
+    "total_de_exercicios": 44,
+    "total_de_itens": 59,
+    "convencoes": "'tipo': calculo | problema | compreensao | multipla_escolha | figura | elaboracao | desafio. Tabelas do livro viram o campo 'tabela' (lista de linhas, primeira linha é o cabeçalho). Diagramas/gráficos viram o campo 'imagem' (arquivo em src/data/knowledge-base/images/acm8-2022/).",
+    "como_usar": "Como usar esta base em um tutor: (1) cada exercício tem 'dicas' em ordem crescente de ajuda — revele uma por vez; (2) 'resposta' e 'resolucao' servem para o tutor CONFERIR o aluno e explicar depois da tentativa; (3) exercícios com tipo 'elaboracao' são atividades abertas (criar problemas/trabalho em dupla): não há resposta única; (4) 'confianca_da_leitura' baixa/media indica trechos difíceis de ler ou de responder no formato do app: veja o campo 'revisar'.",
+    "avisos": [
+      "O livro-fonte (acm8-2022) é do 8º ano, mas os exercícios foram mapeados para os temas 'Porcentagem e Juros' e 'Razão, Proporção e Regra de Três' do 9º ano no aplicativo (ver 'ano_id'/'tema_id' de cada exercício).",
+      "Respostas e resoluções foram calculadas por Claude e as contas foram verificadas por programa; o livro não foi consultado para gabarito oficial (exceto nas questões de vestibular/Enem, cujo gabarito é público). Confira com o gabarito oficial do livro quando possível.",
+      "O exercício da página 38 é uma revisão ('Retomando o que aprendeu') que mistura vários assuntos do livro; só foram incluídos aqui os itens sobre porcentagem e juro simples. Os itens sobre números reais, frações e dízimas dessa mesma página não entraram nesta base.",
+      "O exercício p283-q06 depende de um gráfico desenhado à mão no livro; os valores foram estimados a partir das linhas de grade da foto (ver 'revisar').",
+      "O exercício p288-q03 tem formato de múltiplas etapas (tabela para completar + gráfico para desenhar) que não cabe numa resposta única; foi mantido apenas para registro (não aparece na prática do app)."
+    ],
+    "resumo_confianca_da_leitura": {
+      "alta": 42,
+      "media": 1,
+      "baixa": 1
+    },
+    "exercicios_para_revisar": [
+      {
+        "id": "acm8-2022-p283-q06",
+        "motivo": "A inclinação da reta (aprox. R$ 0,65 por minuto) foi estimada a partir das linhas de grade da foto do gráfico, que é desenhado à mão no livro; confirme os valores exatos com o gabarito oficial antes de usar esta questão para avaliar o aluno."
+      },
+      {
+        "id": "acm8-2022-p288-q03",
+        "motivo": "Os itens a) e b) pedem para completar uma tabela de 15 valores e desenhar um gráfico à mão — não cabem no formato de resposta única do app. Os itens c) e d) dão para responder com as fórmulas das tarifas (sem o gráfico), mas exigem comparar as três tarifas em vários pontos; deixei de fora da prática automática por enquanto. Se quiser usar esta questão, vale a pena revisar/simplificar antes."
+      }
+    ]
+  },
+  "exercicios": [
+    {
+      "id": "acm8-2022-p28-q01",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo de porcentagem",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Um vendedor recebe 8% de comissão nas vendas que realiza. Quanto ele receberá pela venda de um par de tênis de 150 reais?",
+      "dicas": [
+        "Porcentagem é uma fração de denominador 100: 8% = 8/100.",
+        "Multiplique 8/100 pelo valor da venda."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "R$ 12,00",
+      "resolucao": [
+        "8% de R$ 150,00: (8 ÷ 100) × 150 = 12",
+        "O vendedor recebe R$ 12,00 de comissão."
+      ]
+    },
+    {
+      "id": "acm8-2022-p28-q02",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo de porcentagem",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Vilma acertou 76% das 50 questões da prova de Matemática de um vestibular. Quantas questões ela acertou?",
+      "dicas": [
+        "Transforme 76% em fração (76/100) ou em decimal (0,76) e multiplique por 50."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "38 questões",
+      "resolucao": [
+        "76% de 50: (76 ÷ 100) × 50 = 38",
+        "Vilma acertou 38 questões."
+      ]
+    },
+    {
+      "id": "acm8-2022-p28-q03",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo mental de porcentagem",
+      "numero": 3,
+      "tipo": "calculo",
+      "enunciado": "Juliana calculou mentalmente 40% de 1 050 reais assim: \"10% de 1050 é 105 (1050 dividido por 10); para achar 40%, multipliquei 105 por 4, que resultou em 420.\" Usando estratégias de cálculo mental parecidas, determine o valor de:",
+      "dicas": [
+        "Ache 10% (divida por 10) e depois multiplique ou divida esse valor conforme a porcentagem pedida.",
+        "50% é metade; 25% é um quarto; 75% é três quartos."
+      ],
+      "conceitos": [
+        "porcentagem_calculo_mental"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "25% de 1 080.",
+          "resposta": "270",
+          "resolucao": [
+            "25% = 1/4 de 1080 = 1080 ÷ 4 = 270."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "5% de 2 700.",
+          "resposta": "135",
+          "resolucao": [
+            "5% = metade de 10%; 10% de 2700 = 270, então 5% = 135."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "50% de 6 340.",
+          "resposta": "3170",
+          "resolucao": [
+            "50% é a metade: 6340 ÷ 2 = 3170."
+          ]
+        },
+        {
+          "letra": "d",
+          "enunciado": "2% de 135.",
+          "resposta": "2,7",
+          "resolucao": [
+            "1% de 135 = 1,35; 2% = 1,35 × 2 = 2,7."
+          ]
+        },
+        {
+          "letra": "e",
+          "enunciado": "20% de 350.",
+          "resposta": "70",
+          "resolucao": [
+            "10% de 350 = 35; 20% = 35 × 2 = 70."
+          ]
+        },
+        {
+          "letra": "f",
+          "enunciado": "75% de 1 248.",
+          "resposta": "936",
+          "resolucao": [
+            "75% = 3/4 de 1248: 1248 ÷ 4 = 312; 312 × 3 = 936."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acm8-2022-p28-q04",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Porcentagem a partir de uma tabela",
+      "numero": 4,
+      "tipo": "compreensao",
+      "enunciado": "Após uma apresentação de música, 250 espectadores foram entrevistados e opinaram sobre o show, com o resultado mostrado na tabela. Observando a tabela e considerando o total de entrevistados, escreva a taxa percentual correspondente a cada opinião:",
+      "dicas": [
+        "A taxa percentual de cada opinião é: quantidade de pessoas ÷ total de entrevistados (250), em forma de porcentagem."
+      ],
+      "conceitos": [
+        "porcentagem_tabela"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "tabela": [
+        [
+          "Opinião",
+          "Quantidade de pessoas"
+        ],
+        [
+          "Ótimo",
+          "105"
+        ],
+        [
+          "Bom",
+          "100"
+        ],
+        [
+          "Regular",
+          "30"
+        ],
+        [
+          "Ruim",
+          "15"
+        ]
+      ],
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Ótimo",
+          "resposta": "42%",
+          "resolucao": [
+            "105 ÷ 250 = 0,42 = 42%."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Bom",
+          "resposta": "40%",
+          "resolucao": [
+            "100 ÷ 250 = 0,40 = 40%."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "Regular",
+          "resposta": "12%",
+          "resolucao": [
+            "30 ÷ 250 = 0,12 = 12%."
+          ]
+        },
+        {
+          "letra": "d",
+          "enunciado": "Ruim",
+          "resposta": "6%",
+          "resolucao": [
+            "15 ÷ 250 = 0,06 = 6%. (Confira: 42+40+12+6 = 100%.)"
+          ]
+        }
+      ],
+      "observacoes": "Total de entrevistados: 250 (fonte: dados fictícios do livro)."
+    },
+    {
+      "id": "acm8-2022-p28-q05",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo de porcentagem",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "O primeiro Campeonato Mundial de Voleibol Masculino foi realizado em 1949. Desse ano até 2018, já foram realizados 19 torneios, e o Brasil ganhou três deles. A quantidade de conquistas brasileiras representa quantos por cento da quantidade de torneios realizados?",
+      "dicas": [
+        "Divida o número de conquistas pelo número total de torneios e escreva o resultado em porcentagem."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "Aproximadamente 15,8%",
+      "resolucao": [
+        "3 conquistas em 19 torneios: 3 ÷ 19 ≈ 0,1579.",
+        "Em porcentagem: aproximadamente 15,8%."
+      ],
+      "observacoes": "A foto trazia, de forma ilustrativa, uma imagem de uma partida de vôlei; ela não é necessária para resolver a questão (todos os números estão no enunciado)."
+    },
+    {
+      "id": "acm8-2022-p28-q06",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Cálculo de porcentagem",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "No verão de 2022, foi realizada uma análise do resíduo sólido deixado em certa praia. Foram recolhidos 396 kg de plástico, 9 kg de vidro, 18 kg de metal e 27 kg de papel. A partir dessas informações, responda:",
+      "dicas": [
+        "Some as quatro quantidades para achar o total.",
+        "Para a porcentagem, divida a quantidade de plástico pelo total."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Quantos quilogramas de resíduo sólido foram recolhidos nessa praia?",
+          "resposta": "450 kg",
+          "resolucao": [
+            "396 + 9 + 18 + 27 = 450 kg."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Os materiais de plástico recolhidos representam quantos por cento desse total?",
+          "resposta": "88%",
+          "resolucao": [
+            "396 ÷ 450 = 0,88 = 88%."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acm8-2022-p28-q07",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Elaboração de problema",
+      "numero": 7,
+      "tipo": "elaboracao",
+      "enunciado": "Elabore um problema envolvendo o cálculo da porcentagem de desconto oferecido em um produto. Depois, troque seu problema com um colega, e solucionem o problema um do outro.",
+      "dicas": [],
+      "conceitos": [],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "Resposta pessoal (atividade de elaboração em dupla).",
+      "resolucao": [],
+      "observacoes": "Atividade de elaboração; não tem resposta única."
+    },
+    {
+      "id": "acm8-2022-p28-q08",
+      "pagina": 28,
+      "topico": "Porcentagem",
+      "subtopico": "Pesquisa",
+      "numero": 8,
+      "tipo": "elaboracao",
+      "enunciado": "Pesquise em jornais, revistas ou na internet gráficos com dados expressos em porcentagens. Elabore uma atividade baseada em um dos gráficos encontrados.",
+      "dicas": [],
+      "conceitos": [],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "Resposta pessoal (atividade de pesquisa).",
+      "resolucao": [],
+      "observacoes": "Atividade de pesquisa; não tem resposta única."
+    },
+    {
+      "id": "acm8-2022-p32-q01",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo de juro simples",
+      "numero": 1,
+      "tipo": "calculo",
+      "enunciado": "Quanto renderá de juro a quantia de 1 800 reais, aplicada durante 5 meses, a uma taxa de 2,3% ao mês (juro simples)?",
+      "dicas": [
+        "No juro simples, J = C × i × t (capital vezes taxa vezes tempo)."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "R$ 207,00",
+      "resolucao": [
+        "J = C × i × t = 1800 × 0,023 × 5 = 207.",
+        "O juro é de R$ 207,00."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q02",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo de juro simples",
+      "numero": 2,
+      "tipo": "calculo",
+      "enunciado": "Uma aplicação de 40 000 reais rendeu, em três meses, 3 000 reais de juro (juro simples). Qual é a taxa mensal de juro?",
+      "dicas": [
+        "Isole i na fórmula J = C × i × t."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "2,5% ao mês",
+      "resolucao": [
+        "J = C × i × t → 3000 = 40000 × i × 3.",
+        "i = 3000 ÷ 120000 = 0,025 = 2,5% ao mês."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q03",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Cálculo de juro simples",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "Luís colocou parte de seu 13º salário em uma aplicação que rendia 25,6% de juro ao ano (juro simples). Sabendo que, após dois anos, ele recebeu 389,12 reais de juro, qual foi a quantia que ele aplicou?",
+      "dicas": [
+        "Isole C na fórmula J = C × i × t. Lembre que t está em anos, igual à taxa."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "R$ 760,00",
+      "resolucao": [
+        "J = C × i × t → 389,12 = C × 0,256 × 2 = C × 0,512.",
+        "C = 389,12 ÷ 0,512 = 760."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q04",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples em compras",
+      "numero": 4,
+      "tipo": "multipla_escolha",
+      "enunciado": "(UFPB) Katienne tem duas opções de pagamento na compra de um fogão: sem juros, em quatro parcelas mensais iguais de R$ 350,00; ou à vista, com 15% de desconto. Nesse contexto, o preço desse fogão, à vista, é:",
+      "dicas": [
+        "Some as 4 parcelas para achar o preço \"cheio\" do fogão.",
+        "Aplique 15% de desconto sobre esse valor."
+      ],
+      "conceitos": [
+        "porcentagem_desconto"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "R$ 1.190,00",
+        "b": "R$ 1.110,00",
+        "c": "R$ 1.210,00",
+        "d": "R$ 1.090,00",
+        "e": "R$ 1.290,00"
+      },
+      "gabarito": "a",
+      "resposta": "Alternativa a) R$ 1.190,00",
+      "resolucao": [
+        "Preço cheio: 4 × 350 = 1400.",
+        "À vista, com 15% de desconto: 1400 × 0,85 = 1190."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q05",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples por atraso",
+      "numero": 5,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Saresp-SP) Certo banco cobra juros simples de 0,3% ao dia para contas pagas com atraso de até 30 dias. Pedro pagou uma conta de R$ 50,00 com atraso de 12 dias. O valor pago por Pedro foi de:",
+      "dicas": [
+        "Calcule o juro (0,3% ao dia por 12 dias) e some ao valor original da conta."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "R$ 51,00",
+        "b": "R$ 51,40",
+        "c": "R$ 51,80",
+        "d": "R$ 52,20"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 51,80",
+      "resolucao": [
+        "J = C × i × t = 50 × 0,003 × 12 = 1,80.",
+        "Total pago: 50 + 1,80 = 51,80."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q06",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples em empréstimos",
+      "numero": 6,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Saresp-SP) Marcos fez um empréstimo de R$ 120.000,00 que deverá ser pago com juros de 1% sobre o valor emprestado a cada mês. Sabendo que pagou R$ 6.000,00 de juros, quantos meses levou para pagar o empréstimo?",
+      "dicas": [
+        "Ache primeiro o juro cobrado em um único mês."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "3 meses",
+        "b": "4 meses",
+        "c": "5 meses",
+        "d": "6 meses"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 5 meses",
+      "resolucao": [
+        "Juro por mês: 120000 × 0,01 = 1200.",
+        "Número de meses: 6000 ÷ 1200 = 5."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q07",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Taxa de juro a partir de um anúncio",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "Uma loja do bairro de Luís colocou o anúncio a seguir na vitrine de um aparelho de som. Qual é a taxa mensal de juro que essa loja está cobrando para pagamento a prazo?",
+      "dicas": [
+        "O juro é a diferença entre o preço a prazo e o preço à vista."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "tabela": [
+        [
+          "Forma de pagamento",
+          "Valor"
+        ],
+        [
+          "À vista",
+          "R$ 450,00"
+        ],
+        [
+          "Com cheque, para 30 dias",
+          "R$ 468,00"
+        ]
+      ],
+      "resposta": "4% ao mês",
+      "resolucao": [
+        "Juro cobrado: 468 − 450 = 18.",
+        "i = J ÷ (C × t) = 18 ÷ (450 × 1) = 0,04 = 4% ao mês (30 dias ≈ 1 mês)."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q08",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples em investimentos",
+      "numero": 8,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Fuvest-SP) Há um ano, Bruno comprou uma casa por R$ 50.000,00. Para isso, tomou emprestados R$ 10.000,00 de Edson e R$ 10.000,00 de Carlos, prometendo devolver-lhes o dinheiro, após um ano, acrescido de 5% e 4% de juros, respectivamente. A casa valorizou 3% durante este período de um ano. Sabendo-se que Bruno vendeu a casa hoje e pagou o combinado a Edson e a Carlos, o seu lucro foi de:",
+      "dicas": [
+        "Calcule quanto Bruno arrecadou com a venda e quanto ele teve que devolver aos credores.",
+        "O lucro é o que sobra depois de pagar os empréstimos e recuperar o capital próprio investido."
+      ],
+      "conceitos": [
+        "juro_simples",
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "R$ 400,00",
+        "b": "R$ 500,00",
+        "c": "R$ 600,00",
+        "d": "R$ 700,00",
+        "e": "R$ 800,00"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 600,00",
+      "resolucao": [
+        "Venda da casa: 50000 × 1,03 = 51500.",
+        "Pagamento a Edson: 10000 × 1,05 = 10500. Pagamento a Carlos: 10000 × 1,04 = 10400.",
+        "Lucro = 51500 − 10500 − 10400 − 30000 (capital próprio de Bruno, 50000 − 20000 emprestados) = 600."
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q09",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Juro simples em empréstimos",
+      "numero": 9,
+      "tipo": "compreensao",
+      "enunciado": "Marina fez um empréstimo bancário de R$ 10.000,00 por 5 meses, com uma taxa de juro de 1% ao mês. Ao mesmo tempo, Leandro fez um empréstimo em outro banco de R$ 5.000,00 por 20 meses.",
+      "dicas": [
+        "Use J = C × i × t para os itens a e b.",
+        "No item c, o total pago por Leandro é igual ao de Marina (R$ 10.500,00); monte a equação C × (1 + i × t) = total."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Qual é a quantia que Marina deverá pagar de juro ao final do empréstimo?",
+          "resposta": "R$ 500,00",
+          "resolucao": [
+            "J = 10000 × 0,01 × 5 = 500."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Qual é o valor total que Marina terá de pagar ao final do empréstimo?",
+          "resposta": "R$ 10.500,00",
+          "resolucao": [
+            "Total = 10000 + 500 = 10500."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "Sabendo que o valor total pago por Leandro ao final do empréstimo foi o mesmo valor que Marina pagou, determine a taxa de juro do empréstimo realizado por Leandro.",
+          "resposta": "5,5% ao mês",
+          "resolucao": [
+            "Total de Leandro também é 10500: 10500 = 5000 × (1 + 20i).",
+            "10500 ÷ 5000 = 2,1 = 1 + 20i → 20i = 1,1 → i = 0,055 = 5,5% ao mês."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acm8-2022-p32-q10",
+      "pagina": 32,
+      "topico": "Juro simples",
+      "subtopico": "Elaboração de problema",
+      "numero": 10,
+      "tipo": "elaboracao",
+      "enunciado": "A partir da atividade 9, elabore um problema cuja resposta seja \"a taxa é 2% ao mês\". Entregue o problema para um colega resolver e, em seguida, verifique se a resposta dele está correta.",
+      "dicas": [],
+      "conceitos": [],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "Resposta pessoal (atividade de elaboração em dupla).",
+      "resolucao": [],
+      "observacoes": "Atividade de elaboração; não tem resposta única."
+    },
+    {
+      "id": "acm8-2022-p38-q04",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Revisão de porcentagem",
+      "numero": 4,
+      "tipo": "problema",
+      "enunciado": "Uma pesquisa de \"boca de urna\", realizada no primeiro turno das eleições para prefeito de um município, indicou que um dos candidatos tinha 1/5 das intenções de voto. Esse número representa quantos por cento das intenções de voto dessa pesquisa?",
+      "dicas": [
+        "Transforme a fração 1/5 em porcentagem: divida 1 por 5 e multiplique por 100."
+      ],
+      "conceitos": [
+        "fracao_para_porcentagem"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "5%",
+        "b": "10%",
+        "c": "20%",
+        "d": "25%",
+        "e": "50%"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 20%",
+      "resolucao": [
+        "1/5 = 1 ÷ 5 = 0,20 = 20%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q05",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Revisão de porcentagem",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Quinta-feira passada, 5 dos 40 estudantes de uma turma faltaram à aula de Educação Física. Nesse dia, o professor registrou quantos por cento de faltas?",
+      "dicas": [
+        "Divida o número de faltas pelo total de estudantes da turma."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "12,5%",
+      "resolucao": [
+        "5 ÷ 40 = 0,125 = 12,5%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q06",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Revisão de porcentagem",
+      "numero": 6,
+      "tipo": "problema",
+      "enunciado": "No colégio do meu bairro há 1 600 estudantes, dos quais 720 são meninos. A quantidade de meninas representa quantos por cento do total de estudantes que há nesse colégio?",
+      "dicas": [
+        "Primeiro descubra quantas são meninas (total menos meninos)."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "55%",
+      "resolucao": [
+        "Meninas: 1600 − 720 = 880.",
+        "880 ÷ 1600 = 0,55 = 55%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q07",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Revisão de porcentagem",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "Rafael prepara um copo de suco misturando 120 mililitros de água e 80 mililitros de suco concentrado. Qual é a porcentagem de água nessa mistura?",
+      "dicas": [
+        "Ache o total da mistura somando água e suco concentrado."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "resposta": "60%",
+      "resolucao": [
+        "Total da mistura: 120 + 80 = 200 mL.",
+        "120 ÷ 200 = 0,60 = 60%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q08",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Porcentagem de porcentagem",
+      "numero": 8,
+      "tipo": "multipla_escolha",
+      "enunciado": "30% de 40% de 50% de um número representa quantos por cento do número?",
+      "dicas": [
+        "Multiplique as três porcentagens em forma decimal."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "4%",
+        "b": "8%",
+        "c": "5%",
+        "d": "6%",
+        "e": "10%"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 6%",
+      "resolucao": [
+        "0,30 × 0,40 × 0,50 = 0,06 = 6%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q09",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Revisão de juro simples",
+      "numero": 9,
+      "tipo": "multipla_escolha",
+      "enunciado": "Tarcísio tomou emprestados R$ 2.400,00 do banco e vai pagar o empréstimo em 6 vezes, com juro simples de 4% ao mês. A quantia que Tarcísio pagará de juro por mês será:",
+      "dicas": [
+        "No juro simples, o juro de cada mês incide sempre sobre o valor original emprestado."
+      ],
+      "conceitos": [
+        "juro_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "R$ 16,00",
+        "b": "R$ 32,00",
+        "c": "R$ 96,00",
+        "d": "R$ 160,00",
+        "e": "R$ 300,00"
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) R$ 96,00",
+      "resolucao": [
+        "No juro simples, o juro mensal é sempre C × i: 2400 × 0,04 = 96."
+      ]
+    },
+    {
+      "id": "acm8-2022-p38-q11",
+      "pagina": 38,
+      "topico": "Retomando o que aprendeu (porcentagem e juros)",
+      "subtopico": "Porcentagem composta em contexto",
+      "numero": 11,
+      "tipo": "multipla_escolha",
+      "enunciado": "(PUC-RJ) Em um viveiro há várias araras: 60% das araras são azuis, 40% das araras são vermelhas, 40% das araras azuis têm bico branco e 30% das araras vermelhas têm bico branco. Que porcentagem das araras do viveiro tem bico branco?",
+      "dicas": [
+        "Calcule separadamente a porcentagem (do total do viveiro) de araras azuis com bico branco e de vermelhas com bico branco, depois some."
+      ],
+      "conceitos": [
+        "porcentagem_calculo"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-porcentagem",
+      "alternativas": {
+        "a": "10%",
+        "b": "12%",
+        "c": "24%",
+        "d": "36%",
+        "e": "40%"
+      },
+      "gabarito": "d",
+      "resposta": "Alternativa d) 36%",
+      "resolucao": [
+        "Azuis com bico branco: 60% × 40% = 24% do total.",
+        "Vermelhas com bico branco: 40% × 30% = 12% do total.",
+        "Total com bico branco: 24% + 12% = 36%."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q01",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três simples",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Para construir um muro de 16 metros de comprimento, Antônio planeja utilizar 2 240 tijolos. Caso o muro tivesse 27 metros de comprimento e a mesma altura, quantos tijolos seriam necessários?",
+      "dicas": [
+        "Quanto maior o muro, mais tijolos são necessários: as grandezas são diretamente proporcionais."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "3 780 tijolos",
+      "resolucao": [
+        "Grandezas diretamente proporcionais: mais metros, mais tijolos.",
+        "16 m está para 2240 tijolos, assim como 27 m está para x: x = 2240 × 27 ÷ 16 = 3780."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q02",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três simples",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Um pintor mistura tinta branca e tinta vermelha para obter um tom de rosa. Para cada 2,5 L de tinta branca, ele mistura 1,7 L de tinta vermelha. Sabendo que a quantidade de tinta branca e a de tinta vermelha são proporcionais, quantos litros de tinta vermelha ele deve misturar em 3,5 L de tinta branca para obter essa mesma tonalidade?",
+      "dicas": [
+        "Monte a proporção: tinta branca ÷ tinta vermelha é sempre a mesma razão."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples",
+        "proporcao"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "2,38 L",
+      "resolucao": [
+        "2,5 L de branca está para 1,7 L de vermelha, assim como 3,5 L está para x: x = 1,7 × 3,5 ÷ 2,5 = 2,38."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q03",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três inversa",
+      "numero": 3,
+      "tipo": "problema",
+      "enunciado": "Uma empresa de prestação de serviços de pintura firmou um contrato com um cliente. Em princípio, o serviço seria realizado por 2 pintores, mas seriam necessárias 80 horas de trabalho. Pelo contrato firmado, a obra precisa ser concluída em 16 horas. Nesse caso, pensando no mesmo ritmo de trabalho, quantos pintores serão necessários para cumprir essa meta?",
+      "dicas": [
+        "Quanto mais pintores, menos tempo é necessário: as grandezas são inversamente proporcionais.",
+        "Multiplique pintores por horas na situação inicial para achar o \"trabalho total\"."
+      ],
+      "conceitos": [
+        "regra_de_tres_inversa"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "10 pintores",
+      "resolucao": [
+        "Grandezas inversamente proporcionais: mais pintores, menos horas.",
+        "2 pintores × 80 h = 160 (trabalho total, em pintor-hora).",
+        "160 ÷ 16 h = 10 pintores."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q04",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três simples",
+      "numero": 4,
+      "tipo": "compreensao",
+      "enunciado": "Uma motorista dirige a uma velocidade constante. Sabendo que ela viaja 120 km em 1 hora e 30 minutos, calcule a distância que ela viaja em:",
+      "dicas": [
+        "Primeiro ache a velocidade (distância ÷ tempo, com o tempo em horas).",
+        "Depois multiplique a velocidade pelo novo tempo."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples",
+        "velocidade"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "1 hora.",
+          "resposta": "80 km",
+          "resolucao": [
+            "Velocidade: 120 km ÷ 1,5 h = 80 km/h.",
+            "Em 1 hora: 80 km."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "2h20min.",
+          "resposta": "Aproximadamente 186,67 km",
+          "resolucao": [
+            "2h20min = 2 + 20/60 = 2,3333 h.",
+            "80 km/h × 2,3333 h ≈ 186,67 km."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q05",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três inversa",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Com certa quantidade de arame, pode-se fazer uma tela de 50 m de comprimento por 1,20 m de largura. Aumentando a largura para 1,80 m, qual será o comprimento da nova tela, feita com a mesma quantidade de arame usada na tela anterior?",
+      "dicas": [
+        "A mesma quantidade de arame faz uma tela com a mesma área. Quanto maior a largura, menor o comprimento: grandezas inversamente proporcionais."
+      ],
+      "conceitos": [
+        "regra_de_tres_inversa"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "Aproximadamente 33,33 m",
+      "resolucao": [
+        "Com a mesma quantidade de arame, a área da tela é a mesma: 50 × 1,20 = 60.",
+        "Novo comprimento: 60 ÷ 1,80 ≈ 33,33 m."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q06",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Leitura de gráficos e proporcionalidade",
+      "numero": 6,
+      "tipo": "compreensao",
+      "enunciado": "O gráfico a seguir indica o preço cobrado por uma operadora de telefonia, em reais, de acordo com o tempo de ligações por minuto utilizado (a reta passa pela origem: em 0 minuto, o preço é R$ 0,00, e o preço sobe sempre à mesma razão de aproximadamente R$ 0,65 por minuto).",
+      "dicas": [
+        "Observe se a reta do gráfico passa pela origem.",
+        "Uma reta que passa pela origem representa uma proporcionalidade direta: preço = (uma taxa fixa) × tempo."
+      ],
+      "conceitos": [
+        "grafico_proporcionalidade"
+      ],
+      "depende_de_figura": true,
+      "confianca_da_leitura": "media",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Esse gráfico ilustra uma situação de proporcionalidade? Explique.",
+          "resposta": "Sim: a reta passa pela origem (0 min custa R$ 0,00), então o preço é diretamente proporcional ao tempo de ligação.",
+          "resolucao": [
+            "Quando o gráfico de uma relação entre duas grandezas é uma reta que passa pela origem, as grandezas são diretamente proporcionais."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Qual é o preço a ser pago por 45 minutos de ligação?",
+          "resposta": "Aproximadamente R$ 29,25",
+          "resolucao": [
+            "Preço ≈ 0,65 × tempo (em minutos).",
+            "0,65 × 45 = 29,25."
+          ]
+        },
+        {
+          "letra": "c",
+          "enunciado": "Com um crédito de R$ 25,00, quantos minutos de ligação é possível fazer?",
+          "resposta": "Aproximadamente 38,5 minutos",
+          "resolucao": [
+            "tempo ≈ 25 ÷ 0,65 ≈ 38,46 minutos."
+          ]
+        }
+      ],
+      "descricao_da_figura": "Gráfico de linha \"Preço de ligações\": eixo Tempo (min) de 0 a mais de 50, eixo Preço (R$) com marcas em 10, 20 e 30; reta crescente partindo da origem (0,0) e passando perto de (50; 33).",
+      "revisar": "A inclinação da reta (aprox. R$ 0,65 por minuto) foi estimada a partir das linhas de grade da foto do gráfico, que é desenhado à mão no livro; confirme os valores exatos com o gabarito oficial antes de usar esta questão para avaliar o aluno.",
+      "imagem": "p283-q06-grafico-ligacoes.svg"
+    },
+    {
+      "id": "acm8-2022-p283-q07",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três simples",
+      "numero": 7,
+      "tipo": "problema",
+      "enunciado": "Um filtro de ar retém 0,7 grama de poeira para cada 100 m³ de ar filtrado. Quantos gramas de poeira são retidos quando são filtrados 15 000 m³ de ar?",
+      "dicas": [
+        "Quanto mais ar filtrado, mais poeira retida: grandezas diretamente proporcionais."
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "105 g",
+      "resolucao": [
+        "100 m³ está para 0,7 g, assim como 15000 m³ está para x: x = 0,7 × 15000 ÷ 100 = 105."
+      ]
+    },
+    {
+      "id": "acm8-2022-p283-q08",
+      "pagina": 283,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 8,
+      "tipo": "problema",
+      "enunciado": "Uma escola lançou uma campanha de arrecadação de alimentos não perecíveis para doar a uma comunidade da região. Essa campanha teria a duração de 30 dias, e nos primeiros 15 dias, apenas 20 estudantes aceitaram a tarefa, arrecadando 180 kg de alimentos. Nos últimos 15 dias da campanha, 30 novos estudantes se juntaram ao grupo e mantiveram constante o ritmo da coleta. Nessas condições, quantos quilogramas de alimentos foram arrecadados nesses últimos 15 dias?",
+      "dicas": [
+        "Quantos estudantes trabalharam nos últimos 15 dias, ao todo?",
+        "Quanto cada estudante arrecada, em média, em 15 dias (com base no primeiro período)?"
+      ],
+      "conceitos": [
+        "regra_de_tres_simples"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "450 kg",
+      "resolucao": [
+        "Em 15 dias, 20 estudantes arrecadaram 180 kg; cada estudante arrecada, em média, 180 ÷ 20 = 9 kg nesses 15 dias.",
+        "Nos últimos 15 dias há 20 + 30 = 50 estudantes: 9 × 50 = 450 kg."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q01",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Na produção de uma fábrica de chocolates trabalham 21 funcionários. Juntos, eles fazem, ao longo da jornada de trabalho de 6h diárias, 420 barras de chocolate. Próximo de datas comemorativas, a fábrica costuma aumentar a jornada de trabalho para 8h diárias e faz novas contratações, pois tem como meta a produção de 960 barras de chocolate por dia. Quantos funcionários precisam estar na produção para que essa meta seja atingida?",
+      "dicas": [
+        "Mais funcionários e mais horas por dia produzem mais barras: as duas grandezas são diretamente proporcionais à produção."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "36 funcionários",
+      "resolucao": [
+        "420 barras ÷ (21 funcionários × 6 h) = 420 ÷ 126 ≈ 3,3333 barras por \"funcionário-hora\".",
+        "960 = 3,3333 × (x × 8) → x × 8 = 288 → x = 36."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q02",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Três crianças constroem cinco castelos de areia em 2 horas. Cinco crianças construirão seis castelos de areia em quanto tempo?",
+      "dicas": [
+        "Mais crianças fazem mais castelos no mesmo tempo; mais tempo também rende mais castelos: as duas grandezas variam de forma direta com a quantidade de castelos."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "1,44 horas (1h 26min, aproximadamente)",
+      "resolucao": [
+        "Castelos ÷ (crianças × tempo) é constante: 5 ÷ (3 × 2) = 5/6.",
+        "6 = (5/6) × 5 × t → 6 = 25t/6 → t = 36 ÷ 25 = 1,44 h."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q03",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 3,
+      "tipo": "multipla_escolha",
+      "enunciado": "(IFPE) Numa fazenda há 5 cavalos que consomem 300 kg de ração em 6 dias. Suponha que todos eles consomem por dia a mesma quantidade de ração. Com apenas 240 kg de ração, 12 cavalos iguais aos dessa fazenda seriam alimentados durante:",
+      "dicas": [
+        "Mais cavalos consomem mais ração por dia (direta); mais dias também consomem mais ração (direta)."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "alternativas": {
+        "a": "1 dia.",
+        "b": "2 dias.",
+        "c": "3 dias.",
+        "d": "4 dias.",
+        "e": "5 dias."
+      },
+      "gabarito": "b",
+      "resposta": "Alternativa b) 2 dias",
+      "resolucao": [
+        "Consumo por cavalo por dia: 300 ÷ (5 × 6) = 10 kg.",
+        "240 = 10 × 12 × d → 240 = 120d → d = 2."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q04",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três simples",
+      "numero": 4,
+      "tipo": "problema",
+      "enunciado": "Com um automóvel a uma velocidade média de 60 km/h, Beto roda 8 horas por dia e leva 6 dias para fazer certo percurso. Com o mesmo automóvel, mas tendo uma velocidade média de 80 km/h e rodando 9 horas por dia, em quanto tempo ele faria o mesmo percurso?",
+      "dicas": [
+        "A distância total do percurso não muda; calcule-a com os dados originais."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "4 dias",
+      "resolucao": [
+        "Distância total do percurso: 60 × 8 × 6 = 2880 km (não muda).",
+        "Com a nova rotina, por dia: 80 × 9 = 720 km.",
+        "2880 ÷ 720 = 4 dias."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q05",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 5,
+      "tipo": "problema",
+      "enunciado": "Uma gráfica recebeu uma encomenda e, para concluir o trabalho em um prazo de 15 dias, pretendia utilizar 12 máquinas operando 8 horas por dia. Porém, 3 dessas máquinas estão em manutenção e não ficarão prontas nesse período. Com a redução da quantidade de máquinas, a carga horária diária de operação do maquinário será ampliada para 10 horas. De acordo com essas informações, a gráfica vai conseguir entregar a encomenda no prazo inicial? Se não conseguir, quantos dias a mais serão necessários para concluir esse trabalho?",
+      "dicas": [
+        "Calcule o \"trabalho total\" (em máquina-horas) necessário para a encomenda a partir do plano original.",
+        "Depois, veja quantos dias esse trabalho leva com apenas 9 máquinas trabalhando 10 h por dia."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "Não; serão necessários 16 dias no total (1 dia a mais que o prazo inicial de 15 dias).",
+      "resolucao": [
+        "Trabalho total planejado: 12 máquinas × 8 h × 15 dias = 1440 \"máquina-horas\".",
+        "Só restam 12 − 3 = 9 máquinas, operando 10 h/dia: 9 × 10 = 90 \"máquina-horas\" por dia.",
+        "Dias necessários: 1440 ÷ 90 = 16 dias — 1 dia a mais que o prazo inicial de 15 dias."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q06",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Regra de três composta",
+      "numero": 6,
+      "tipo": "multipla_escolha",
+      "enunciado": "(Enem/MEC) Uma indústria tem um reservatório de água com capacidade para 900 m³. Quando há necessidade de limpeza do reservatório, toda a água precisa ser escoada. O escoamento da água é feito por seis ralos, e dura 6 horas quando o reservatório está cheio. Essa indústria construirá um novo reservatório, com capacidade de 500 m³, cujo escoamento da água deverá ser realizado em 4 horas, quando o reservatório estiver cheio. Os ralos utilizados no novo reservatório deverão ser idênticos aos do já existente. A quantidade de ralos do novo reservatório deverá ser igual a",
+      "dicas": [
+        "Ache primeiro quantos m³ por hora escoa UM único ralo, usando os dados do primeiro reservatório.",
+        "Use essa vazão por ralo para achar quantos ralos são necessários no segundo reservatório."
+      ],
+      "conceitos": [
+        "regra_de_tres_composta"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "alternativas": {
+        "a": "2.",
+        "b": "4.",
+        "c": "5.",
+        "d": "8.",
+        "e": "9."
+      },
+      "gabarito": "c",
+      "resposta": "Alternativa c) 5",
+      "resolucao": [
+        "Vazão de cada ralo: 900 = 6 ralos × r × 6 h → r = 900 ÷ 36 = 25 m³/h por ralo.",
+        "Novo reservatório: 500 = n × 25 × 4 → 500 = 100n → n = 5."
+      ]
+    },
+    {
+      "id": "acm8-2022-p285-q07",
+      "pagina": 285,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Elaboração de problema",
+      "numero": 7,
+      "tipo": "elaboracao",
+      "enunciado": "Com base nos conceitos estudados, elabore um problema envolvendo três grandezas que possa ser resolvido por meio da regra de três composta. Você pode aproveitar algum dos contextos apresentados ou pensar em outros. Em seguida, troque o caderno com um colega, de modo que um resolva o problema elaborado pelo outro.",
+      "dicas": [],
+      "conceitos": [],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "Resposta pessoal (atividade de elaboração em dupla).",
+      "resolucao": [],
+      "observacoes": "Atividade de elaboração; não tem resposta única."
+    },
+    {
+      "id": "acm8-2022-p288-q01",
+      "pagina": 288,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Escala",
+      "numero": 1,
+      "tipo": "problema",
+      "enunciado": "Em um mapa construído na escala 1 : 15 000, a distância entre duas casas de um vilarejo é representada por um segmento de reta de 1,6 cm. Qual é a distância real entre essas duas casas?",
+      "dicas": [
+        "Multiplique a medida no mapa pelo denominador da escala para achar a distância real."
+      ],
+      "conceitos": [
+        "escala"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "240 m (24 000 cm)",
+      "resolucao": [
+        "1,6 cm × 15000 = 24000 cm.",
+        "24000 cm = 240 m."
+      ]
+    },
+    {
+      "id": "acm8-2022-p288-q02",
+      "pagina": 288,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Densidade demográfica",
+      "numero": 2,
+      "tipo": "problema",
+      "enunciado": "Calcule a área de um estado, sabendo que, em 2022, a população era de 10 444 526 pessoas, e a densidade demográfica era de 52,40 hab./km².",
+      "dicas": [
+        "A densidade demográfica é a razão entre população e área: área = população ÷ densidade."
+      ],
+      "conceitos": [
+        "grandezas_proporcionais",
+        "densidade"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "resposta": "Aproximadamente 199 323 km²",
+      "resolucao": [
+        "Densidade = população ÷ área, então área = população ÷ densidade.",
+        "10444526 ÷ 52,40 ≈ 199323 km²."
+      ]
+    },
+    {
+      "id": "acm8-2022-p288-q03",
+      "pagina": 288,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Tarifas e proporcionalidade (tabela e gráfico)",
+      "numero": 3,
+      "tipo": "compreensao",
+      "enunciado": "Uma empresa que faz locação de quadras de tênis oferece três opções de tarifa, de acordo com o tempo de uso: Tarifa 1: R$ 0,40 por minuto de uso. Tarifa 2: R$ 35,00 para 2 horas de uso, mais R$ 0,40 por minuto de uso adicional. Tarifa 3: R$ 48,00 para 4 horas de uso, mais R$ 0,40 por minuto de uso adicional. a) Copie e complete o quadro com o preço de cada tarifa para 60, 150, 200, 250 e 300 minutos de uso. b) No gráfico do livro, a tarifa 2 está representada em azul; copie o gráfico em papel quadriculado e represente também as tarifas 1 e 3, nas cores vermelha e verde. c) Para escolher a tarifa 2, qual seria o melhor tempo de uso? d) Qual é a tarifa mais barata para 210 minutos de uso da quadra?",
+      "dicas": [],
+      "conceitos": [
+        "grafico_proporcionalidade",
+        "funcao_afim"
+      ],
+      "depende_de_figura": true,
+      "confianca_da_leitura": "baixa",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "descricao_da_figura": "Tabela para completar (tempo de uso em minutos × preço de cada tarifa) e gráfico com 3 retas (uma por tarifa) já parcialmente desenhado no livro (tarifa 2 em azul).",
+      "revisar": "Os itens a) e b) pedem para completar uma tabela de 15 valores e desenhar um gráfico à mão — não cabem no formato de resposta única do app. Os itens c) e d) dão para responder com as fórmulas das tarifas (sem o gráfico), mas exigem comparar as três tarifas em vários pontos; deixei de fora da prática automática por enquanto. Se quiser usar esta questão, vale a pena revisar/simplificar antes.",
+      "resposta": "Ver observações — questão de formato complexo (tabela + gráfico), não incluída na prática automática.",
+      "resolucao": [
+        "Tarifa 1: preço = 0,40 × minutos.",
+        "Tarifa 2: R$ 35,00 até 120 min, depois + 0,40 por minuto extra.",
+        "Tarifa 3: R$ 48,00 até 240 min, depois + 0,40 por minuto extra."
+      ],
+      "observacoes": "Exercício de múltiplas etapas (tabela para completar + gráfico para desenhar); mantido na base apenas para registro, não é praticável no formato do app sem edição."
+    },
+    {
+      "id": "acm8-2022-p288-q04",
+      "pagina": 288,
+      "topico": "Grandezas proporcionais e regra de três",
+      "subtopico": "Velocidade e proporcionalidade",
+      "numero": 4,
+      "tipo": "compreensao",
+      "enunciado": "A explosão de um vulcão localizado no mar provoca a formação de um tsunami — onda gigante, de várias dezenas de metros de altura —, que se move a uma velocidade de 138,89 m/s. Na imagem do livro, a casa mais próxima da costa está a 1,3 km do ponto onde a onda se formou.",
+      "dicas": [
+        "Para passar de m/s para km/h, multiplique por 3,6.",
+        "tempo = distância ÷ velocidade (mantendo as mesmas unidades)."
+      ],
+      "conceitos": [
+        "grandezas_proporcionais",
+        "velocidade"
+      ],
+      "depende_de_figura": false,
+      "confianca_da_leitura": "alta",
+      "fonte_id": "acm8-2022",
+      "ano_id": "9fund",
+      "tema_id": "9f-proporcao",
+      "itens": [
+        {
+          "letra": "a",
+          "enunciado": "Transforme essa velocidade em km/h.",
+          "resposta": "500 km/h",
+          "resolucao": [
+            "138,89 m/s × 3,6 ≈ 500 km/h (1 m/s = 3,6 km/h)."
+          ]
+        },
+        {
+          "letra": "b",
+          "enunciado": "Em quanto tempo a onda alcançará a casa representada na imagem (a 1,3 km de distância)?",
+          "resposta": "Aproximadamente 9,4 segundos",
+          "resolucao": [
+            "1,3 km = 1300 m.",
+            "tempo = 1300 ÷ 138,89 ≈ 9,36 s."
+          ]
+        }
+      ]
+    }
+  ]
+}
