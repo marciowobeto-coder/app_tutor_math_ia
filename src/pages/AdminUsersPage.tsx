@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Loader2, Plus, Trash2, ShieldCheck, User, Pencil } from 'lucide-react';
+import { ArrowLeft, Loader2, Plus, Trash2, ShieldCheck, User, Pencil, Ban, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { SchoolYear, SCHOOL_YEARS } from '@/types/math';
@@ -18,10 +18,17 @@ const ALL_YEAR_KEYS = Object.keys(SCHOOL_YEARS) as SchoolYear[];
 interface AppUser {
   id: string;
   username: string;
+  full_name: string | null;
   turma: string | null;
   role: string;
   allowed_school_years: string[];
+  active: boolean;
+  has_history: boolean;
   created_at: string;
+}
+
+class ApiError extends Error {
+  code?: string;
 }
 
 const call = async (action: string, body?: unknown) => {
@@ -31,16 +38,20 @@ const call = async (action: string, body?: unknown) => {
   if (error) {
     // Extract the real message returned by the edge function (non-2xx responses)
     let message = error.message;
+    let code: string | undefined;
     const res = (error as { context?: Response }).context;
     if (res && typeof res.json === 'function') {
       try {
         const payload = await res.clone().json();
         if (payload?.error) message = String(payload.error);
+        if (payload?.code) code = String(payload.code);
       } catch {
         /* keep default message */
       }
     }
-    throw new Error(message);
+    const err = new ApiError(message);
+    err.code = code;
+    throw err;
   }
   if (data?.error) throw new Error(data.error);
   return data;
@@ -89,10 +100,16 @@ const AdminUsersPage = () => {
   const [password, setPassword] = useState('');
   const [turma, setTurma] = useState('');
   const [role, setRole] = useState<'aluno' | 'admin'>('aluno');
-  const [newUserYears, setNewUserYears] = useState<string[]>(ALL_YEAR_KEYS);
+  const [fullName, setFullName] = useState('');
+  const [newUserYears, setNewUserYears] = useState<string[]>([]);
 
-  // Edição dos blocos de um usuário já existente.
+  // Edição de um usuário já existente (todos os campos; senha em branco = mantém a atual).
   const [editingUser, setEditingUser] = useState<AppUser | null>(null);
+  const [editFullName, setEditFullName] = useState('');
+  const [editUsername, setEditUsername] = useState('');
+  const [editPassword, setEditPassword] = useState('');
+  const [editTurma, setEditTurma] = useState('');
+  const [editRole, setEditRole] = useState<'aluno' | 'admin'>('aluno');
   const [editYears, setEditYears] = useState<string[]>([]);
   const [savingEdit, setSavingEdit] = useState(false);
 
@@ -162,6 +179,10 @@ const AdminUsersPage = () => {
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (fullName.trim().length < 3) {
+      toast.error('Informe o nome completo.');
+      return;
+    }
     if (username.trim().length < 3) {
       toast.error('Usuário deve ter ao menos 3 caracteres.');
       return;
@@ -177,6 +198,7 @@ const AdminUsersPage = () => {
     setCreating(true);
     try {
       await call('create', {
+        fullName,
         username,
         password,
         role,
@@ -184,11 +206,12 @@ const AdminUsersPage = () => {
         allowedSchoolYears: role === 'aluno' ? newUserYears : ALL_YEAR_KEYS,
       });
       toast.success(`Usuário "${username}" criado.`);
+      setFullName('');
       setUsername('');
       setPassword('');
       setTurma('');
       setRole('aluno');
-      setNewUserYears(ALL_YEAR_KEYS);
+      setNewUserYears([]);
       await load();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : 'Erro ao criar usuário');
@@ -197,19 +220,48 @@ const AdminUsersPage = () => {
     }
   };
 
+  const handleSetActive = async (u: AppUser, active: boolean) => {
+    try {
+      await call('set-active', { id: u.id, active });
+      toast.success(active ? `Usuário "${u.username}" reativado.` : `Usuário "${u.username}" inativado.`);
+      await load();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Erro ao alterar situação do usuário');
+    }
+  };
+
   const handleDelete = async (u: AppUser) => {
+    // Quem já tem histórico não pode ser excluído (perderia os dados do relatório): oferece inativar.
+    if (u.has_history) {
+      if (u.active && confirm(`"${u.username}" já possui histórico e não pode ser excluído. Deseja inativá-lo?`)) {
+        await handleSetActive(u, false);
+      } else if (!u.active) {
+        toast.info(`"${u.username}" possui histórico e já está inativo.`);
+      }
+      return;
+    }
     if (!confirm(`Excluir o usuário "${u.username}"?`)) return;
     try {
       await call('delete', { id: u.id });
+      setUsers(prev => prev.filter(x => x.id !== u.id));
       toast.success('Usuário excluído.');
       await load();
     } catch (err) {
+      if (err instanceof ApiError && err.code === 'has_history') {
+        if (confirm(`${err.message}\n\nDeseja inativar "${u.username}"?`)) await handleSetActive(u, false);
+        return;
+      }
       toast.error(err instanceof Error ? err.message : 'Erro ao excluir usuário');
     }
   };
 
   const openEdit = (u: AppUser) => {
     setEditingUser(u);
+    setEditFullName(u.full_name ?? '');
+    setEditUsername(u.username);
+    setEditPassword('');
+    setEditTurma(u.turma ?? '');
+    setEditRole(u.role === 'admin' ? 'admin' : 'aluno');
     setEditYears(u.allowed_school_years?.length ? u.allowed_school_years : ALL_YEAR_KEYS);
   };
 
@@ -219,18 +271,34 @@ const AdminUsersPage = () => {
 
   const handleSaveEdit = async () => {
     if (!editingUser) return;
-    if (editYears.length === 0) {
+    if (editUsername.trim().length < 3) {
+      toast.error('Usuário deve ter ao menos 3 caracteres.');
+      return;
+    }
+    if (editPassword && editPassword.length < 6) {
+      toast.error('Senha deve ter ao menos 6 caracteres.');
+      return;
+    }
+    if (editRole === 'aluno' && editYears.length === 0) {
       toast.error('Selecione ao menos um bloco (série) para o aluno.');
       return;
     }
     setSavingEdit(true);
     try {
-      await call('update', { id: editingUser.id, allowedSchoolYears: editYears });
-      toast.success(`Blocos de "${editingUser.username}" atualizados.`);
+      await call('update', {
+        id: editingUser.id,
+        fullName: editFullName,
+        username: editUsername,
+        password: editPassword || undefined,
+        turma: editTurma,
+        role: editRole,
+        allowedSchoolYears: editRole === 'aluno' ? editYears : ALL_YEAR_KEYS,
+      });
+      toast.success(`Usuário "${editUsername}" atualizado.`);
       setEditingUser(null);
       await load();
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : 'Erro ao atualizar blocos');
+      toast.error(err instanceof Error ? err.message : 'Erro ao atualizar usuário');
     } finally {
       setSavingEdit(false);
     }
@@ -250,7 +318,7 @@ const AdminUsersPage = () => {
             Gerenciar usuários
           </h1>
           <p className="text-primary-foreground/80 text-sm">
-            Crie e remova acessos à plataforma
+            Crie, edite, inative e remova acessos à plataforma
           </p>
         </div>
       </header>
@@ -281,6 +349,12 @@ const AdminUsersPage = () => {
             <Plus className="w-4 h-4 text-primary" /> Novo usuário
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <input
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="nome completo"
+              className="rounded-xl border border-input bg-background px-3 py-2.5 text-foreground outline-none focus:ring-2 focus:ring-ring sm:col-span-2 lg:col-span-4"
+            />
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -340,7 +414,10 @@ const AdminUsersPage = () => {
           ) : (
             <ul className="divide-y divide-border">
               {users.map((u) => (
-                <li key={u.id} className="flex items-center justify-between py-3 gap-2">
+                <li
+                  key={u.id}
+                  className={`flex items-center justify-between py-3 gap-2 ${u.active === false ? 'opacity-60' : ''}`}
+                >
                   <div className="flex items-center gap-3 min-w-0">
                     {u.role === 'admin' ? (
                       <ShieldCheck className="w-4 h-4 text-primary shrink-0" />
@@ -348,8 +425,16 @@ const AdminUsersPage = () => {
                       <User className="w-4 h-4 text-muted-foreground shrink-0" />
                     )}
                     <div className="min-w-0">
-                      <div className="text-foreground font-medium">{u.username}</div>
+                      <div className="text-foreground font-medium flex items-center gap-2">
+                        {u.full_name || u.username}
+                        {u.active === false && (
+                          <span className="text-[10px] uppercase tracking-wide rounded-full bg-muted px-2 py-0.5 text-muted-foreground">
+                            Inativo
+                          </span>
+                        )}
+                      </div>
                       <div className="text-xs text-muted-foreground capitalize">
+                        {u.full_name ? <span className="normal-case">{u.username} · </span> : null}
                         {u.role}{u.turma ? ` · Turma ${u.turma}` : ''}
                       </div>
                       {u.role === 'aluno' && (
@@ -360,20 +445,27 @@ const AdminUsersPage = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-1 shrink-0">
-                    {u.role === 'aluno' && (
-                      <button
-                        onClick={() => openEdit(u)}
-                        className="p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
-                        aria-label={`Editar blocos de ${u.username}`}
-                        title="Editar blocos"
-                      >
-                        <Pencil className="w-4 h-4" />
-                      </button>
-                    )}
+                    <button
+                      onClick={() => openEdit(u)}
+                      className="p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
+                      aria-label={`Editar ${u.username}`}
+                      title="Editar"
+                    >
+                      <Pencil className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => handleSetActive(u, u.active === false)}
+                      className="p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
+                      aria-label={u.active === false ? `Reativar ${u.username}` : `Inativar ${u.username}`}
+                      title={u.active === false ? 'Reativar' : 'Inativar'}
+                    >
+                      {u.active === false ? <RotateCcw className="w-4 h-4" /> : <Ban className="w-4 h-4" />}
+                    </button>
                     <button
                       onClick={() => handleDelete(u)}
                       className="p-2 rounded-lg text-destructive hover:bg-destructive/10 transition-colors"
                       aria-label={`Excluir ${u.username}`}
+                      title={u.has_history ? 'Possui histórico: só pode ser inativado' : 'Excluir'}
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -386,11 +478,64 @@ const AdminUsersPage = () => {
       </main>
 
       <Dialog open={!!editingUser} onOpenChange={(open) => { if (!open) setEditingUser(null); }}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-lg">
           <DialogHeader>
-            <DialogTitle>Blocos de {editingUser?.username}</DialogTitle>
+            <DialogTitle>Editar {editingUser?.username}</DialogTitle>
           </DialogHeader>
-          <YearsChecklist selected={editYears} onToggle={toggleEditYear} />
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="text-sm space-y-1 sm:col-span-2">
+              <span className="font-medium text-foreground">Nome completo</span>
+              <input
+                value={editFullName}
+                onChange={(e) => setEditFullName(e.target.value)}
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
+              />
+            </label>
+            <label className="text-sm space-y-1">
+              <span className="font-medium text-foreground">Usuário</span>
+              <input
+                value={editUsername}
+                onChange={(e) => setEditUsername(e.target.value)}
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
+              />
+            </label>
+            <label className="text-sm space-y-1">
+              <span className="font-medium text-foreground">Nova senha</span>
+              <input
+                type="password"
+                value={editPassword}
+                onChange={(e) => setEditPassword(e.target.value)}
+                placeholder="em branco = manter"
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
+              />
+            </label>
+            <label className="text-sm space-y-1">
+              <span className="font-medium text-foreground">Turma</span>
+              <input
+                value={editTurma}
+                onChange={(e) => setEditTurma(e.target.value)}
+                placeholder="ex.: 5º A"
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
+              />
+            </label>
+            <label className="text-sm space-y-1">
+              <span className="font-medium text-foreground">Perfil</span>
+              <select
+                value={editRole}
+                onChange={(e) => setEditRole(e.target.value as 'aluno' | 'admin')}
+                className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
+              >
+                <option value="aluno">Aluno</option>
+                <option value="admin">Administrador</option>
+              </select>
+            </label>
+          </div>
+          {editRole === 'aluno' && (
+            <div>
+              <p className="text-sm font-medium text-foreground mb-2">Blocos (séries)</p>
+              <YearsChecklist selected={editYears} onToggle={toggleEditYear} />
+            </div>
+          )}
           <DialogFooter>
             <button
               onClick={() => setEditingUser(null)}

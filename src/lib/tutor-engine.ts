@@ -46,8 +46,8 @@ function detectErrorType(userInput: string, expected: string, exercise: Exercise
   if (userDigits === expDigits && norm !== expNorm) return 'sinal';
 
   if (exercise.statement.includes('(') && !norm.includes('(') && norm !== expNorm) {
-    const terms = norm.split(/[+\-]/).length;
-    const expTerms = expNorm.split(/[+\-]/).length;
+    const terms = norm.split(/[+-]/).length;
+    const expTerms = expNorm.split(/[+-]/).length;
     if (terms !== expTerms) return 'distributiva';
   }
 

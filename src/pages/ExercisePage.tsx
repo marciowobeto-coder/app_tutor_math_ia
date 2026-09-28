@@ -55,7 +55,7 @@ const ExercisePage = () => {
   const [exercise, setExercise] = useState<Exercise | null>(null);
   const [reference, setReference] = useState<string>('');
   const [steps, setSteps] = useState<UserStep[]>([]);
-  const [hintLevel, setHintLevel] = useState<HintLevel>(0 as any);
+  const [hintLevel, setHintLevel] = useState<HintLevel | 0>(0);
   const [currentHint, setCurrentHint] = useState<string | null>(null);
   const [hintsUsed, setHintsUsed] = useState(0);
   const [completed, setCompleted] = useState(false);
@@ -116,7 +116,7 @@ const ExercisePage = () => {
     setRemaining(left);
     setSteps([]);
     setCompleted(false);
-    setHintLevel(0 as any);
+    setHintLevel(0);
     setCurrentHint(null);
     setHintsUsed(0);
     setAiAnalysis(null);
@@ -158,7 +158,7 @@ const ExercisePage = () => {
     else resetStreak();
 
     // Registra a questão do dia (feita e se acertou)
-    void (supabase as any).rpc('record_question', { _correct: errors === 0 });
+    void supabase.rpc('record_question', { _correct: errors === 0 });
 
     toast.success(`+${earnedPoints} pontos!`, { description: 'Exercício concluído!' });
   };
@@ -256,7 +256,7 @@ const ExercisePage = () => {
 
   const handleReset = () => {
     setSteps([]);
-    setHintLevel(0 as any);
+    setHintLevel(0);
     setCurrentHint(null);
     setHintsUsed(0);
     setCompleted(false);

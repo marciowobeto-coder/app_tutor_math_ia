@@ -34,24 +34,30 @@ export type Database = {
       }
       profiles: {
         Row: {
+          active: boolean
           allowed_school_years: string[]
           created_at: string
+          full_name: string | null
           id: string
           turma: string | null
           updated_at: string
           username: string
         }
         Insert: {
+          active?: boolean
           allowed_school_years?: string[]
           created_at?: string
+          full_name?: string | null
           id: string
           turma?: string | null
           updated_at?: string
           username: string
         }
         Update: {
+          active?: boolean
           allowed_school_years?: string[]
           created_at?: string
+          full_name?: string | null
           id?: string
           turma?: string | null
           updated_at?: string

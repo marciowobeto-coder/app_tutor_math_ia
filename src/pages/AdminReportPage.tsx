@@ -62,8 +62,8 @@ const AdminReportPage = () => {
       setProfiles(
         Object.fromEntries(((profileData ?? []) as ProfileRow[]).map(p => [p.id, p]))
       );
-    } catch (e: any) {
-      toast.error('Erro ao carregar relatório', { description: e?.message });
+    } catch (e) {
+      toast.error('Erro ao carregar relatório', { description: e instanceof Error ? e.message : undefined });
     } finally {
       setLoading(false);
     }

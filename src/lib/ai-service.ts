@@ -54,7 +54,7 @@ function exercisePayload(exercise: Exercise) {
   };
 }
 
-async function callAI(body: Record<string, any>) {
+async function callAI(body: Record<string, unknown>) {
   const { data, error } = await supabase.functions.invoke('ai-tutor', { body });
 
   if (error) {
@@ -125,7 +125,7 @@ export async function analyzeWhiteboard(
       isCorrect: parsed.isCorrect ?? undefined,
       errorLocation: parsed.errorLocation ?? null,
       itemResults: Array.isArray(parsed.itemResults)
-        ? parsed.itemResults.map((r: any) => ({
+        ? parsed.itemResults.map((r: { letra?: unknown; attempted?: unknown; isCorrect?: unknown; feedback?: string }) => ({
             letra: String(r.letra ?? ''),
             attempted: Boolean(r.attempted),
             isCorrect: Boolean(r.attempted) && Boolean(r.isCorrect),

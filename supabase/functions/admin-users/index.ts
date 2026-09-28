@@ -79,13 +79,16 @@ Deno.serve(async (req) => {
     if (action === "list") {
       const { data: profiles, error } = await admin
         .from("profiles")
-        .select("id, username, turma, allowed_school_years, created_at")
+        .select("id, username, full_name, turma, allowed_school_years, active, created_at")
         .order("created_at", { ascending: true });
       if (error) return json({ error: error.message }, 400);
       const { data: roles } = await admin.from("user_roles").select("user_id, role");
+      const { data: activity } = await admin.from("user_daily_activity").select("user_id");
+      const withHistory = new Set((activity ?? []).map((a) => a.user_id));
       const users = (profiles ?? []).map((p) => ({
         ...p,
         role: roles?.find((r) => r.user_id === p.id)?.role ?? "aluno",
+        has_history: withHistory.has(p.id),
       }));
       return json({ users });
     }
@@ -96,9 +99,11 @@ Deno.serve(async (req) => {
       const password = String(body?.password ?? "");
       const role = body?.role === "admin" ? "admin" : "aluno";
       const turma = String(body?.turma ?? "").trim().slice(0, 60) || null;
+      const fullName = String(body?.fullName ?? "").trim().slice(0, 120) || null;
       // Admin sempre tem acesso a tudo; pra aluno, usa os blocos escolhidos (ou todos, se nada vier).
       const allowedSchoolYears = role === "admin" ? ALL_SCHOOL_YEARS : sanitizeYears(body?.allowedSchoolYears);
 
+      if (!fullName || fullName.length < 3) return json({ error: "Informe o nome completo" }, 400);
       if (username.length < 3) return json({ error: "Usuário inválido (mínimo 3 caracteres)" }, 400);
       if (password.length < 6) return json({ error: "Senha deve ter ao menos 6 caracteres" }, 400);
 
@@ -106,13 +111,14 @@ Deno.serve(async (req) => {
         email: emailFor(username),
         password,
         email_confirm: true,
-        user_metadata: { username, role, turma },
+        user_metadata: { username, full_name: fullName, role, turma },
       });
       if (error) return json({ error: error.message }, 400);
 
       await admin.from("profiles").upsert({
         id: data.user!.id,
         username,
+        full_name: fullName,
         turma,
         allowed_school_years: allowedSchoolYears,
       });
@@ -127,15 +133,91 @@ Deno.serve(async (req) => {
       const body = await req.json().catch(() => ({}));
       const id = String(body?.id ?? "");
       if (!id) return json({ error: "id obrigatório" }, 400);
-      const allowedSchoolYears = sanitizeYears(body?.allowedSchoolYears);
 
-      const { error } = await admin
+      const { data: current, error: curErr } = await admin
         .from("profiles")
-        .update({ allowed_school_years: allowedSchoolYears })
-        .eq("id", id);
+        .select("username")
+        .eq("id", id)
+        .maybeSingle();
+      if (curErr) return json({ error: curErr.message }, 400);
+      if (!current) return json({ error: "Usuário não encontrado" }, 404);
+
+      const username = body?.username !== undefined ? normalize(String(body.username)) : current.username;
+      const password = body?.password ? String(body.password) : "";
+      const role = body?.role === "admin" ? "admin" : body?.role === "aluno" ? "aluno" : null;
+      const turma = body?.turma !== undefined ? String(body.turma ?? "").trim().slice(0, 60) || null : undefined;
+      const fullName = body?.fullName !== undefined ? String(body.fullName ?? "").trim().slice(0, 120) || null : undefined;
+
+      if (username.length < 3) return json({ error: "Usuário inválido (mínimo 3 caracteres)" }, 400);
+      if (password && password.length < 6) return json({ error: "Senha deve ter ao menos 6 caracteres" }, 400);
+      if (id === userData.user.id && role === "aluno") {
+        return json({ error: "Não é possível remover o próprio acesso de administrador" }, 400);
+      }
+
+      if (username !== current.username) {
+        const { data: taken } = await admin
+          .from("profiles")
+          .select("id")
+          .eq("username", username)
+          .neq("id", id)
+          .maybeSingle();
+        if (taken) return json({ error: `O usuário "${username}" já existe` }, 400);
+      }
+
+      // Login (e-mail derivado do usuário) e senha ficam no Supabase Auth.
+      const authUpdate: Record<string, unknown> = {};
+      if (username !== current.username) {
+        authUpdate.email = emailFor(username);
+        authUpdate.email_confirm = true;
+      }
+      if (password) authUpdate.password = password;
+      if (Object.keys(authUpdate).length > 0 || role || turma !== undefined || fullName !== undefined) {
+        const { data: authUser } = await admin.auth.admin.getUserById(id);
+        authUpdate.user_metadata = {
+          ...(authUser?.user?.user_metadata ?? {}),
+          username,
+          ...(role ? { role } : {}),
+          ...(turma !== undefined ? { turma } : {}),
+          ...(fullName !== undefined ? { full_name: fullName } : {}),
+        };
+        const { error: authErr } = await admin.auth.admin.updateUserById(id, authUpdate);
+        if (authErr) return json({ error: authErr.message }, 400);
+      }
+
+      const profileUpdate: Record<string, unknown> = { username };
+      if (turma !== undefined) profileUpdate.turma = turma;
+      if (fullName !== undefined) profileUpdate.full_name = fullName;
+      if (role === "admin") profileUpdate.allowed_school_years = ALL_SCHOOL_YEARS;
+      else if (body?.allowedSchoolYears !== undefined) {
+        profileUpdate.allowed_school_years = sanitizeYears(body.allowedSchoolYears);
+      }
+      const { error } = await admin.from("profiles").update(profileUpdate).eq("id", id);
       if (error) return json({ error: error.message }, 400);
 
-      return json({ ok: true, allowedSchoolYears });
+      if (role) {
+        await admin.from("user_roles").delete().eq("user_id", id).neq("role", role);
+        await admin.from("user_roles").upsert({ user_id: id, role }, { onConflict: "user_id,role" });
+      }
+
+      return json({ ok: true });
+    }
+
+    if (action === "set-active") {
+      const body = await req.json().catch(() => ({}));
+      const id = String(body?.id ?? "");
+      const active = body?.active !== false;
+      if (!id) return json({ error: "id obrigatório" }, 400);
+      if (id === userData.user.id && !active) return json({ error: "Não é possível inativar a própria conta" }, 400);
+
+      // O ban impede novos logins e a renovação da sessão; "none" remove o bloqueio.
+      const { error: authErr } = await admin.auth.admin.updateUserById(id, {
+        ban_duration: active ? "none" : "876000h",
+      });
+      if (authErr) return json({ error: authErr.message }, 400);
+
+      const { error } = await admin.from("profiles").update({ active }).eq("id", id);
+      if (error) return json({ error: error.message }, 400);
+      return json({ ok: true, active });
     }
 
     if (action === "delete") {
@@ -143,8 +225,22 @@ Deno.serve(async (req) => {
       const id = String(body?.id ?? "");
       if (!id) return json({ error: "id obrigatório" }, 400);
       if (id === userData.user.id) return json({ error: "Não é possível excluir a própria conta" }, 400);
+
+      // Quem já tem histórico não é excluído (perderia os dados do relatório): só inativado.
+      const { count } = await admin
+        .from("user_daily_activity")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", id);
+      if ((count ?? 0) > 0) {
+        return json({ error: "Usuário possui histórico e não pode ser excluído. Inative-o.", code: "has_history" }, 409);
+      }
+
+      // profiles/user_roles não têm FK pra auth.users, então precisam ser apagados à parte.
       const { error } = await admin.auth.admin.deleteUser(id);
-      if (error) return json({ error: error.message }, 400);
+      if (error && !/not.*found/i.test(error.message)) return json({ error: error.message }, 400);
+      await admin.from("user_roles").delete().eq("user_id", id);
+      const { error: profErr } = await admin.from("profiles").delete().eq("id", id);
+      if (profErr) return json({ error: profErr.message }, 400);
       return json({ ok: true });
     }
 

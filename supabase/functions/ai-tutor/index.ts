@@ -21,11 +21,28 @@ function cleanBase64(dataUrl: string): { mimeType: string; base64: string } {
   return { mimeType: "image/png", base64: dataUrl.replace(/\s/g, "") };
 }
 
+/** Formatos mínimos do que o app envia no corpo da requisição. */
+interface StepPayload {
+  expression: string;
+}
+
+interface SubItemPayload {
+  letra: string;
+  statement: string;
+  correctAnswer: string;
+  referenceSolution?: string[];
+}
+
+interface ExercisePayload {
+  referenceSolution?: string[];
+  subItems?: SubItemPayload[];
+}
+
 async function callAnthropicAI(systemPrompt: string, userPrompt: string, imageData?: string, temperature = 0.7) {
   const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
   if (!ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not configured");
 
-  const content: any[] = [];
+  const content: Array<Record<string, unknown>> = [];
 
   if (imageData) {
     const { mimeType, base64 } = cleanBase64(imageData);
@@ -59,7 +76,7 @@ async function callAnthropicAI(systemPrompt: string, userPrompt: string, imageDa
   }
 
   const data = await response.json();
-  const textBlock = (data.content ?? []).find((b: any) => b?.type === "text");
+  const textBlock = (data.content ?? []).find((b: { type?: string; text?: string }) => b?.type === "text");
   return textBlock?.text ?? "";
 }
 
@@ -67,7 +84,7 @@ async function callGroqAI(systemPrompt: string, userPrompt: string, imageData?: 
   const GROQ_API_KEY = Deno.env.get("tutor_math_api");
   if (!GROQ_API_KEY) throw new Error("Groq API key (tutor_math_api) is not configured");
 
-  const messages: any[] = [{ role: "system", content: systemPrompt }];
+  const messages: Array<{ role: string; content: unknown }> = [{ role: "system", content: systemPrompt }];
 
   if (imageData) {
     const { mimeType, base64 } = cleanBase64(imageData);
@@ -142,7 +159,7 @@ serve(async (req) => {
     const body = await req.json();
     const { action, exercise, steps, stepIndex, imageData, schoolYear } = body;
     // Os exercícios agora vêm da base de conhecimento (src/data/knowledge-base); a IA só ajuda a corrigir e dar dicas.
-    const referenceText = (ex: any) =>
+    const referenceText = (ex: ExercisePayload | undefined) =>
       Array.isArray(ex?.referenceSolution) && ex.referenceSolution.length
         ? `\nResolução de referência da base (é UMA forma de resolver; o aluno pode resolver de outro jeito): ${ex.referenceSolution.join(' | ')}`
         : '';
@@ -164,7 +181,7 @@ Resposta esperada: "${exercise.correctAnswer}"
 Passo atual: ${stepIndex + 1} de ${exercise.expectedSteps.length}
 Passo esperado: "${exercise.expectedSteps[stepIndex]?.expression}"
 Descrição do passo: "${exercise.expectedSteps[stepIndex]?.description}"${referenceText(exercise)}
-Passos do aluno até agora: ${steps.map((s: any) => s.expression).join(' → ')}
+Passos do aluno até agora: ${steps.map((s: StepPayload) => s.expression).join(' → ')}
 
 Dê uma dica que oriente o aluno sem revelar a resposta.`;
 
@@ -182,7 +199,7 @@ Responda APENAS em JSON válido: { "feedback": "...", "errorType": "sinal|distri
         userPrompt = `Exercício: "${exercise.statement}"
 Resposta esperada: "${exercise.correctAnswer}"
 O aluno escreveu: "${steps[steps.length - 1]?.expression}"
-Desenvolvimento completo do aluno: ${steps.map((s: any) => s.expression).join(' → ')}
+Desenvolvimento completo do aluno: ${steps.map((s: StepPayload) => s.expression).join(' → ')}
 
 IMPORTANTE: Foque no resultado final. Se o resultado final bate com a resposta esperada e o desenvolvimento faz sentido, marque como correto independentemente dos passos intermediários.`;
 
@@ -191,12 +208,12 @@ IMPORTANTE: Foque no resultado final. Se o resultado final bate com a resposta e
       }
 
       case "analyze_whiteboard": {
-        const subItems: any[] = Array.isArray(exercise?.subItems) ? exercise.subItems : [];
+        const subItems: SubItemPayload[] = Array.isArray(exercise?.subItems) ? exercise.subItems : [];
         const hasSubItems = subItems.length > 0;
 
         if (hasSubItems) {
           const itemsListText = subItems
-            .map((si: any) => {
+            .map((si: SubItemPayload) => {
               const ref = Array.isArray(si.referenceSolution) && si.referenceSolution.length
                 ? ` (resolução de referência: ${si.referenceSolution.join(' | ')})`
                 : '';
@@ -263,7 +280,7 @@ Analise a imagem do trabalho do aluno. Foque no resultado final e na coerência 
         );
     }
 
-    let result: any = { content };
+    let result: { content: string; parsed?: unknown } = { content };
     if (["correct_step", "analyze_whiteboard"].includes(action)) {
       try {
         const jsonMatch = content.match(/\{[\s\S]*\}/);

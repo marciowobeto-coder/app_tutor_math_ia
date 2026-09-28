@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 import { GameState, createInitialState, calculatePoints, checkMedals } from '@/lib/game-state';
-import { Resolution, TopicProgress, SchoolYear } from '@/types/math';
+import { Resolution, TopicProgress, SchoolYear, ErrorType } from '@/types/math';
 import { toast } from 'sonner';
 
 interface GameContextType {
@@ -54,7 +54,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
                   accuracy: p.exercisesDone === 0 ? accuracy : (p.accuracy * p.exercisesDone + accuracy) / (p.exercisesDone + 1),
                   averageTime: p.exercisesDone === 0 ? time : (p.averageTime * p.exercisesDone + time) / (p.exercisesDone + 1),
                   exercisesDone: p.exercisesDone + 1,
-                  commonErrors: [...new Set([...p.commonErrors, ...errors])] as any,
+                  commonErrors: [...new Set([...p.commonErrors, ...errors])] as ErrorType[],
                 }
               : p
           ),
@@ -67,7 +67,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
           accuracy,
           averageTime: time,
           exercisesDone: 1,
-          commonErrors: errors as any,
+          commonErrors: errors as ErrorType[],
         }],
       };
     });

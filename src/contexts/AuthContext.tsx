@@ -33,9 +33,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const loadMeta = async (uid: string) => {
       setMetaLoading(true);
       const [{ data: profile }, { data: role }] = await Promise.all([
-        supabase.from('profiles').select('username, allowed_school_years').eq('id', uid).maybeSingle(),
+        supabase.from('profiles').select('username, allowed_school_years, active').eq('id', uid).maybeSingle(),
         supabase.from('user_roles').select('role').eq('user_id', uid).eq('role', 'admin').maybeSingle(),
       ]);
+      // Usuário inativado pelo admin: encerra a sessão que ainda estiver aberta.
+      if (profile?.active === false) {
+        await supabase.auth.signOut();
+        setMetaLoading(false);
+        return;
+      }
       setUsername(profile?.username ?? null);
       setAllowedSchoolYears(profile?.allowed_school_years ?? []);
       setIsAdmin(!!role);
@@ -78,14 +84,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
     if (error) {
       return {
-        error:
-          error.message.toLowerCase().includes('invalid')
+        error: error.message.toLowerCase().includes('banned')
+          ? 'Usuário inativo. Procure o administrador.'
+          : error.message.toLowerCase().includes('invalid')
             ? 'Usuário ou senha incorretos.'
             : error.message,
       };
     }
     // Registra o login do dia (não bloqueia o fluxo em caso de falha)
-    await (supabase as any).rpc('record_login');
+    await supabase.rpc('record_login');
 
     return { error: null };
   };
