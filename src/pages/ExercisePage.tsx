@@ -247,8 +247,11 @@ const ExercisePage = () => {
       if (result.suggestions?.length > 0) {
         toast.info('💡 Sugestão da IA', { description: result.suggestions[0] });
       }
-    } catch {
-      toast.error('Não foi possível analisar o quadro branco.');
+    } catch (err) {
+      console.error('Erro ao analisar o quadro branco:', err);
+      toast.error('Não foi possível analisar o quadro branco.', {
+        description: err instanceof Error ? err.message : undefined,
+      });
     } finally {
       setIsAnalyzing(false);
     }

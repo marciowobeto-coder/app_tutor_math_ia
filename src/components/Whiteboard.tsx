@@ -281,10 +281,30 @@ const Whiteboard = ({ onCapture, isAnalyzing = false, clearTrigger = 0 }: Whiteb
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    // Fotos de celular passam fácil de 4 MB, acima do limite de imagem em base64 dos provedores
+    // de IA; reduz para no máx. 1600 px e manda em JPEG.
     const reader = new FileReader();
     reader.onload = () => {
       const dataUrl = reader.result as string;
-      onCapture(dataUrl);
+      const img = new Image();
+      img.onload = () => {
+        const maxDim = 1600;
+        const scale = Math.min(maxDim / img.width, maxDim / img.height, 1);
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = Math.round(img.width * scale);
+        tempCanvas.height = Math.round(img.height * scale);
+        const tempCtx = tempCanvas.getContext('2d');
+        if (!tempCtx) {
+          onCapture(dataUrl);
+          return;
+        }
+        tempCtx.fillStyle = '#ffffff';
+        tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+        tempCtx.drawImage(img, 0, 0, tempCanvas.width, tempCanvas.height);
+        onCapture(tempCanvas.toDataURL('image/jpeg', 0.85));
+      };
+      img.onerror = () => onCapture(dataUrl);
+      img.src = dataUrl;
     };
     reader.readAsDataURL(file);
     e.target.value = '';

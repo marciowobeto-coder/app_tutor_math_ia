@@ -59,11 +59,29 @@ async function callAI(body: Record<string, unknown>) {
 
   if (error) {
     console.error('AI function error:', error);
-    throw new Error(error.message || 'Erro ao comunicar com a IA');
+    // Respostas não-2xx da edge function trazem o motivo real no corpo ({ error }).
+    let message = error.message || 'Erro ao comunicar com a IA';
+    const res = (error as { context?: Response }).context;
+    if (res && typeof res.json === 'function') {
+      try {
+        const payload = await res.clone().json();
+        if (payload?.error) message = String(payload.error);
+      } catch {
+        /* mantém a mensagem padrão */
+      }
+    }
+    throw new Error(message);
   }
 
   return data;
 }
+
+/** A IA às vezes devolve texto onde esperamos lista (ou o contrário); normaliza pra string[]. */
+const toStringList = (value: unknown): string[] => {
+  if (Array.isArray(value)) return value.map(v => String(v)).filter(Boolean);
+  if (typeof value === 'string' && value.trim()) return [value];
+  return [];
+};
 
 export async function getAIHint(
   exercise: Exercise,
@@ -119,9 +137,9 @@ export async function analyzeWhiteboard(
   if (result.parsed) {
     const parsed = result.parsed;
     return {
-      steps: parsed.steps || (parsed.recognized ? [parsed.recognized] : []),
-      feedback: parsed.feedback || '',
-      suggestions: parsed.suggestions || [],
+      steps: parsed.steps ? toStringList(parsed.steps) : toStringList(parsed.recognized),
+      feedback: typeof parsed.feedback === 'string' ? parsed.feedback : '',
+      suggestions: toStringList(parsed.suggestions),
       isCorrect: parsed.isCorrect ?? undefined,
       errorLocation: parsed.errorLocation ?? null,
       itemResults: Array.isArray(parsed.itemResults)

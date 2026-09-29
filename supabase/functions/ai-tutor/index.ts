@@ -84,18 +84,21 @@ async function callGroqAI(systemPrompt: string, userPrompt: string, imageData?: 
   const GROQ_API_KEY = Deno.env.get("tutor_math_api");
   if (!GROQ_API_KEY) throw new Error("Groq API key (tutor_math_api) is not configured");
 
-  const messages: Array<{ role: string; content: unknown }> = [{ role: "system", content: systemPrompt }];
+  const messages: Array<{ role: string; content: unknown }> = [];
 
   if (imageData) {
+    // Modelos de visão da Groq podem recusar mensagem "system" junto com imagem;
+    // as instruções vão no início do texto do próprio usuário.
     const { mimeType, base64 } = cleanBase64(imageData);
     messages.push({
       role: "user",
       content: [
-        { type: "text", text: userPrompt },
+        { type: "text", text: `${systemPrompt}\n\n${userPrompt}` },
         { type: "image_url", image_url: { url: `data:${mimeType};base64,${base64}` } },
       ],
     });
   } else {
+    messages.push({ role: "system", content: systemPrompt });
     messages.push({ role: "user", content: userPrompt });
   }
 
@@ -120,11 +123,21 @@ async function callGroqAI(systemPrompt: string, userPrompt: string, imageData?: 
     console.error("Groq API error:", response.status, errorText);
     if (response.status === 429) throw new Error("Rate limit exceeded. Aguarde um momento.");
     if (response.status === 401 || response.status === 403) throw new Error("Chave da Groq inválida ou sem permissão.");
-    throw new Error("AI service error");
+    // Repassa o motivo informado pela Groq (ex.: imagem grande demais, parâmetro não suportado).
+    let detail = errorText.slice(0, 300);
+    try {
+      detail = JSON.parse(errorText)?.error?.message ?? detail;
+    } catch {
+      /* corpo não era JSON */
+    }
+    throw new Error(`Groq (${response.status}): ${detail}`);
   }
 
   const data = await response.json();
-  return data.choices?.[0]?.message?.content || "";
+  // O qwen3 pode devolver o raciocínio em <think>…</think> antes da resposta; as chaves ali
+  // dentro confundiam a extração do JSON. Fica só com a resposta final.
+  const text: string = data.choices?.[0]?.message?.content || "";
+  return text.replace(/<think>[\s\S]*?(<\/think>|$)/g, "").trim();
 }
 
 /** Lê o provedor de IA configurado pelo admin (tabela app_settings). Consultado a cada
