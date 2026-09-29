@@ -357,12 +357,14 @@ const AdminUsersPage = () => {
             />
             <input
               value={username}
+              autoComplete="off"
               onChange={(e) => setUsername(e.target.value)}
               placeholder="usuário"
               className="rounded-xl border border-input bg-background px-3 py-2.5 text-foreground outline-none focus:ring-2 focus:ring-ring"
             />
             <input
               type="password"
+              autoComplete="new-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="senha (mín. 6)"
@@ -495,6 +497,7 @@ const AdminUsersPage = () => {
               <span className="font-medium text-foreground">Usuário</span>
               <input
                 value={editUsername}
+                autoComplete="off"
                 onChange={(e) => setEditUsername(e.target.value)}
                 className="w-full rounded-xl border border-input bg-background px-3 py-2 text-foreground outline-none focus:ring-2 focus:ring-ring"
               />
@@ -503,6 +506,7 @@ const AdminUsersPage = () => {
               <span className="font-medium text-foreground">Nova senha</span>
               <input
                 type="password"
+                autoComplete="new-password"
                 value={editPassword}
                 onChange={(e) => setEditPassword(e.target.value)}
                 placeholder="em branco = manter"
