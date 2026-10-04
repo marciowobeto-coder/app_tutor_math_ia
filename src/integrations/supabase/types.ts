@@ -32,6 +32,57 @@ export type Database = {
         }
         Relationships: []
       }
+      exercise_attempts: {
+        Row: {
+          completed: boolean
+          correct: boolean
+          created_at: string
+          duration_seconds: number
+          error_types: string[]
+          errors: number
+          exercise_id: string
+          hints_used: number
+          id: string
+          points: number
+          steps_correct: number
+          steps_total: number
+          topic_id: string
+          user_id: string
+        }
+        Insert: {
+          completed: boolean
+          correct: boolean
+          created_at?: string
+          duration_seconds?: number
+          error_types?: string[]
+          errors?: number
+          exercise_id: string
+          hints_used?: number
+          id?: string
+          points?: number
+          steps_correct?: number
+          steps_total?: number
+          topic_id: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          correct?: boolean
+          created_at?: string
+          duration_seconds?: number
+          error_types?: string[]
+          errors?: number
+          exercise_id?: string
+          hints_used?: number
+          id?: string
+          points?: number
+          steps_correct?: number
+          steps_total?: number
+          topic_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           active: boolean
@@ -130,6 +181,22 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      record_exercise: {
+        Args: {
+          _completed: boolean
+          _correct: boolean
+          _duration_seconds: number
+          _error_types: string[]
+          _errors: number
+          _exercise_id: string
+          _hints_used: number
+          _points: number
+          _steps_correct: number
+          _steps_total: number
+          _topic_id: string
+        }
+        Returns: undefined
       }
       record_login: { Args: never; Returns: undefined }
       record_question: { Args: { _correct: boolean }; Returns: undefined }

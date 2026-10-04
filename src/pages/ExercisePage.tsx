@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getHint } from '@/lib/tutor-engine';
 import { calculatePoints } from '@/lib/game-state';
 import { useGame } from '@/contexts/GameContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { Exercise, UserStep, HintLevel, SchoolYear, SCHOOL_YEARS, getTopicById } from '@/types/math';
+import { Exercise, UserStep, HintLevel, SchoolYear, ErrorType, SCHOOL_YEARS, getTopicById } from '@/types/math';
 import { ArrowLeft, Lightbulb, BookOpen, Play, ChevronUp, ChevronDown, SkipForward } from 'lucide-react';
 import { toast } from 'sonner';
 import Whiteboard from '@/components/Whiteboard';
@@ -13,7 +13,6 @@ import { getAIHint, analyzeWhiteboard } from '@/lib/ai-service';
 import ExerciseSteps from '@/components/ExerciseSteps';
 import ExerciseCompletion from '@/components/ExerciseCompletion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { supabase } from '@/integrations/supabase/client';
 import {
   getUnits,
   getSourcesForTopic,
@@ -45,7 +44,7 @@ const ExercisePage = () => {
   const { yearId, topicId } = useParams<{ yearId: string; topicId: string }>();
   const navigate = useNavigate();
   const { user, isAdmin, allowedSchoolYears } = useAuth();
-  const { state, addPoints, addResolution, updateProgress, incrementStreak, resetStreak } = useGame();
+  const { recordExercise } = useGame();
 
   const year = yearId as SchoolYear;
   const yearInfo = SCHOOL_YEARS[year];
@@ -67,6 +66,8 @@ const ExercisePage = () => {
   const [questionCollapsed, setQuestionCollapsed] = useState(false);
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [remaining, setRemaining] = useState<number | null>(null);
+  /** Quantas vezes o aluno enviou uma resposta errada neste exercício (alternativa única). */
+  const [wrongAttempts, setWrongAttempts] = useState(0);
 
   // Filtros da base de conhecimento
   const [sourceFilter, setSourceFilter] = useState<string>('all');
@@ -81,6 +82,41 @@ const ExercisePage = () => {
     () => getUnits({ topicId: topicId || '', sourceId: sourceFilter, subtopic: subtopicFilter }),
     [topicId, sourceFilter, subtopicFilter]
   );
+
+  // Exercício que o aluno errou e ainda não concluiu: se ele sair (próximo exercício, voltar,
+  // fechar a página), conta como feito e errado no progresso.
+  const pendingAttemptRef = useRef<(() => void) | null>(null);
+  pendingAttemptRef.current =
+    exercise && topicId && !completed && (wrongAttempts > 0 || steps.some(s => s.status === 'incorreto'))
+      ? () => {
+          const stepsCorrect = steps.filter(s => s.status === 'correto').length;
+          recordExercise({
+            topicId,
+            exerciseId: exercise.id,
+            completed: false,
+            correct: false,
+            stepsCorrect,
+            stepsTotal: Math.max(steps.length, 1),
+            errors: Math.max(steps.filter(s => s.status === 'incorreto').length, wrongAttempts, 1),
+            hintsUsed,
+            durationSeconds: (Date.now() - startTime) / 1000,
+            points: 0,
+            errorTypes: steps.filter(s => s.errorType !== 'nenhum').map(s => s.errorType),
+          });
+        }
+      : null;
+
+  useEffect(() => {
+    const flush = () => {
+      pendingAttemptRef.current?.();
+      pendingAttemptRef.current = null;
+    };
+    window.addEventListener('pagehide', flush);
+    return () => {
+      window.removeEventListener('pagehide', flush);
+      flush();
+    };
+  }, []);
 
   if (!yearInfo || !topicInfo) {
     return (
@@ -99,6 +135,8 @@ const ExercisePage = () => {
   /** Sorteia a próxima questão da base (não repete até acabar a lista). */
   const handleNextExercise = () => {
     if (!topicId) return;
+    pendingAttemptRef.current?.();
+    pendingAttemptRef.current = null;
     const seen = loadSeen(userKey, topicId);
     const { unit, restarted, remaining: left } = pickNext(pool, seen, exercise?.id);
 
@@ -119,6 +157,7 @@ const ExercisePage = () => {
     setHintLevel(0);
     setCurrentHint(null);
     setHintsUsed(0);
+    setWrongAttempts(0);
     setAiAnalysis(null);
     setWhiteboardClearTrigger(prev => prev + 1);
     setStartTime(Date.now());
@@ -126,39 +165,29 @@ const ExercisePage = () => {
   };
 
   const completeExercise = (allSteps: UserStep[]) => {
-    if (!exercise) return;
+    if (!exercise || !topicId) return;
     setCompleted(true);
     setFeedbackOpen(true);
-    const errors = allSteps.filter(s => s.status === 'incorreto').length;
+    // Respostas erradas enviadas antes de acertar também contam como erro.
+    const errors = allSteps.filter(s => s.status === 'incorreto').length + wrongAttempts;
     const earnedPoints = calculatePoints(exercise.points, hintsUsed, errors);
-    addPoints(earnedPoints);
 
-    const duration = (Date.now() - startTime) / 1000;
-    const accuracy = (allSteps.filter(s => s.status === 'correto').length / allSteps.length) * 100;
-
-    addResolution({
-      id: `res-${Date.now()}`,
-      userId: state.user.id,
+    recordExercise({
+      topicId,
       exerciseId: exercise.id,
-      steps: allSteps,
-      hintsUsed,
       completed: true,
-      startedAt: new Date(startTime),
-      completedAt: new Date(),
+      correct: errors === 0,
+      stepsCorrect: allSteps.filter(s => s.status === 'correto').length,
+      stepsTotal: allSteps.length,
+      errors,
+      hintsUsed,
+      durationSeconds: (Date.now() - startTime) / 1000,
+      points: earnedPoints,
+      errorTypes: [
+        ...allSteps.filter(s => s.errorType !== 'nenhum').map(s => s.errorType),
+        ...(wrongAttempts > 0 ? (['calculo'] as ErrorType[]) : []),
+      ],
     });
-
-    updateProgress(
-      topicId!,
-      accuracy,
-      duration,
-      allSteps.filter(s => s.errorType !== 'nenhum').map(s => s.errorType)
-    );
-
-    if (errors === 0) incrementStreak();
-    else resetStreak();
-
-    // Registra a questão do dia (feita e se acertou)
-    void supabase.rpc('record_question', { _correct: errors === 0 });
 
     toast.success(`+${earnedPoints} pontos!`, { description: 'Exercício concluído!' });
   };
@@ -241,6 +270,8 @@ const ExercisePage = () => {
 
         if (result.isCorrect) {
           completeExercise([overallStep]);
+        } else {
+          setWrongAttempts(prev => prev + 1);
         }
       }
 
@@ -262,8 +293,10 @@ const ExercisePage = () => {
     setHintLevel(0);
     setCurrentHint(null);
     setHintsUsed(0);
+    setWrongAttempts(0);
     setCompleted(false);
     setAiAnalysis(null);
+    setStartTime(Date.now());
   };
 
   // Sem exercício ainda: tela de escolha (fonte / tópico do livro)

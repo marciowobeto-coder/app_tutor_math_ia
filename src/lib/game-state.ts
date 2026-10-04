@@ -1,4 +1,4 @@
-import { User, Medal, TopicProgress, Resolution, SchoolYear } from '@/types/math';
+import { User, Medal, TopicProgress, Resolution, ErrorType, UserStep } from '@/types/math';
 
 export interface GameState {
   user: User;
@@ -28,7 +28,7 @@ export function createInitialState(): GameState {
       createdAt: new Date(),
       points: 0,
       streak: 0,
-      medals: DEFAULT_MEDALS,
+      medals: DEFAULT_MEDALS.map(m => ({ ...m })),
     },
     progress: [],
     resolutions: [],
@@ -71,4 +71,81 @@ export function checkMedals(state: GameState): Medal[] {
   });
 
   return newlyUnlocked;
+}
+
+/** Um exercício resolvido (ou abandonado após errar), como é gravado em `exercise_attempts`. */
+export interface ExerciseAttempt {
+  topicId: string;
+  exerciseId: string;
+  /** false = o aluno saiu do exercício depois de errar, sem concluí-lo. */
+  completed: boolean;
+  /** Acertou de primeira, sem nenhum erro. */
+  correct: boolean;
+  stepsCorrect: number;
+  stepsTotal: number;
+  errors: number;
+  hintsUsed: number;
+  durationSeconds: number;
+  points: number;
+  errorTypes: ErrorType[];
+  createdAt: Date;
+}
+
+/** Aplica uma tentativa ao estado (pontos, progresso do tema, sequência e histórico). */
+export function applyAttempt(prev: GameState, attempt: ExerciseAttempt): GameState {
+  const accuracy = attempt.stepsTotal > 0 ? (attempt.stepsCorrect / attempt.stepsTotal) * 100 : 0;
+  const time = attempt.durationSeconds;
+
+  const existing = prev.progress.find(p => p.topicId === attempt.topicId);
+  const progress: TopicProgress[] = existing
+    ? prev.progress.map(p =>
+        p.topicId === attempt.topicId
+          ? {
+              ...p,
+              accuracy: (p.accuracy * p.exercisesDone + accuracy) / (p.exercisesDone + 1),
+              averageTime: (p.averageTime * p.exercisesDone + time) / (p.exercisesDone + 1),
+              exercisesDone: p.exercisesDone + 1,
+              commonErrors: [...new Set([...p.commonErrors, ...attempt.errorTypes])],
+            }
+          : p
+      )
+    : [
+        ...prev.progress,
+        { topicId: attempt.topicId, accuracy, averageTime: time, exercisesDone: 1, commonErrors: attempt.errorTypes },
+      ];
+
+  // Passos sintéticos só para as regras de medalha (ex.: "sem erros").
+  const steps: UserStep[] = Array.from({ length: attempt.stepsTotal }, (_, i) => ({
+    id: `step-${i}`,
+    expression: '',
+    status: i < attempt.stepsCorrect && attempt.errors === 0 ? 'correto' : 'incorreto',
+    errorType: 'nenhum',
+    feedback: '',
+    timestamp: attempt.createdAt,
+  }));
+
+  const resolution: Resolution = {
+    id: `res-${attempt.createdAt.getTime()}`,
+    userId: prev.user.id,
+    exerciseId: attempt.exerciseId,
+    steps,
+    hintsUsed: attempt.hintsUsed,
+    completed: attempt.completed,
+    startedAt: new Date(attempt.createdAt.getTime() - time * 1000),
+    completedAt: attempt.createdAt,
+  };
+
+  const currentStreak = attempt.correct ? prev.currentStreak + 1 : 0;
+
+  return {
+    ...prev,
+    user: {
+      ...prev.user,
+      points: prev.user.points + attempt.points,
+      streak: Math.max(prev.user.streak, currentStreak),
+    },
+    progress,
+    resolutions: [...prev.resolutions, resolution],
+    currentStreak,
+  };
 }
