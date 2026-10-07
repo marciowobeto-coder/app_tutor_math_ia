@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, ReactNode } from 'react';
 import { Session, User } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -28,9 +28,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [allowedSchoolYears, setAllowedSchoolYears] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [metaLoading, setMetaLoading] = useState(false);
+  // Usuário cujos dados (perfil/papel) já foram carregados. O Supabase reemite eventos de auth
+  // (SIGNED_IN, TOKEN_REFRESHED) ao voltar para a aba; sem esta checagem a tela voltava ao
+  // estado de carregamento, desmontando a página e trocando o exercício em andamento.
+  const loadedUid = useRef<string | null>(null);
 
   useEffect(() => {
     const loadMeta = async (uid: string) => {
+      if (loadedUid.current === uid) return;
+      loadedUid.current = uid;
       setMetaLoading(true);
       const [{ data: profile }, { data: role }] = await Promise.all([
         supabase.from('profiles').select('username, allowed_school_years, active').eq('id', uid).maybeSingle(),
@@ -50,11 +56,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);
-      setUser(newSession?.user ?? null);
+      // Mantém a mesma referência de `user` quando o usuário não mudou, evitando re-renderizações.
+      setUser(prev => (prev && newSession?.user?.id === prev.id ? prev : newSession?.user ?? null));
       if (newSession?.user) {
-        setMetaLoading(true);
-        setTimeout(() => loadMeta(newSession.user.id), 0);
+        const uid = newSession.user.id;
+        if (loadedUid.current !== uid) {
+          setMetaLoading(true);
+          setTimeout(() => loadMeta(uid), 0);
+        }
       } else {
+        loadedUid.current = null;
         setUsername(null);
         setIsAdmin(false);
         setAllowedSchoolYears([]);
@@ -67,7 +78,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setSession(data.session);
       setUser(data.session?.user ?? null);
       if (data.session?.user) {
-        setMetaLoading(true);
         loadMeta(data.session.user.id);
       }
       setLoading(false);
