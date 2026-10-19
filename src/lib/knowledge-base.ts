@@ -278,15 +278,17 @@ const ALL_UNITS: PracticeUnit[] = buildAllUnits();
 export interface UnitFilter {
   topicId: string;
   sourceId?: string; // undefined/'all' = todas as fontes
-  subtopic?: string; // undefined/'all' = todos os tópicos do livro
+  /** Um assunto ou vários; undefined/'all'/lista vazia = todos os tópicos do livro */
+  subtopic?: string | string[];
 }
 
 export function getUnits({ topicId, sourceId, subtopic }: UnitFilter): PracticeUnit[] {
+  const subtopics = Array.isArray(subtopic) ? subtopic : subtopic && subtopic !== 'all' ? [subtopic] : [];
   return ALL_UNITS.filter(
     u =>
       u.exercise.topicId === topicId &&
       (!sourceId || sourceId === 'all' || u.sourceId === sourceId) &&
-      (!subtopic || subtopic === 'all' || u.subtopic === subtopic)
+      (subtopics.length === 0 || subtopics.includes(u.subtopic))
   );
 }
 

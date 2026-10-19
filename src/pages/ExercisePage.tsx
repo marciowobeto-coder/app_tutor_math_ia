@@ -13,6 +13,7 @@ import { getAIHint, analyzeWhiteboard } from '@/lib/ai-service';
 import ExerciseSteps from '@/components/ExerciseSteps';
 import ExerciseCompletion from '@/components/ExerciseCompletion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Checkbox } from '@/components/ui/checkbox';
 import {
   getUnits,
   getSourcesForTopic,
@@ -71,7 +72,8 @@ const ExercisePage = () => {
 
   // Filtros da base de conhecimento
   const [sourceFilter, setSourceFilter] = useState<string>('all');
-  const [subtopicFilter, setSubtopicFilter] = useState<string>('all');
+  /** Assuntos marcados; lista vazia = todos os assuntos. */
+  const [subtopicFilter, setSubtopicFilter] = useState<string[]>([]);
 
   const sources = useMemo(() => getSourcesForTopic(topicId || ''), [topicId]);
   const subtopics = useMemo(
@@ -361,7 +363,7 @@ const ExercisePage = () => {
                         value={sourceFilter}
                         onChange={e => {
                           setSourceFilter(e.target.value);
-                          setSubtopicFilter('all');
+                          setSubtopicFilter([]);
                         }}
                       >
                         <option value="all">Todas as fontes</option>
@@ -372,15 +374,47 @@ const ExercisePage = () => {
                     </label>
                   )}
                   {subtopics.length > 1 && (
-                    <label className="block">
-                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Assunto</span>
-                      <select className={selectClass} value={subtopicFilter} onChange={e => setSubtopicFilter(e.target.value)}>
-                        <option value="all">Todos os assuntos</option>
-                        {subtopics.map(s => (
-                          <option key={s} value={s}>{s}</option>
-                        ))}
-                      </select>
-                    </label>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Assuntos</span>
+                        {subtopicFilter.length > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => setSubtopicFilter([])}
+                            className="text-xs text-primary hover:underline"
+                          >
+                            Limpar seleção
+                          </button>
+                        )}
+                      </div>
+                      <p className="text-xs text-muted-foreground mb-1">
+                        {subtopicFilter.length === 0
+                          ? 'Nenhum marcado: todos os assuntos'
+                          : `${subtopicFilter.length} ${subtopicFilter.length === 1 ? 'assunto selecionado' : 'assuntos selecionados'}`}
+                      </p>
+                      <div className="max-h-56 overflow-y-auto rounded-xl border border-input bg-background p-2 space-y-1">
+                        {subtopics.map(s => {
+                          const checked = subtopicFilter.includes(s);
+                          return (
+                            <label
+                              key={s}
+                              className="flex items-start gap-2 rounded-lg px-2 py-1.5 text-sm text-foreground cursor-pointer hover:bg-secondary/60"
+                            >
+                              <Checkbox
+                                className="mt-0.5"
+                                checked={checked}
+                                onCheckedChange={value =>
+                                  setSubtopicFilter(prev =>
+                                    value === true ? [...prev, s] : prev.filter(x => x !== s)
+                                  )
+                                }
+                              />
+                              <span>{s}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
                   )}
                 </div>
 

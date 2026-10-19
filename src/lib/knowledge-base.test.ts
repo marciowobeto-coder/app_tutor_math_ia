@@ -64,6 +64,15 @@ describe('base de conhecimento', () => {
     expect(getUnits({ topicId: '8f-numeros', sourceId: 'fonte-que-nao-existe' })).toHaveLength(0);
   });
 
+  it('filtra por vários assuntos ao mesmo tempo', () => {
+    const subs = getSubtopics('8f-numeros');
+    const a = getUnits({ topicId: '8f-numeros', subtopic: subs[0] });
+    const b = getUnits({ topicId: '8f-numeros', subtopic: subs[1] });
+    const both = getUnits({ topicId: '8f-numeros', subtopic: [subs[0], subs[1]] });
+    expect(both).toHaveLength(a.length + b.length);
+    expect(getUnits({ topicId: '8f-numeros', subtopic: [] })).toHaveLength(getUnits({ topicId: '8f-numeros' }).length);
+  });
+
   it('sorteia sem repetir até acabar a lista', () => {
     const units = getUnits({ topicId: '8f-numeros', subtopic: getSubtopics('8f-numeros')[0] });
     const seen = new Set<string>();
